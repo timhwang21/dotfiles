@@ -3,7 +3,7 @@
 #  quickstart
 # -------------------------
 function quickstart() {
-	[[ -f $DOTFILES/sources/.QUICKSTART ]] && . $DOTFILES/sources/.QUICKSTART || echo "\"quickstart.bash\" not found in dotfiles. Is it there?"
+	[[ -f $HOME/.QUICKSTART ]] && . $HOME/.QUICKSTART || echo "\"quickstart.bash\" not found. Is it there?"
 }
 
 #  Catalina

@@ -9,7 +9,6 @@
 #  make sublime be my default editor; -w flag keeps subl open til Sublime window is closed
 # -------------------------
 export EDITOR='subl -w'
-export DOTFILES="$HOME/dotfiles"
 
 ###########################
 ##                       ##
@@ -25,13 +24,13 @@ export DOTFILES="$HOME/dotfiles"
 
 #  iTerm2 shell integration
 # -------------------------
-[[ -f $DOTFILES/sources/.iterm2_shell_integration.bash ]] && . $DOTFILES/sources/.iterm2_shell_integration.bash || echo "\".iterm2_shell_integration\" not found in dotfiles. Is it there?"
+[[ -f $HOME/.iterm2_shell_integration.bash ]] && . $HOME/.iterm2_shell_integration.bash || echo "\".iterm2_shell_integration\" not found. Is it there?"
 
 #  Colorize prompt & less
 # -------------------------
 export LESS="--RAW-CONTROL-CHARS -RS#3NM~g" # allow colorize and line numbers
-[[ -f $DOTFILES/sources/.LESS_TERMCAP ]] && . $DOTFILES/sources/.LESS_TERMCAP || echo "\".LESS_TERMCAP\" not found in dotfiles. Is it there?"
-[[ -f $DOTFILES/sources/.COLORIZE_PROMPT ]] && . $DOTFILES/sources/.COLORIZE_PROMPT || echo "\".COLORIZE_PROMPT\" not found in dotfiles. Is it there?"
+[[ -f $HOME/.LESS_TERMCAP ]] && . $HOME/.LESS_TERMCAP || echo "\".LESS_TERMCAP\" not found. Is it there?"
+[[ -f $HOME/.COLORIZE_PROMPT ]] && . $HOME/.COLORIZE_PROMPT || echo "\".COLORIZE_PROMPT\" not found. Is it there?"
 
 #  Bash completion
 # -------------------------
