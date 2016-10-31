@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+#  quickstart
+# -------------------------
+function quickstart() {
+	[[ -f $DOTFILES/sources/.QUICKSTART ]] && . $DOTFILES/sources/.QUICKSTART || echo "\"quickstart.bash\" not found in dotfiles. Is it there?"
+}
+
+#  Catalina
+# -------------------------
+export CATALINA_HOME="/Users/thwang/Development/apache-tomcat-7.0.69"
+
+#  RVM
+# -------------------------
+export PATH="$HOME/.rvm/bin:$PATH"
+[[ -f ~/.rvm/scripts/rvm ]] && . ~/.rvm/scripts/rvm
+
+#  Rocket Fuel
+# -------------------------
+export PATH="~/git/repo/rrepo:$PATH" # Rocket Fuel path
+
+#  Branch mgmt
+# -------------------------
+alias wip="git branch | grep '* ' | tr -d '* ' | sed -e 's/devs\/thwang/WIP/' | xargs git branch -m" # marks current branch WIP
+alias wip-="git branch | grep '* ' | tr -d '* ' | sed -e 's/WIP/devs\/thwang/' | xargs git branch -m" # marks current branch as not WIP
+
+# ========================
+#  4. docker
+# ========================
+alias dc="docker-compose"
+alias dcnginx="dc up --build orion-nginx"
+alias dcnpm="dc up --build orion-npm orion-node"
+alias dockerclean="docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs docker rmi && docker ps --filter status=dead --filter status=exited -aq | xargs docker rm -v"
+alias dcrebuild="dc build --no-cache orion-npm && dc build --no-cache orion-node && dc build --no-cache orion-nginx"
+
+# ========================
+#  10. Rocket Fuel
+# ========================
+alias gerritup="~/git/repo/rrepo/upload.sh master"
+alias killgulp="pkill -f gulp" # for those annoying zombie processes from testem
+
+alias g="cl ~/git"

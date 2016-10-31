@@ -1,0 +1,22 @@
+function prompt() {
+ local BLUE="\[\033[0;34m\]"
+ local DARK_BLUE="\[\033[1;34m\]"
+ local RED="\[\033[0;31m\]"
+ local DARK_RED="\[\033[1;31m\]"
+ local NO_COLOR="\[\033[0m\]"
+ local VIOLET="\[\033[0;34m\]"
+ local YELLOW="\[\033[0;32m\]"
+ case $TERM in
+   xterm*|rxvt*)
+     TITLEBAR='\[\033]0;\u@\h:\w\007\]'
+     ;;
+   *)
+     TITLEBAR=""
+     ;;
+ esac
+ PS1="$NO_COLOR[\$(date +%H:%M)]$YELLOW\u$NO_COLOR\w$VIOLET-\$(__git_ps1 %s)-$NO_COLOR>"
+ PS2="continue->"
+ PS4='$0.$LINENO+ '
+}
+
+prompt

@@ -1,0 +1,6 @@
+## allows for "history search", e.g. hitting up when 'a' is typed will cycle through history commands that started with 'a'
+
+## arrow up
+"\e[A":history-search-backward
+## arrow down
+"\e[B":history-search-forward
