@@ -36,7 +36,10 @@ alias dcrebuild="dc build --no-cache orion-npm && dc build --no-cache orion-node
 # ========================
 #  10. Rocket Fuel
 # ========================
-alias gerritup="~/git/repo/rrepo/upload.sh master"
+alias gerritup="~/git/repo/rrepo/upload.sh"
 alias killgulp="pkill -f gulp" # for those annoying zombie processes from testem
 
 alias g="cl ~/git"
+
+alias testem="sh ~/git/ui/orion/docker/testem.sh"
+
