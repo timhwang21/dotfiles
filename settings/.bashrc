@@ -81,6 +81,7 @@ alias gap="git add -A -p"
 alias gc="git commit"
 alias amend="git commit --amend"
 alias gcm="git commit -m"
+alias recommit="git commit -C HEAD@{1}"
 function gacm() { ga && gcm "$@"; }
 function greb() { git rebase -i HEAD~"$@"; }
 

@@ -7,13 +7,16 @@ then
 		tell application "System Events" to tell process "iTerm" to keystroke "g && cl ui/orion"
 		tell application "System Events" to tell process "iTerm" to key code 52
 		tell application "System Events" to tell process "iTerm" to keystroke "]" using command down
-		tell application "System Events" to tell process "iTerm" to keystroke "g && cl ui/orion && dcnpm"
+		tell application "System Events" to tell process "iTerm" to keystroke "g && cl ui/orion && dcnode"
 		tell application "System Events" to tell process "iTerm" to key code 52
 		tell application "System Events" to tell process "iTerm" to keystroke "]" using command down
 		tell application "System Events" to tell process "iTerm" to keystroke "t"
 		tell application "System Events" to tell process "iTerm" to key code 52
 		tell application "System Events" to tell process "iTerm" to keystroke "t" using command down
-		tell application "System Events" to tell process "iTerm" to keystroke "testem"
+		tell application "System Events" to tell process "iTerm" to keystroke "g && cl ui/orion && dcnpm"
+		tell application "system Events" to tell process "iTerm" to key code 52
+		tell application "System Events" to tell process "iTerm" to keystroke "d" using command down
+		tell application "System Events" to tell process "iTerm" to keystroke "dctestem"
 		tell application "system Events" to tell process "iTerm" to key code 52
 		tell application "System Events" to tell process "iTerm" to keystroke "t" using command down
 		tell application "System Events" to tell process "iTerm" to keystroke "g && cl ui/orion && dcnginx"

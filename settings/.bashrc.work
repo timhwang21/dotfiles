@@ -29,7 +29,9 @@ alias wip-="git branch | grep '* ' | tr -d '* ' | sed -e 's/WIP/devs\/thwang/' |
 # ========================
 alias dc="docker-compose"
 alias dcnginx="dc up --build orion-nginx"
-alias dcnpm="dc up --build orion-npm orion-node"
+alias dcnpm="dc up --build orion-npm"
+alias dcnode="dc up --build orion-node"
+alias dctestem="sh ~/git/ui/orion/docker/testem.sh"
 alias dockerclean="docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs docker rmi && docker ps --filter status=dead --filter status=exited -aq | xargs docker rm -v"
 alias dcrebuild="dc build --no-cache orion-npm && dc build --no-cache orion-node && dc build --no-cache orion-nginx"
 
@@ -40,6 +42,3 @@ alias gerritup="~/git/repo/rrepo/upload.sh"
 alias killgulp="pkill -f gulp" # for those annoying zombie processes from testem
 
 alias g="cl ~/git"
-
-alias testem="sh ~/git/ui/orion/docker/testem.sh"
-
