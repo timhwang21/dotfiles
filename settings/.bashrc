@@ -119,7 +119,7 @@ alias gpom="git push origin master"
 
 #  3e. information
 # -------------------------
-alias gl="git log --pretty=oneline --abbrev-commit -n 10"
+alias gl="git log --pretty=oneline --abbrev-commit -n 20"
 alias glog="tig"
 alias gs="git status"
 alias gr="git remote"
