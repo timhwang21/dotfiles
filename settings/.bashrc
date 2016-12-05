@@ -47,6 +47,10 @@ alias t="top -F -n 10 -R -s 2 -u -stats cpu,mem,pid,command,time"
 function appmode() { /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app="$@"; }
 alias f="open -a Finder ./"
 
+#  1g. node cli
+# -------------------------
+alias node="babel-node --presets latest"
+
 # ========================
 #  2. package manager
 # ========================
