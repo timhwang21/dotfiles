@@ -96,8 +96,8 @@ function gbd() { fuzzybranch "$@" | xargs git branch -D; } # quick delete -- car
 function gdiff() { fuzzybranch "$@" | xargs git rev-parse | xargs git diff HEAD..; } # difference between head and branch
 alias gd="git diff master..."
 alias gch-="git checkout -"
-alias changed="git diff --name-status master... | cat"
-alias openchanged="subl -n . | changed | grep '^[AM]' | sed -e 's/^[AM]//' | xargs subl"
+alias changed="git status --short | grep '^ [AMU]'"
+alias openchanged="subl -n . | changed | sed -e 's/^ [AMU]//' | xargs subl"
 alias gch--.="git checkout -- ." # reset local changes on branch
 alias gm="git merge --no-ff"
 
