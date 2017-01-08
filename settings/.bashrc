@@ -49,7 +49,7 @@ alias f="open -a Finder ./"
 
 #  1g. node cli
 # -------------------------
-alias node="babel-node --presets latest"
+alias babel="babel-node --presets latest"
 
 # ========================
 #  2. package manager
