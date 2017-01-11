@@ -14,6 +14,7 @@
   { "keys": ["ctrl+shift+d"], "command": "quick_create_directory" },
   { "keys": ["super+v"], "command": "paste_and_indent" },
   { "keys": ["super+f3"], "command": "side_bar_move" },
+  { "keys": ["super+i"], "command": "copy_path" },
 
   // HTML char_to_newline = <br>
   { "keys": ["alt+enter"], "command": "char_to_newline", "args": {"characters": "<br>"}, "context": [{
