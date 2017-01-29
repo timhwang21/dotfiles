@@ -49,7 +49,7 @@ alias f="open -a Finder ./"
 
 #  1g. node cli
 # -------------------------
-alias babel-node="babel-node --presets latest"
+alias babel-node="babel-node --presets latest --plugins transform-object-rest-spread"
 
 # ========================
 #  2. package manager
@@ -141,9 +141,9 @@ alias .bp="subl $HOME/.bash_profile"
 alias .sublp="open -a Finder ./Library/Application\ Support/Sublime\ Text\ 3/Packages"
 
 # ========================
-#  6. rails
+#  6. db
 # ========================
-alias testmigrate="bundle exec rake db:migrate db:test:load"
+alias psql="$POSTGRES/psql -p5432"
 
 # ========================
 #  7. heroku

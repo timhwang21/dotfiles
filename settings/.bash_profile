@@ -64,6 +64,7 @@ export NODE_PATH="/usr/local/lib/node_modules"
 #  Postgres
 # -------------------------
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+export POSTGRES="/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 #  Python
 # -------------------------
