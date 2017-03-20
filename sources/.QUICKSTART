@@ -7,7 +7,7 @@ then
 		tell application "System Events" to tell process "iTerm" to keystroke "g && cl ui/orion"
 		tell application "System Events" to tell process "iTerm" to key code 52
 		tell application "System Events" to tell process "iTerm" to keystroke "]" using command down
-		tell application "System Events" to tell process "iTerm" to keystroke "g && cl ui/orion && dcnpm"
+		tell application "System Events" to tell process "iTerm" to keystroke "g && cl ui/orion && gulp serve"
 		tell application "System Events" to tell process "iTerm" to key code 52
 		tell application "System Events" to tell process "iTerm" to keystroke "]" using command down
 		tell application "System Events" to tell process "iTerm" to keystroke "t"
