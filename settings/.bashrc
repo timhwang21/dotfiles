@@ -20,7 +20,7 @@ function md() { mkdir -p "$@" && cd "$_"; }
 #  1b. ls
 # -------------------------
 alias .ls="ls -d .*" # show hidden files
-alias ls="ls -Gp"
+alias ls="ls -AFGlh"
 
 #  1c. idiot-proofing overwrites
 # -------------------------
@@ -83,6 +83,7 @@ alias gh="git remote -v | grep fetch | awk '{print $2}' | sed 's/\.git//' | head
 alias ga="git add -A"
 alias gap="git add -A -p"
 alias gc="git commit"
+alias clean="git clean -id"
 alias amend="git commit --amend"
 alias gcm="git commit -m"
 alias recommit="git commit -C HEAD@{1}"
