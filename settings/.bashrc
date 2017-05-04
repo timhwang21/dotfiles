@@ -166,3 +166,8 @@ alias sw="sass --watch"
 #  9. Java
 # ========================
 # function jc() { javac "$@".java && java "$@"; }
+
+# ========================
+#  10. Markdown
+# ========================
+function mdpdf() { markdown-pdf "$@" -s "/usr/local/lib/node_modules/github-markdown-css/github-markdown.css"; }
