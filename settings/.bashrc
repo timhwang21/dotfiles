@@ -171,3 +171,8 @@ alias sw="sass --watch"
 #  10. Markdown
 # ========================
 function mdpdf() { markdown-pdf "$@" -s "/usr/local/lib/node_modules/github-markdown-css/github-markdown.css"; }
+
+# ========================
+#  11. Other
+# ========================
+function weather() { curl "wttr.in/$@?m"; }
