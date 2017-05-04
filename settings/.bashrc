@@ -168,11 +168,8 @@ alias sw="sass --watch"
 # function jc() { javac "$@".java && java "$@"; }
 
 # ========================
-#  10. Markdown
+#  #. Other Utilities
 # ========================
 function mdpdf() { markdown-pdf "$@" -s "/usr/local/lib/node_modules/github-markdown-css/github-markdown.css"; }
-
-# ========================
-#  11. Other
-# ========================
-function weather() { curl "wttr.in/$@?m"; }
+function weather() { clear; curl "wttr.in/$@?m"; }
+alias dl="curl -O# -C - --retry 3"
