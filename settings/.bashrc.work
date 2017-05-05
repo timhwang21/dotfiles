@@ -44,6 +44,7 @@ alias killport="lsof -i :8181 | awk '{print $2}' | tail -n1 | xargs kill -9" # f
 #  10. Rocket Fuel
 # ========================
 alias gerritup="grom && ~/git/repo/rrepo/upload.sh"
+alias upload="~/git/repo/rrepo/upload.sh"
 alias killgulp="pkill -f gulp" # for those annoying zombie processes from testem
 alias jest="jest --config jest.config.json --coverage --silent"
 alias g="cl ~/git"
