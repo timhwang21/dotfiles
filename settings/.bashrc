@@ -9,18 +9,18 @@
 # =========================
 #  1. shell
 # =========================
-#  1a. cd
+#  1a. ls
+# -------------------------
+alias .ls="ls -d .*" # show hidden files
+alias ls="ls -AFGlh"
+
+#  1b. cd
 # -------------------------
 alias ..="cl .." # step back 1 level
 alias ...="cl ../.." # step back 2 levels
 alias back="cd -" # back button
 function cl() { cd "$@" && ls; }
 function md() { mkdir -p "$@" && cd "$_"; }
-
-#  1b. ls
-# -------------------------
-alias .ls="ls -d .*" # show hidden files
-alias ls="ls -AFGlh"
 
 #  1c. idiot-proofing overwrites
 # -------------------------
@@ -83,7 +83,7 @@ alias gh="git remote -v | grep fetch | awk '{print $2}' | sed 's/\.git//' | head
 alias ga="git add -A"
 alias gap="git add -A -p"
 alias gc="git commit"
-alias clean="git clean -id"
+alias clean="git clean -idx"
 alias amend="git commit --amend"
 alias gcm="git commit -m"
 alias recommit="git commit -C HEAD@{1}"
