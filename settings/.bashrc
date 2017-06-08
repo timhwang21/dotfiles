@@ -51,6 +51,10 @@ alias f="open -a Finder ./"
 # -------------------------
 alias babel-node="babel-node --presets latest --plugins transform-object-rest-spread"
 
+#  1h. misc.
+# -------------------------
+alias supson="echo \"¯\_(ツ)_/¯\" | pbcopy | echo \"READY TO SHRUG\""
+
 # ========================
 #  2. package manager
 # ========================
