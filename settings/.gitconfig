@@ -1,0 +1,8 @@
+[mergetool "sublime"]
+	cmd = subl -w $MERGED
+	trustExitCode = false
+[merge]
+	tool = sublime
+[alias]
+	gud = !man git
+	stats = git shortlog -sn --since='2 weeks'
