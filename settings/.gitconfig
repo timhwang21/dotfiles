@@ -5,4 +5,4 @@
 	tool = sublime
 [alias]
 	gud = !man git
-	stats = git shortlog -sn --since='2 weeks'
+	stats = shortlog -sn --since='2 weeks'
