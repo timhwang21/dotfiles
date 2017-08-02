@@ -90,7 +90,7 @@ alias gc="git commit"
 alias clean="git clean -id"
 alias amend="git commit --amend --no-verify"
 alias amendv="git commit --amend"
-function replace() { git grep -l $1 | xargs sed -e "s/$1/$2/g"; }
+function replace() { git grep -l $1 | xargs sed -i "" -e "s/$1/$2/g"; }
 function gcm() { git commit -m "$@" --no-verify; }
 alias recommit="git commit -C HEAD@{1} --no-verify"
 function gacm() { ga && gcm "$@"; }
