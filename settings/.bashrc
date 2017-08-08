@@ -103,7 +103,7 @@ alias gball="git branch -v" # show all
 function fuzzybranch() { git branch | grep -m 1 "$@" | tr -d "* "; } # fuzzy match branch names
 function gcb() { git checkout -b devs/$USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
 function gch() { fuzzybranch "$@" | xargs git checkout; } # quick git checkout for long branch names
-function gbd() { fuzzybranch "$@" | xargs git branch -D; } # quick delete -- careful, this fuzzy matches
+function gbd() { fuzzybranch "$@" | xargs git branch -D; gb; } # quick delete -- careful, this fuzzy matches
 function gdiff() { fuzzybranch "$@" | xargs git rev-parse | xargs git diff HEAD..; } # difference between head and branch
 alias gd="git diff master..."
 alias gch-="git checkout -"
