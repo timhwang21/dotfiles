@@ -59,7 +59,9 @@ export JAVA_HOME="/usr/libexec/java_home"
 # -------------------------
 export PATH="/usr/local/lib/node_modules:$PATH"
 export NODE_PATH="/usr/local/lib/node_modules"
+# NOTE: nvm doesn't support brew, if things go south ininstall and use curl script
 [[ -f $(brew --prefix)/opt/nvm/nvm.sh ]] && . $(brew --prefix)/opt/nvm/nvm.sh
+[[ -f $(brew --prefix)/opt/nvm/bash_completion ]] && . $(brew --prefix)/opt/nvm/bash_completion
 
 #  Postgres
 # -------------------------
