@@ -19,6 +19,7 @@ alias ls="ls -AFGlh"
 alias ..="cl .." # step back 1 level
 alias ...="cl ../.." # step back 2 levels
 alias back="cd -" # back button
+alias b="back"
 function cl() { cd "$@" && ls; }
 function md() { mkdir -p "$@" && cd "$_"; }
 
@@ -47,11 +48,7 @@ alias t="top -F -n 10 -R -s 2 -u -stats cpu,mem,pid,command,time"
 function appmode() { /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app="$@"; }
 alias f="open -a Finder ./"
 
-#  1g. node cli
-# -------------------------
-alias babel-node="babel-node --presets latest --plugins transform-object-rest-spread"
-
-#  1h. misc.
+#  1g. misc.
 # -------------------------
 alias supson="echo \"¯\_(ツ)_/¯\" | pbcopy | echo \"READY TO SHRUG\""
 
