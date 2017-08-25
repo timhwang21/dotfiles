@@ -72,11 +72,12 @@ export POSTGRES="/Applications/Postgres.app/Contents/Versions/latest/bin"
 # -------------------------
 export PATH="/Library/Frameworks/Python.framework/Versions/3.3/bin:${PATH}"
 
+#  Chrome
+# -------------------------
+export PATH="/usr/local/Cellar/chromedriver:$PATH"
+
 #  Rbenv
 # -------------------------
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-#  Chrome
-# -------------------------
-export PATH="/usr/local/Cellar/chromedriver:$PATH"
