@@ -1,3 +1,6 @@
+[core]
+	excludesfile = /Users/thwang/.gitignore_global
+	editor = "vim"
 [mergetool "sublime"]
 	cmd = subl -w $MERGED
 	trustExitCode = false
