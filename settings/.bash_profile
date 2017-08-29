@@ -8,7 +8,7 @@
 
 #  make sublime be my default editor; -w flag keeps subl open til Sublime window is closed
 # -------------------------
-export EDITOR='subl -w'
+export EDITOR='vim'
 
 ###########################
 ##                       ##
