@@ -25,4 +25,9 @@ set tabstop=2
 set wildmenu
 set wildmode=longest:list,full
 
-
+" plug
+call plug#begin('~/.vim/plugged')
+" place plugins here
+" installation -- :source % :PlugInstall
+Plug 'airblade/vim-gitgutter'
+call plug#end()
