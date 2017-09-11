@@ -7,6 +7,7 @@ set colorcolumn=80
 set cursorline
 hi CursorLine cterm=NONE ctermbg=darkgray ctermfg=white guibg=Grey40
 set number relativenumber
+hi LineNr ctermfg=darkgray
 set ruler
 set title
 
