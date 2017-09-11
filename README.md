@@ -8,6 +8,6 @@ Dotfiles
 ```bash
 git clone https://github.com/timhwang21/dotfiles.git
 cd dotfiles
-chmod +x setup.sh
-sh setup.sh
+chmod +x bootstrap.sh
+sh bootstrap.sh
 ```
