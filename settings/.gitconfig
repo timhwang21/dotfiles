@@ -1,6 +1,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = "vim"
+[github]
+	user = timhwang21
 [mergetool "sublime"]
 	cmd = subl -w $MERGED
 	trustExitCode = false
