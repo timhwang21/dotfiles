@@ -1,14 +1,14 @@
 let g:rehash256 = 1
-syntax on
-set background=dark
-colorscheme solarized
 
 " display
+colorscheme solarized
+set background=dark
 set colorcolumn=80
 set cursorline
 set number relativenumber
 set ruler
 set title
+syntax on
 
 " search
 set gdefault
