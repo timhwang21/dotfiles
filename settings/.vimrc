@@ -1,7 +1,6 @@
-let g:rehash256 = 1
-
 " settings
 set backspace=indent,eol,start
+filetype plugin indent on
 
 " display
 colorscheme solarized
@@ -41,6 +40,13 @@ call plug#begin('~/.vim/plugged')
 " place plugins here
 " installation -- :source % :PlugInstall
 Plug 'airblade/vim-gitgutter'
+Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+" Change cursor shape between insert and normal mode in iTerm2.app
+if $TERM_PROGRAM =~ "iTerm"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
