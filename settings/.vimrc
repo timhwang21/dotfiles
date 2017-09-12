@@ -19,9 +19,16 @@ set hlsearch
 set incsearch
 
 " whitespace
-set lcs=tab:▸▸,trail:·
+set lcs=tab:\▸\ ,trail:·
 set list
 set tabstop=2
+
+" ale
+let g:ale_sign_error = '▸'
+let g:ale_sign_warning = '-'
+let g:ale_fixers = {
+\  'javascript': ['eslint'],
+\}
 
 " wildmenu
 set wildmenu
@@ -29,6 +36,7 @@ set wildmode=longest:list,full
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -41,8 +49,10 @@ call plug#begin('~/.vim/plugged')
 " installation -- :source % :PlugInstall
 Plug 'airblade/vim-gitgutter'
 Plug 'flazz/vim-colorschemes'
+Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
 call plug#end()
 
 " Change cursor shape between insert and normal mode in iTerm2.app
