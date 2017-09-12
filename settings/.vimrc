@@ -5,7 +5,7 @@ filetype plugin indent on
 " display
 colorscheme solarized
 set background=dark
-set colorcolumn=80
+set colorcolumn=120
 set cursorline
 set number relativenumber
 set noshowmode
@@ -44,6 +44,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_solarized_bg='dark'
+let g:airline_theme='solarized'
 
 " plug
 call plug#begin('~/.vim/plugged')
