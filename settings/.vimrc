@@ -19,6 +19,9 @@ set gdefault
 set hlsearch
 set incsearch
 
+" ctrlp
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f'] " ignore git stuff
+
 " whitespace
 set lcs=tab:\▸\ ,trail:·
 set list
@@ -51,6 +54,7 @@ call plug#begin('~/.vim/plugged')
 " place plugins here
 " installation -- :source % :PlugInstall
 Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
