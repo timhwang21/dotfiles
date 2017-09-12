@@ -1,6 +1,7 @@
 " settings
 set backspace=indent,eol,start
 filetype plugin indent on
+set autochdir
 
 " display
 colorscheme solarized
