@@ -23,6 +23,7 @@ set incsearch
 set lcs=tab:\▸\ ,trail:·
 set list
 set tabstop=2
+set shiftwidth=0
 
 " ale
 let g:ale_sign_error = '▸'
