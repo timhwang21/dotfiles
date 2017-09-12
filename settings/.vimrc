@@ -1,5 +1,8 @@
 let g:rehash256 = 1
 
+" settings
+set backspace=indent,eol,start
+
 " display
 colorscheme solarized
 set background=dark
@@ -9,6 +12,7 @@ set number relativenumber
 set ruler
 set title
 syntax on
+hi CursorLineNR cterm=bold
 
 " search
 set gdefault
