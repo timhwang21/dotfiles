@@ -3,6 +3,10 @@ set backspace=indent,eol,start
 filetype plugin indent on
 set autochdir
 
+" netrw
+let g:netrw_liststyle=3 " always show tree view in :Ex
+let g:netrw_banner=0
+
 " display
 colorscheme solarized
 set background=dark
