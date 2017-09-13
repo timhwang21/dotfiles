@@ -1,9 +1,8 @@
 {
 	"bold_folder_labels": true,
 	"caret_style": "wide",
-	"color_scheme": "Packages/User/SublimeLinter/Monokai Extended Bright (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Monokai Extended Origin (SL).tmTheme",
 	"draw_white_space": "all",
-	"fade_fold_buttons": false,
 	"folder_exclude_patterns":
 	[
 		".git",
@@ -23,7 +22,7 @@
 	],
 	"rulers":
 	[
-		80
+		120
 	],
 	"show_full_path": true,
 	"tab_size": 2,

@@ -1,0 +1,31 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"Babel",
+		"BracketHighlighter",
+		"DocBlockr",
+		"Focus File on Sidebar",
+		"Git",
+		"GitGutter",
+		"Highlight Build Errors",
+		"Markdown Extended",
+		"Markdown HTML Preview",
+		"Markdown Preview",
+		"Monokai Extended",
+		"nginx",
+		"Package Control",
+		"Sass",
+		"SCSS",
+		"SideBarEnhancements",
+		"SublimeHaskell",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
+		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-ghc"
+	]
+}
