@@ -90,3 +90,6 @@ export PATH="/usr/local/Cellar/chromedriver:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+#  Haskell
+# -------------------------
+export PATH="$HOME/Library/Haskell/bin:$PATH"
