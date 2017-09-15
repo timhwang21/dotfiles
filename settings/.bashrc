@@ -143,7 +143,7 @@ alias dc="docker-compose"
 # ========================
 alias .brc="vim $HOME/.bashrc"
 alias .bp="vim $HOME/.bash_profile"
-alias .sublp="open -a Finder ./Library/Application\ Support/Sublime\ Text\ 3/Packages"
+alias .sublp="open -a Finder ~/Library/Application\ Support/Sublime\ Text\ 3/Packages"
 
 # ========================
 #  6. db
