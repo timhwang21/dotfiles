@@ -36,6 +36,7 @@ alias reload="source $HOME/.bash_profile"
 alias c="clear"
 alias r="reload"
 alias s="subl"
+alias v="vim"
 
 #  1e. information
 # -------------------------
@@ -140,8 +141,8 @@ alias dc="docker-compose"
 # ========================
 #  5. config
 # ========================
-alias .brc="subl $HOME/.bashrc"
-alias .bp="subl $HOME/.bash_profile"
+alias .brc="vim $HOME/.bashrc"
+alias .bp="vim $HOME/.bash_profile"
 alias .sublp="open -a Finder ./Library/Application\ Support/Sublime\ Text\ 3/Packages"
 
 # ========================
