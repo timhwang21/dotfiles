@@ -78,7 +78,7 @@ alias update_all="bundle update && npm update -g && brew update && brew upgrade 
 # ========================
 alias git="hub" # requires Hub to work -- brew install hub
 alias gi="git init"
-alias gh="git remote -v | grep fetch | awk '{print $2}' | sed 's/\.git//' | head -n1 | xargs open"
+alias gh="git remote -v | grep fetch | awk '{print \$2}' | sed 's/\.git//' | head -n1 | xargs open"
 
 #  3a. adding & committing
 # -------------------------
