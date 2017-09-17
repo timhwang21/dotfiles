@@ -36,6 +36,11 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+" ack / ag
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 " ale
 let g:ale_sign_error = '▸'
 let g:ale_sign_warning = '-'
@@ -64,6 +69,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
+Plug 'mileszs/ack.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
