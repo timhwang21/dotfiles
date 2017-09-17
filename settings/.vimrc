@@ -28,10 +28,13 @@ set incsearch
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f'] " ignore git stuff
 
 " whitespace
+set autoindent
+set expandtab
 set lcs=tab:\▸\ ,trail:·
 set list
+set shiftwidth=2
+set softtabstop=2
 set tabstop=2
-set shiftwidth=0
 
 " ale
 let g:ale_sign_error = '▸'
