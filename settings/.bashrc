@@ -177,3 +177,4 @@ alias sw="sass --watch"
 function mdpdf() { markdown-pdf "$@" -s "/usr/local/lib/node_modules/github-markdown-css/github-markdown.css"; }
 function weather() { clear; curl "wttr.in/$@?m"; }
 alias dl="curl -O# -C - --retry 3"
+alias vjq="jq '.' | vim - -c 'set ft=json'"

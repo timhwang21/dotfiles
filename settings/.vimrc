@@ -20,6 +20,10 @@ set list
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
+
+" Add filetypes where whitespace should be trimmed
+autocmd BufWritePre *.md %s/\s\+$//e
+
 " }}}
 " Display {{{
 colorscheme solarized
@@ -80,6 +84,7 @@ let g:airline_theme='solarized'
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'elzr/vim-json'
 Plug 'flazz/vim-colorschemes'
 Plug 'mileszs/ack.vim'
 Plug 'sheerun/vim-polyglot'
