@@ -1,14 +1,18 @@
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [github]
-	user = timhwang21
+  user = timhwang21
 [mergetool "sublime"]
-	cmd = subl -w $MERGED
-	trustExitCode = false
+  cmd = subl -w $MERGED
+  trustExitCode = false
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 [merge]
-	tool = sublime
+  tool = sublime
 [alias]
-	gud = !man git
-	stats = shortlog -sn
+  gud = !man git
+  stats = shortlog -sn
+  authors = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
+[user]
+  email = thwang@rocketfuel.com
+  name = Timothy Hwang
