@@ -49,9 +49,12 @@ alias t="top -F -n 10 -R -s 2 -u -stats cpu,mem,pid,command,time"
 function appmode() { /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app="$@"; }
 alias f="open -a Finder ./"
 
-#  1g. misc.
+#  1g. emoji
 # -------------------------
-alias supson="echo \"¯\_(ツ)_/¯\" | pbcopy | echo \"READY TO SHRUG\""
+function copyemoji() { echo "$1" | pbcopy | echo "$2 $1"; }
+alias supson="copyemoji \"¯\_(ツ)_/¯\" \"READY TO SHRUG\""
+alias tableflip="copyemoji \"(╯°□°）╯︵ ┻━┻\" \"READY TO TABLEFLIP\""
+alias disapproval="copyemoji \"ಠ_ಠ\" \"LOOK OF DISAPPROVAL\""
 
 # ========================
 #  2. package manager
