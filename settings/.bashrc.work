@@ -32,7 +32,7 @@ alias wip-="git branch | grep '* ' | tr -d '* ' | sed -e 's/WIP/devs\/thwang/' |
 # ========================
 #  4. docker
 # ========================
-alias dc="docker-compose"
+alias dc="docker-compose -f docker-compose.yml"
 alias dcnginx="dc up orion-nginx"
 alias dcnpm="dc up orion-npm orion-node"
 alias dctestem="sh ~/git/ui/orion/docker/testem.sh"
