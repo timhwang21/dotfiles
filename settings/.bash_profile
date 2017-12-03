@@ -72,6 +72,10 @@ export NODE_PATH="/usr/local/lib/node_modules"
 [[ -f $(brew --prefix)/opt/nvm/nvm.sh ]] && . $(brew --prefix)/opt/nvm/nvm.sh
 [[ -f $(brew --prefix)/opt/nvm/bash_completion ]] && . $(brew --prefix)/opt/nvm/bash_completion
 
+# Home
+# -------------------------
+export PATH="$HOME/.local/bin:$PATH"
+
 #  Postgres
 # -------------------------
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
