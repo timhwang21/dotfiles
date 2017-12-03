@@ -12,6 +12,3 @@
 [alias]
   gud = !man git
   authors = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
-[user]
-  email = thwang@rocketfuel.com
-  name = Timothy Hwang
