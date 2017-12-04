@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Reset config on re-source
+source /etc/profile
+
 ###########################
 ##                       ##
 ##      C O N F I G      ##

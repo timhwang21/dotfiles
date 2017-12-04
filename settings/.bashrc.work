@@ -17,7 +17,6 @@ alias orion="cl ~/git/ui/orion"
 
 #  RVM
 # -------------------------
-export PATH="$HOME/.rvm/bin:$PATH"
 [[ -f ~/.rvm/scripts/rvm ]] && . ~/.rvm/scripts/rvm
 
 #  Rocket Fuel
