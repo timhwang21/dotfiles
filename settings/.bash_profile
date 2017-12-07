@@ -73,7 +73,12 @@ export JAVA_HOME="/usr/libexec/java_home"
 export PATH="/usr/local/lib/node_modules:$PATH"
 export NODE_PATH="/usr/local/lib/node_modules"
 # NOTE: nvm doesn't support brew, if things go south ininstall and use curl script
-[[ -f $(brew --prefix)/opt/nvm/nvm.sh ]] && . $(brew --prefix)/opt/nvm/nvm.sh
+# RF Config
+# [[ -f $(brew --prefix)/opt/nvm/nvm.sh ]] && . $(brew --prefix)/opt/nvm/nvm.sh
+# Recommended config
+export NVM_DIR="$HOME/.nvm"
+[[ -f /usr/local/opt/nvm/nvm.sh ]] && . /usr/local/opt/nvm/nvm.sh
+
 [[ -f $(brew --prefix)/opt/nvm/bash_completion ]] && . $(brew --prefix)/opt/nvm/bash_completion
 
 # Home
