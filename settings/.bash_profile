@@ -13,6 +13,11 @@ source /etc/profile
 # -------------------------
 export EDITOR='vim'
 
+#  grep colorize
+# -------------------------
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='37;41'
+
 #  node
 # -------------------------
 # Enable persistent REPL history for `node`.
