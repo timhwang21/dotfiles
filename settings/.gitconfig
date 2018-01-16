@@ -11,5 +11,6 @@
   tool = sublime
 [alias]
   currbranch = rev-parse --abbrev-ref HEAD
+  push-u = !sh -c 'git push -u $0 $(git currbranch)'
   gud = !man git
   authors = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
