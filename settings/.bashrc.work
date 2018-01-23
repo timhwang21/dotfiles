@@ -14,6 +14,7 @@ export CATALINA_HOME="/Users/thwang/Development/apache-tomcat-7.0.69"
 # -------------------------
 alias ssvui="cl ~/git/api/ssvui"
 alias orion="cl ~/git/ui/orion"
+alias prelint="sed -i '' 's,./docker/lint.sh,lint-staged,' ~/git/ui/orion/package.json"
 
 #  RVM
 # -------------------------
