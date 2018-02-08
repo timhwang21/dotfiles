@@ -70,6 +70,8 @@ alias ni="npm install"
 alias nig="npm install -g"
 function nis() { npm install "$@" --save; }
 function nisd() { npm install "$@" --save-dev; }
+alias ya="yarn add"
+alias yad="yarn add -D"
 
 #  2c. update all
 # -------------------------
@@ -143,8 +145,6 @@ alias dc="docker-compose"
 # ========================
 #  5. config
 # ========================
-alias .brc="vim $HOME/.bashrc"
-alias .bp="vim $HOME/.bash_profile"
 alias .sublp="open -a Finder ~/Library/Application\ Support/Sublime\ Text\ 3/Packages"
 
 # ========================
@@ -176,7 +176,6 @@ alias sw="sass --watch"
 # ========================
 #  #. Other Utilities
 # ========================
-function mdpdf() { markdown-pdf "$@" -s "/usr/local/lib/node_modules/github-markdown-css/github-markdown.css"; }
 function weather() { clear; curl "wttr.in/$@?m"; }
 alias dl="curl -O# -C - --retry 3"
 alias vjq="jq '.' | vim - -c 'set ft=json'"
