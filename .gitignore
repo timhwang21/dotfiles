@@ -1,3 +1,4 @@
 .DS_Store
 settings/.vim/plugged
 settings/.vim/.netrwhist
+settings/.npmrc
