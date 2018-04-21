@@ -58,6 +58,16 @@ export LESS="--RAW-CONTROL-CHARS -RS#3NM~g" # allow colorize and line numbers
 # -------------------------
 [[ -f $(brew --prefix)/bin/z.sh ]] && . $(brew --prefix)/bin/z.sh || echo "\"z.sh\" not installed. Is it there?"
 
+#  powerline-shell
+# -------------------------
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
 ###########################
 ##                       ##
 ##       P A T H S       ##
