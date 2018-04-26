@@ -65,6 +65,7 @@ let g:ale_sign_warning = '-'
 let g:ale_fixers = {
 \  'javascript': ['eslint'],
 \}
+let g:ale_open_list = 1
 " }}}
 " codi {{{
 " Note that this assumes my dev env has 'esm' installed globally
