@@ -93,7 +93,7 @@ export NODE_PATH="/usr/local/lib/node_modules"
 # [[ -f $(brew --prefix)/opt/nvm/nvm.sh ]] && . $(brew --prefix)/opt/nvm/nvm.sh
 # Recommended config
 export NVM_DIR="$HOME/.nvm"
-[[ -f /usr/local/opt/nvm/nvm.sh ]] && . /usr/local/opt/nvm/nvm.sh && nvm use stable
+[[ -f /usr/local/opt/nvm/nvm.sh ]] && . /usr/local/opt/nvm/nvm.sh && nvm use system
 [[ -f $(brew --prefix)/opt/nvm/bash_completion ]] && . $(brew --prefix)/opt/nvm/bash_completion
 
 # Home
