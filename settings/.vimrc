@@ -66,6 +66,17 @@ let g:ale_fixers = {
 \  'javascript': ['eslint'],
 \}
 " }}}
+" codi {{{
+" Note that this assumes my dev env has 'esm' installed globally
+let g:codi#interpreters = {
+\  'javascript': {
+\    'bin': ['node', '-r', 'esm'],
+\  }
+\}
+let g:codi#aliases= {
+\  'javascript.jsx': 'javascript',
+\}
+" }}}
 " wildmenu {{{
 set wildmenu
 set wildmode=longest:list,full
@@ -87,6 +98,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'elzr/vim-json'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
+Plug 'metakirby5/codi.vim'
 Plug 'mileszs/ack.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
