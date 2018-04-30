@@ -1,7 +1,6 @@
 " Settings {{{
 set backspace=indent,eol,start
 filetype plugin indent on " Indent settings by fieltype
-set autochdir " Dynamically change directories
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
