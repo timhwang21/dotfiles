@@ -52,6 +52,7 @@ set incsearch
 " }}}
 " ctrlp {{{
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f'] " ignore git stuff
+let g:ctrlp_lazy_update = 1 " debounce search
 " }}}
 " ack {{{
 if executable('ag')
@@ -102,6 +103,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'mileszs/ack.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
