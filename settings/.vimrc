@@ -36,6 +36,9 @@ set title
 syntax on
 hi CursorLineNR cterm=bold
 " }}}
+" Buffer configuration {{{
+set hidden " hide buffers on switch instead of trying to close
+" }}}
 " Split configuration {{{
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
