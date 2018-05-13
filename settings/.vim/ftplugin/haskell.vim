@@ -1,1 +1,1 @@
-setlocal formatprg=stylish-haskell
+setlocal formatprg=hindent
