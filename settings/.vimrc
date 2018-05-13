@@ -33,6 +33,7 @@ set number relativenumber
 set noshowmode
 set ruler
 set title
+let g:gitgutter_sign_column_always = 1 " always show gutter
 syntax on
 hi CursorLineNR cterm=bold
 " }}}
