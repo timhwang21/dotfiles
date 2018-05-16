@@ -33,7 +33,11 @@ set number relativenumber
 set noshowmode
 set ruler
 set title
-let g:gitgutter_sign_column_always = 1 " always show gutter
+if exists('&signcolumn')  " Vim 7.4.2201
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
 syntax on
 hi CursorLineNR cterm=bold
 " }}}
