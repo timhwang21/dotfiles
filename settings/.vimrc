@@ -74,6 +74,8 @@ let g:ale_fixers = {
 \  'javascript': ['eslint'],
 \}
 let g:ale_open_list = 1
+let g:ale_lint_on_text_changed = 'normal' " only lint on change in normal mode
+let g:ale_lint_on_insert_leave = 1 " only lint on exit in insert mode
 " }}}
 " codi {{{
 " Note that this assumes my dev env has 'esm' installed globally
