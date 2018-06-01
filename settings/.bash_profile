@@ -56,7 +56,12 @@ export LESS="--RAW-CONTROL-CHARS -RS#3NM~g" # allow colorize and line numbers
 
 #  rupa.z
 # -------------------------
-[[ -f $(brew --prefix)/bin/z.sh ]] && . $(brew --prefix)/bin/z.sh || echo "\"z.sh\" not installed. Is it there?"
+# [[ -f $(brew --prefix)/bin/z.sh ]] && . $(brew --prefix)/bin/z.sh || echo "\"z.sh\" not installed. Is it there?"
+
+#  Testing how this compares with rupa/z
+#  fasd
+# -------------------------
+eval "$(fasd --init auto)"
 
 #  powerline-shell
 # -------------------------
