@@ -92,6 +92,13 @@ let g:codi#aliases= {
 set wildmenu
 set wildmode=longest:list,full
 " }}}
+" MatchTagAlways {{{
+let g:mta_filetypes = {
+\  'html': 1,
+\  'xml': 1,
+\  'javascript.jsx': 1,
+\}
+" }}}
 " vim-airline {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
@@ -114,6 +121,7 @@ Plug 'mileszs/ack.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
