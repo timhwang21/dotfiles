@@ -113,6 +113,7 @@ let g:airline_theme='solarized'
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
