@@ -61,7 +61,7 @@ export LESS="--RAW-CONTROL-CHARS -RS#3NM~g" # allow colorize and line numbers
 #  Testing how this compares with rupa/z
 #  fasd
 # -------------------------
-eval "$(fasd --init auto)"
+[[ -f $(brew --prefix)/bin/fasd ]] && eval "$(fasd --init auto)" || echo "\"fasd\" not installed. Is it there?"
 
 #  powerline-shell
 # -------------------------
@@ -94,11 +94,12 @@ export PATH="/usr/local/lib/node_modules:$PATH"
 export NODE_PATH="/usr/local/lib/node_modules"
 # NOTE: nvm doesn't support brew, if things go south ininstall and use curl script
 # NOTE 2: The `use stable` is a no-op most of the time but helps sublime linter find eslint
-# RF Config
-# [[ -f $(brew --prefix)/opt/nvm/nvm.sh ]] && . $(brew --prefix)/opt/nvm/nvm.sh
 # Recommended config
 export NVM_DIR="$HOME/.nvm"
-[[ -f /usr/local/opt/nvm/nvm.sh ]] && . /usr/local/opt/nvm/nvm.sh && nvm use system
+[[ -f "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh" && nvm use system
+[[ -f "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
+# Homebrew config
+[[ -f $(brew --prefix)/opt/nvm/nvm.sh ]] && . $(brew --prefix)/opt/nvm/nvm.sh && nvm use system
 [[ -f $(brew --prefix)/opt/nvm/bash_completion ]] && . $(brew --prefix)/opt/nvm/bash_completion
 
 # Home
