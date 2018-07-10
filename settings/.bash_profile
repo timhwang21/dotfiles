@@ -9,7 +9,6 @@ source /etc/profile
 ##                       ##
 ###########################
 
-#  make sublime be my default editor; -w flag keeps subl open til Sublime window is closed
 # -------------------------
 export EDITOR='vim'
 
@@ -96,10 +95,10 @@ export NODE_PATH="/usr/local/lib/node_modules"
 # NOTE 2: The `use stable` is a no-op most of the time but helps sublime linter find eslint
 # Recommended config
 export NVM_DIR="$HOME/.nvm"
-[[ -f "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh" && nvm use system
+[[ -f "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"
 [[ -f "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
 # Homebrew config
-[[ -f $(brew --prefix)/opt/nvm/nvm.sh ]] && . $(brew --prefix)/opt/nvm/nvm.sh && nvm use system
+[[ -f $(brew --prefix)/opt/nvm/nvm.sh ]] && . $(brew --prefix)/opt/nvm/nvm.sh
 [[ -f $(brew --prefix)/opt/nvm/bash_completion ]] && . $(brew --prefix)/opt/nvm/bash_completion
 
 # Home

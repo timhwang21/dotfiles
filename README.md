@@ -8,6 +8,10 @@ Dotfiles
 ```bash
 git clone https://github.com/timhwang21/dotfiles.git
 cd dotfiles
+# Initial setup: install from brew, git, etc.
+chmod +x bootstrap-download.sh
+sh bootstrap-download.sh
+# Install from local files
 chmod +x bootstrap.sh
 sh bootstrap.sh
 ```
