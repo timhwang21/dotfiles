@@ -12,8 +12,6 @@ export CATALINA_HOME="/Users/thwang/Development/apache-tomcat-7.0.69"
 
 # Aliases
 # -------------------------
-alias ssvui="cl ~/git/api/ssvui"
-alias orion="cl ~/git/ui/orion"
 alias prelint="sed -i '' 's,./docker/lint.sh,lint-staged,' ~/git/ui/orion/package.json"
 
 #  RVM
@@ -43,8 +41,4 @@ alias killport="lsof -i :8181 | awk '{print $2}' | tail -n1 | xargs kill -9" # f
 # ========================
 #  10. Rocket Fuel
 # ========================
-alias rebaseup="grom && ~/git/repo/rrepo/upload.sh"
 alias upload="~/git/repo/rrepo/upload.sh"
-alias killgulp="pkill -f gulp" # for those annoying zombie processes from testem
-alias jest="jest --config jest.config.json --coverage --silent"
-alias g="cl ~/git"
