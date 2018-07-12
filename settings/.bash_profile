@@ -126,3 +126,11 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 #  Haskell
 # -------------------------
 export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+#  Google App Engine
+# -------------------------
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/timothy/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/Users/timothy/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/timothy/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/timothy/Downloads/google-cloud-sdk/completion.bash.inc'; fi
