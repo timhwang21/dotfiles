@@ -150,7 +150,6 @@ alias .sublp="open -a Finder ~/Library/Application\ Support/Sublime\ Text\ 3/Pac
 # ========================
 #  6. db
 # ========================
-alias psql="$POSTGRES/psql -p5432"
 
 # ========================
 #  7. heroku
