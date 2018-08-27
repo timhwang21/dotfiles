@@ -105,11 +105,6 @@ export NVM_DIR="$HOME/.nvm"
 # -------------------------
 export PATH="$HOME/.local/bin:$PATH"
 
-#  Postgres
-# -------------------------
-export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
-export POSTGRES="/Applications/Postgres.app/Contents/Versions/latest/bin"
-
 #  Python
 # -------------------------
 export PATH="/Library/Frameworks/Python.framework/Versions/3.3/bin:${PATH}"
