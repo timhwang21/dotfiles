@@ -36,7 +36,7 @@ export NODE_REPL_MODE='sloppy';
 # -------------------------
 [[ -f $HOME/.bashrc ]] && . $HOME/.bashrc
 # Uncomment the appropriate line
-# [[ -f $HOME/.bashrc.home ]] && . $HOME/.bashrc.home
+[[ -f $HOME/.bashrc.home ]] && . $HOME/.bashrc.home
 # [[ -f $HOME/.bashrc.work ]] && . $HOME/.bashrc.work
 
 #  iTerm2 shell integration

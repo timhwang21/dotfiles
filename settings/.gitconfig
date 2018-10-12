@@ -14,3 +14,9 @@
   push-u = !sh -c 'git push -u $0 $(git currbranch)'
   gud = !man git
   authors = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
+[user]
+  name = timhwang21
+  email = timhwang21@gmail.com
+	signingkey = 88561CCBE1B87D8E
+[commit]
+	gpgsign = true
