@@ -15,6 +15,8 @@ brew install hub
 brew install jq
 brew install pandoc
 brew install postgresql
+brew install python # python 3
+ln -s /usr/local/bin/python3 /usr/local/bin/python # allow us to type python instead of python3
 brew install the_silver_searcher
 brew install tig
 brew install vim # override system default
