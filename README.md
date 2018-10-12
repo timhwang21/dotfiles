@@ -41,3 +41,26 @@ As far as I know there is no good way to programmatically install Sublime packag
 * SublimeLinter-ruby
 * SublimeLinter-tsling
 * TypeScript
+
+## MacOS Applications
+
+* 2do
+* Adobe
+* Alfred 3 (not 2, from app store)
+* Chrome
+* Discord
+* Divvy
+* Docker
+* Dropbox
+* Fantastical
+* Firefox
+* GIPHY Capture
+* GPG Keychain
+* iTerm
+* Lastpass
+* Postman
+* Slack
+* Spotify
+* Steam
+* Sublime Text 3
+* VLC

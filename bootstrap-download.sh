@@ -5,14 +5,19 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Homebrew
 yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install bash-completion
+brew install elixir
 brew install fasd
 brew install git # override xcode default
 brew install git-extras
 brew install gnu-sed --with-default-names # installs bin/sed instead of bin/gsed
+brew install gnupg
 brew install hub
 brew install jq
+brew install pandoc
+brew install postgresql
 brew install the_silver_searcher
 brew install tig
+brew install vim # override system default
 brew install yarn
 
 # subl symlink -- requires Sublime to be installed
@@ -35,3 +40,7 @@ rm -rf fonts
 # nvm
 mkdir -p ~/.nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
+# vim plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
