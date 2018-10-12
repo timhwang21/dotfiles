@@ -28,6 +28,7 @@ autocmd BufWritePre *.md %s/\s\+$//e
 colorscheme solarized
 set background=dark
 set colorcolumn=120
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 set cursorline
 set number relativenumber
 set noshowmode
