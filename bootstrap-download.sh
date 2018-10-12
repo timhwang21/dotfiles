@@ -22,6 +22,9 @@ brew install tig
 brew install vim # override system default
 brew install yarn
 
+# gems
+gem install pry
+
 # subl symlink -- requires Sublime to be installed
 ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 
