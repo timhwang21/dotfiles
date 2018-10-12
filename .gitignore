@@ -1,6 +1,7 @@
 .DS_Store
 settings/.vim/plugged
-settings/.vim/.vim
+settings/.vim/
 settings/.vim/.netrwhist
 settings/.npmrc
 __pycache__/
+settings/.powerline-shell
