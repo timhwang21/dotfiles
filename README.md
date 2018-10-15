@@ -38,3 +38,15 @@ sh bootstrap.sh
 * Steam
 * Sublime Text 3
 * VLC
+
+## TODO
+
+### LaTeX
+
+Needed for Pandoc PDF export.
+
+```sh
+# first install BasicTeX - http://www.tug.org/mactex/morepackages.html
+sudo tlmgr update --self
+sudo tlmgr install collection-fontsrecommended
+```
