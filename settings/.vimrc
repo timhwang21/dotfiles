@@ -25,7 +25,7 @@ autocmd BufWritePre *.md %s/\s\+$//e
 
 " }}}
 " Display {{{
-colorscheme solarized
+colorscheme monokai
 set background=dark
 set colorcolumn=120
 highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -112,7 +112,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_solarized_bg='dark'
-let g:airline_theme='solarized'
+let g:airline_theme='base16_monokai'
 " }}}
 " plug {{{
 call plug#begin('~/.vim/plugged')
