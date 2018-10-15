@@ -1,7 +1,7 @@
 {
 	"bold_folder_labels": true,
 	"caret_style": "wide",
-	"color_scheme": "Packages/User/SublimeLinter/Monokai Extended Origin (SL).tmTheme",
+	"color_scheme": "Packages/Monokai Extended/Monokai Extended Origin.tmTheme",
 	"draw_white_space": "all",
 	"folder_exclude_patterns":
 	[
