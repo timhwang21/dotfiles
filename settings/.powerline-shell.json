@@ -17,5 +17,5 @@
     "max_dir_size": 1,
     "full_cwd": true
   },
-  "theme": "~/.powerline-shell/solarized-dark-tim.py"
+  "theme": "~/.powerline-shell/default.py"
 }
