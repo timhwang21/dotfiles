@@ -11,15 +11,13 @@
 # =========================
 #  1a. ls
 # -------------------------
-alias .ls="ls -d .*" # show hidden files
 alias ls="ls -AFGlh"
 
 #  1b. cd
 # -------------------------
 alias ..="cl .." # step back 1 level
 alias ...="cl ../.." # step back 2 levels
-alias back="cd -" # back button
-alias b="back"
+alias b="cd -" # back button
 function cl() { cd "$@" && ls; }
 function md() { mkdir -p "$@" && cd "$_"; }
 
@@ -33,10 +31,7 @@ alias rm="rm -i"
 # -------------------------
 alias reload="source $HOME/.bash_profile"
 
-alias c="clear"
 alias r="reload"
-alias s="subl"
-alias v="vim"
 
 #  1e. information
 # -------------------------
@@ -46,8 +41,6 @@ alias t="top -F -n 10 -R -s 2 -u -stats cpu,mem,pid,command,time"
 
 #  1f. desktop
 # -------------------------
-function appmode() { /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app="$@"; }
-alias f="open -a Finder ./"
 
 #  1g. emoji
 # -------------------------
@@ -82,31 +75,28 @@ alias update_all="bundle update && npm update -g && brew update && brew upgrade 
 # ========================
 alias git="hub" # requires Hub to work -- brew install hub
 alias gi="git init"
-alias gh="git remote -v | grep fetch | awk '{print \$2}' | sed 's/\.git//' | head -n1 | xargs open"
 
 #  3a. adding & committing
 # -------------------------
 alias ga="git add -A"
-alias gap="git add -A -p"
 alias gc="git commit"
+function gacm() { ga && gcm "$@"; }
+function gcm() { git commit -m "$@" --no-verify; }
+function greb() { git rebase -i HEAD~"$@"; }
 alias clean="git clean -id"
 alias amend="git commit --amend --no-verify"
 alias amendv="git commit --amend"
 function replace() { git grep -l $1 | xargs sed -i "" -e "s/$1/$2/g"; }
-function gcm() { git commit -m "$@" --no-verify; }
 alias recommit="git commit -C HEAD@{1} --no-verify"
-function gacm() { ga && gcm "$@"; }
-function greb() { git rebase -i HEAD~"$@"; }
 
 #  3b. branch mgmt
 # -------------------------
-alias gb="git branch -v | grep -ve '  WIP/'" # more informative git branch
-alias gball="git branch -v" # show all
-function fuzzybranch() { git branch | grep -m 1 "$@" | tr -d "* "; } # fuzzy match branch names
+alias gb="git branch -v | cat"
 function gcb() { git checkout -b devs/$USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
-function gch() { fuzzybranch "$@" | xargs git checkout; } # quick git checkout for long branch names
-function gbd() { fuzzybranch "$@" | xargs git branch -D; gb; } # quick delete -- careful, this fuzzy matches
-function gdiff() { fuzzybranch "$@" | xargs git rev-parse | xargs git diff HEAD..; } # difference between head and branch
+function _fuzzybranch() { git branch | grep -m 1 "$@" | tr -d "* "; } # fuzzy match branch names
+function gch() { _fuzzybranch "$@" | xargs git checkout; } # quick git checkout for long branch names
+function gbd() { _fuzzybranch "$@" | xargs git branch -D; gb; } # quick delete -- careful, this fuzzy matches
+function gdiff() { _fuzzybranch "$@" | xargs git rev-parse | xargs git diff HEAD..; } # difference between head and branch
 alias gd="git diff master..."
 alias gch-="git checkout -"
 alias changed="git status --short | grep '^ [AMU]'"
@@ -118,24 +108,20 @@ alias gm="git merge --no-ff"
 # -------------------------
 alias gcl="git clone"
 alias gpull="git pull --rebase"
+alias gr="git rebase"
 alias grom="git rebase origin/master"
-alias gtool="git mergetool"
 alias cont="git rebase --continue"
 alias abort="git rebase --abort"
 
 #  3d. pushing
 # -------------------------
-alias gpush="git push"
-alias gp="gpush"
-alias gphm="git push heroku master"
+alias gp="git push"
 alias gpom="git push origin master"
 
 #  3e. information
 # -------------------------
-alias gl="git log --pretty=oneline --abbrev-commit -n 20"
-alias glog="tig"
 alias gs="git status"
-alias gr="git remote"
+alias gr="git remote -v"
 
 # ========================
 #  4. docker
