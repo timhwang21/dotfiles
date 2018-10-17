@@ -1,5 +1,6 @@
 " Settings {{{
 set mouse=a " enable mouse reporting
+set updatetime=500 " default is 4000
 set backspace=indent,eol,start
 filetype plugin indent on " Indent settings by fieltype
 " Change cursor shape between insert and normal mode in iTerm2.app
