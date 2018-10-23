@@ -2,13 +2,13 @@
   excludesfile = ~/.gitignore_global
 [github]
   user = timhwang21
-[mergetool "sublime"]
-  cmd = subl -w $MERGED
-  trustExitCode = false
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
 [mergetool]
   keepBackup = false
-[merge]
-  tool = sublime
 [alias]
   currbranch = rev-parse --abbrev-ref HEAD
   push-u = !sh -c 'git push -u $0 $(git currbranch)'
