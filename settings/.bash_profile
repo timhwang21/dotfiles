@@ -30,6 +30,10 @@ export NODE_REPL_MODE='sloppy';
 # -------------------------
 export GPG_TTY=$(tty)
 
+#  Enable key repeat
+# -------------------------
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 ###########################
 ##                       ##
 ##    D O T F I L E S    ##

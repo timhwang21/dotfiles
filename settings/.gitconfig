@@ -17,6 +17,6 @@
 [user]
   name = timhwang21
   email = timhwang21@gmail.com
-  signingkey = 88561CCBE1B87D8E
+  signingkey = 25AFC69C0A218D284E6ACD4F88561CCBE1B87D8E
 [commit]
   gpgsign = true
