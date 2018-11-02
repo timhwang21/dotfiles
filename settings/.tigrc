@@ -1,3 +1,4 @@
 set diff-highlight = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight
-set main-view-id = yes
+set line-graphics = utf-8
 set main-view-date = custom
+set main-view-id = yes
