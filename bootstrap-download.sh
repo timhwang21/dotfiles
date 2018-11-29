@@ -33,7 +33,7 @@ git clone https://github.com/b-ryan/powerline-shell
 cd powerline-shell
 sudo python setup.py install
 cd ..
-rm -rf powerlint-shell
+rm -rf powerline-shell
 
 # powerline fonts
 git clone https://github.com/powerline/fonts.git --depth=1
