@@ -84,7 +84,6 @@ let g:ale_fixers = {
 \  'css': ['prettier'],
 \}
 let g:ale_fix_on_save = 1
-let g:ale_open_list = 1
 let g:ale_lint_on_text_changed = 'normal' " only lint on change in normal mode
 let g:ale_lint_on_insert_leave = 1 " only lint on exit in insert mode
 " }}}
