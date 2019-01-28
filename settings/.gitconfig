@@ -4,14 +4,20 @@
   user = timhwang21
 [diff]
   tool = vimdiff
+[fetch]
+  prune = true ; remove stuff deleted on remote
+[rebase]
+  autosquash = true ; automatically handle git commit --fixup/--squash
+[push]
+  default = current ; if no upstream is set, use current branch name
 [merge]
   tool = vimdiff
   conflictstyle = diff3
+  ff = only
 [mergetool]
-  keepBackup = false
+  keepBackup = false ; block creation of unnecessarily persisted backups
 [alias]
   currbranch = rev-parse --abbrev-ref HEAD
-  push-u = !sh -c 'git push -u $0 $(git currbranch)'
   gud = !man git
   authors = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
 [user]
@@ -19,4 +25,5 @@
   email = timhwang21@gmail.com
   signingkey = 25AFC69C0A218D284E6ACD4F88561CCBE1B87D8E
 [commit]
-  gpgsign = true
+  gpgsign = true 
+  verbose = true ; git commit -v by default
