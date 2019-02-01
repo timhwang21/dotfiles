@@ -81,6 +81,7 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \  'javascript': ['prettier'],
+\  'typescript': ['prettier'],
 \  'css': ['prettier'],
 \}
 let g:ale_fix_on_save = 1
