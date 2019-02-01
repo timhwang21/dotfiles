@@ -130,6 +130,10 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # -------------------------
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
+#  Go
+# -------------------------
+export PATH="$HOME/go/bin:$PATH"
+
 #  Google App Engine
 # -------------------------
 # The next line updates PATH for the Google Cloud SDK.
