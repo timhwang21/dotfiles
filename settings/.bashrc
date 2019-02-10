@@ -164,3 +164,4 @@ alias sw="sass --watch"
 function weather() { clear; curl "wttr.in/$@?m"; }
 alias dl="curl -O# -C - --retry 3"
 alias vjq="jq '.' | vim - -c 'set ft=json'"
+alias rec="asciinema rec --command=\"/bin/bash -l\" --idle-time-limit=2"
