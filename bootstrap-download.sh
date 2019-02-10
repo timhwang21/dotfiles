@@ -21,6 +21,7 @@ brew install the_silver_searcher
 brew install tig
 brew install tree
 brew install vim # override system default
+brew install vtop
 brew install yarn
 
 # gems
