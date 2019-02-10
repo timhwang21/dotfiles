@@ -37,7 +37,7 @@ alias r="reload"
 # -------------------------
 function h() { history | grep "$@" --color=always; }
 function ch() { history | awk '{ count[$2]++ } END { for (cmd in count) { print count[cmd] " " cmd } }' | sort -rn | head -20; }
-alias t="top -F -n 10 -R -s 2 -u -stats cpu,mem,pid,command,time"
+alias t="vtop"
 
 #  1f. desktop
 # -------------------------
