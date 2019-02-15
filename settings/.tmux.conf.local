@@ -293,3 +293,6 @@ set -g mode-keys vi
 
 # move status line to top
 #set -g status-position top
+
+# disable key repeat -- fixes split navigation timeout issue
+set -g repeat-time 0
