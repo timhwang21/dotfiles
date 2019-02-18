@@ -295,7 +295,7 @@ set -g mode-keys vi
 #set -g status-position top
 
 # disable key repeat -- fixes split navigation timeout issue
-set -g repeat-time 0
+set -g repeat-time 250
 
 # require two EOFs to quit
 set-environment -g 'IGNOREEOF' 1
