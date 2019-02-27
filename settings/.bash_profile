@@ -11,6 +11,7 @@ source /etc/profile
 
 # -------------------------
 export EDITOR='vim'
+export GUI_EDITOR='code'
 
 #  grep colorize
 # -------------------------
