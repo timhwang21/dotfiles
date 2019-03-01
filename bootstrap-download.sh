@@ -6,6 +6,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install asciinema
 brew install bash-completion
+brew install ccat
 brew install elixir
 brew install fasd
 brew install git # override xcode default
