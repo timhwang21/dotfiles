@@ -2,6 +2,8 @@
 set mouse=a " enable mouse reporting
 set updatetime=500 " default is 4000
 set backspace=indent,eol,start
+set autoread " reload files changed externally
+set showcmd " show in progress commands
 filetype plugin indent on " Indent settings by fieltype
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
