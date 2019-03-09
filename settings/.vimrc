@@ -77,6 +77,8 @@ let g:ale_sign_error = "🚫"
 let g:ale_sign_warning = "⚠️"
 highlight ALEError ctermbg=237 cterm=underline
 highlight ALEWarning ctermbg=237 cterm=underline
+highlight ALEErrorSign ctermbg=237
+highlight ALEWarningSign ctermbg=237
 let g:ale_linters = {
 \  'javascript': ['eslint'],
 \  'typescript': ['tslint'],
