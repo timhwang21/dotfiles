@@ -9,6 +9,7 @@ brew install bash-completion
 brew install ccat
 brew install elixir
 brew install fasd
+brew install fpp
 brew install git # override xcode default
 brew install git-extras
 brew install gnu-sed --with-default-names # installs bin/sed instead of bin/gsed
@@ -16,12 +17,16 @@ brew install gnupg
 brew install hub
 brew install jq
 brew install pandoc
+brew install pgcli
 brew install postgresql
 brew install python # python 3
 ln -s /usr/local/bin/python3 /usr/local/bin/python # allow us to type python instead of python3
+brew install task
 brew install the_silver_searcher
 brew install tig
+brew install translate-shell
 brew install tree
+brew install typespeed
 brew install vim # override system default
 brew install vtop
 brew install yarn
