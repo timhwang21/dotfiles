@@ -159,10 +159,17 @@ alias sw="sass --watch"
 # function jc() { javac "$@".java && java "$@"; }
 
 # ========================
+#  10. Editor
+# ========================
+alias vim="nvim"
+alias vi="nvim"
+alias v="nvim"
+
+# ========================
 #  #. Other Utilities
 # ========================
 function weather() { clear; curl "wttr.in/$@?m"; }
 alias dl="curl -O# -C - --retry 3"
-alias vjq="jq '.' | vim - -c 'set ft=json'"
+alias vjq="jq '.' | $EDITOR - -c 'set ft=json'"
 alias rec="asciinema rec --command=\"/bin/bash -l\" --idle-time-limit=2"
 alias cat="ccat" # colorized cat

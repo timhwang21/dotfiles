@@ -10,7 +10,7 @@ source /etc/profile
 ###########################
 
 # -------------------------
-export EDITOR='vim'
+export EDITOR='nvim'
 export GUI_EDITOR='code'
 
 #  grep colorize
