@@ -14,8 +14,11 @@
   tool = vimdiff
   conflictstyle = diff3
   ff = only
+[difftool]
+  trustExitCode = true
 [mergetool]
   keepBackup = false ; block creation of unnecessarily persisted backups
+  trustExitCode = true
 [alias]
   currbranch = rev-parse --abbrev-ref HEAD
   gud = !man git
