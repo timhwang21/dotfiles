@@ -30,3 +30,5 @@
 [commit]
   gpgsign = true 
   verbose = true ; git commit -v by default
+[log]
+  follow = true ; default to log --follow
