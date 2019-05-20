@@ -12,6 +12,7 @@ source /etc/profile
 # -------------------------
 export EDITOR='nvim'
 export GUI_EDITOR='code'
+set -o vi # use vim mode for editing prev commands
 
 #  grep colorize
 # -------------------------
