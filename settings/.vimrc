@@ -1,4 +1,5 @@
 " Settings {{{
+set guifont=MesloLGMDZ_Nerd_Font:h12
 set mouse=a " enable mouse reporting
 set updatetime=500 " default is 4000
 set backspace=indent,eol,start
@@ -124,6 +125,14 @@ endif
 let g:airline_solarized_bg='dark'
 let g:airline_theme='base16_monokai'
 " }}}
+" nerdtree {{{
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=2
+" Hide help message, etc.
+let NERDTreeMinimalUI=1
+" Close vim if only window left is nerdtree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" }}}
 " plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
@@ -135,7 +144,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -143,6 +154,9 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
+
+" This must be at the end, as per docs
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 " installation -- :source % :PlugInstall
 " }}}
