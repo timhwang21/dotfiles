@@ -1,4 +1,5 @@
 " Settings {{{
+set guifont=MesloLGMDZ_Nerd_Font:h12
 set mouse=a " enable mouse reporting
 set updatetime=500 " default is 4000
 set backspace=indent,eol,start
@@ -48,6 +49,7 @@ hi CursorLineNR cterm=bold
 " }}}
 " Buffer configuration {{{
 set hidden " hide buffers on switch instead of trying to close
+autocmd WinEnter * if winnr('$') == 1 && &buftype == 'quickfix' | q | endif " exit if only buffer remaining is quickfix
 " }}}
 " Split configuration {{{
 nnoremap <C-J> <C-W><C-J>
@@ -124,6 +126,23 @@ endif
 let g:airline_solarized_bg='dark'
 let g:airline_theme='base16_monokai'
 " }}}
+" nerdtree {{{
+" Open Nerdtree and focus away on startup
+autocmd VimEnter * NERDTree | wincmd w
+map <C-n> :NERDTreeToggle<CR>
+
+let NERDTreeShowHidden=2
+" Inline menu with `m` shortcut
+let NERDTreeMinimalMenu=1
+" Hide help message, etc.
+let NERDTreeMinimalUI=1
+" Change current working directory based on root directory in NERDTree
+let NERDTreeChDirMode=2
+" Initial NERDTree width
+let NERDTreeWinSize=40
+" Close vim if only window left is nerdtree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" }}}
 " plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
@@ -135,7 +154,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -143,6 +164,10 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" This must be at the end, as per docs
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 " installation -- :source % :PlugInstall
 " }}}
