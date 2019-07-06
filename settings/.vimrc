@@ -167,6 +167,11 @@ let g:echodoc#type = 'floating'
 " change Pmenu to your highlight group
 highlight link EchoDocFloat Pmenu
 " }}}
+" vista.vim {{{
+let g:vista_sidebar_width = 40
+let g:vista_echo_cursor_strategy = 'both'
+let g:vista_default_executive = 'coc'
+" }}}
 " coc.vim {{{
 " Settings almost directly copied from: https://github.com/neoclide/coc.nvim#example-vim-configuration
 " Use tab for trigger completion with characters ahead and navigate.
