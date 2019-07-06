@@ -128,6 +128,22 @@ endif
 let g:airline_solarized_bg='dark'
 let g:airline_theme='base16_monokai'
 " }}}
+" startify {{{
+" Disable cow :'(
+let g:startify_custom_header = [
+        \ '                                   ',
+        \ '                 __                ',
+        \ '         __  __ /\_\    ___ ___    ',
+        \ '        /\ \/\ \\/\ \ /'' __` __`\ ',
+        \ '        \ \ \_/ |\ \ \/\ \/\ \/\ \ ',
+        \ '         \ \___/  \ \_\ \_\ \_\ \_\',
+        \ '          \/__/    \/_/\/_/\/_/\/_/',
+        \ '                                   ',
+        \ ]
+" Change dir to Git root when opening file in different dir
+let g:startify_change_to_vcs_root = 1
+let g:startify_bookmarks = [ {'b': '~/.bashrc'}, {'v': '~/.vimrc'} ]
+" }}}
 " nerdtree {{{
 " Open Nerdtree and focus away on startup
 autocmd VimEnter * NERDTree | wincmd w
