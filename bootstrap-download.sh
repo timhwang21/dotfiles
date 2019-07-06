@@ -17,6 +17,7 @@ brew install gnupg
 brew install gotop
 brew install hub
 brew install jq
+brew install --HEAD neovim
 brew install pandoc
 brew install pgcli
 brew install postgresql
@@ -32,7 +33,13 @@ brew install vim # override system default
 brew install yarn
 
 # gems
+gem install neovim-ruby-host
 gem install pry
+gem install solargraph # ruby language server
+
+# NPM
+npm install -g neovim
+npm install -g npx
 
 # subl symlink -- requires Sublime to be installed
 ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
