@@ -63,5 +63,32 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# install coc extensions
+mkdir -p ~/.config/coc/extensions
+cd ~/.config/coc/extensions
+if [ ! -f package.json ]
+then
+  echo '{"dependencies":{}}'> package.json
+fi
+# Change extension names to the extensions you need
+npm install \
+  coc-css \
+  coc-elixir \
+  coc-eslint \
+  coc-git \
+  coc-highlight \
+  coc-html \
+  coc-json \
+  coc-lists \
+  coc-prettier \
+  coc-snippets \
+  coc-solargraph \
+  coc-svg \
+  coc-tslint-plugin \
+  coc-tsserver \
+  coc-yank \
+  --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+cd -
+
 # run regular bootstrap script
 ./bootstrap.sh
