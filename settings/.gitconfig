@@ -32,3 +32,5 @@
   verbose = true ; git commit -v by default
 [log]
   follow = true ; default to log --follow
+[url "git@github.com:"]
+  insteadOf = https://github.com/ ; default to SSH
