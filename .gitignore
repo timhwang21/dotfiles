@@ -1,6 +1,5 @@
 .DS_Store
 settings/.vim/plugged
-settings/.vim/
 settings/.vim/.netrwhist
 settings/.npmrc
 __pycache__/
