@@ -1,11 +1,13 @@
 " Settings {{{
-set guifont=MesloLGMDZ_Nerd_Font:h12
+set guifont=MesloLGMDZ_Nerd_Font:h12 " set font independently from terminal
 set mouse=a " enable mouse reporting
+set nowrap
+set sidescroll=1
 set updatetime=500 " default is 4000
 set backspace=indent,eol,start
 set autoread " reload files changed externally
 set showcmd " show in progress commands
-filetype plugin indent on " Indent settings by fieltype
+filetype plugin indent on " Indent settings by filetype
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
