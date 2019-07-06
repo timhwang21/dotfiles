@@ -1,9 +1,8 @@
 " Settings {{{
-set guifont=MesloLGMDZ_Nerd_Font:h12 " set font independently from terminal
 set mouse=a " enable mouse reporting
 set nowrap
 set sidescroll=1
-set updatetime=500 " default is 4000
+set updatetime=300 " default is 4000
 set backspace=indent,eol,start
 set autoread " reload files changed externally
 set showcmd " show in progress commands
@@ -13,10 +12,8 @@ if $TERM_PROGRAM =~ "iTerm"
     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
     let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
-" }}}
-" netrw {{{
-let g:netrw_liststyle=3 " always show tree view in :Ex
-let g:netrw_banner=0
+set nobackup
+set nowritebackup
 " }}}
 " Whitespace {{{
 set autoindent
@@ -33,6 +30,7 @@ autocmd BufWritePre *.md %s/\s\+$//e
 " }}}
 " Display {{{
 colorscheme monokai
+set guifont=MesloLGMDZ_Nerd_Font:h12 " set font independently from terminal
 set background=dark
 set colorcolumn=120
 highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -41,13 +39,14 @@ set number relativenumber
 set noshowmode
 set ruler
 set title
-if exists('&signcolumn')  " Vim 7.4.2201
-  set signcolumn=yes
-else
-  let g:gitgutter_sign_column_always = 1
-endif
+set signcolumn=yes
 syntax on
 hi CursorLineNR cterm=bold
+set shortmess+=A " ignore .swp files
+" }}}
+" netrw {{{
+let g:netrw_liststyle=3 " always show tree view in :Ex
+let g:netrw_banner=0
 " }}}
 " Buffer configuration {{{
 set hidden " hide buffers on switch instead of trying to close
