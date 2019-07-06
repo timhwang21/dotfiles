@@ -144,8 +144,6 @@ let g:startify_change_to_vcs_root = 1
 let g:startify_bookmarks = [ {'b': '~/.bashrc'}, {'v': '~/.vimrc'} ]
 " }}}
 " nerdtree {{{
-" Open Nerdtree and focus away on startup
-autocmd VimEnter * NERDTree | wincmd w
 map <C-n> :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=2
