@@ -160,6 +160,13 @@ let NERDTreeWinSize=40
 " Close vim if only window left is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
+" echodoc {{{
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
+" To use a custom highlight for the float window,
+" change Pmenu to your highlight group
+highlight link EchoDocFloat Pmenu
+" }}}
 " coc.vim {{{
 " Settings almost directly copied from: https://github.com/neoclide/coc.nvim#example-vim-configuration
 " Use tab for trigger completion with characters ahead and navigate.
@@ -286,6 +293,7 @@ Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
+Plug 'Shougo/echodoc.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
