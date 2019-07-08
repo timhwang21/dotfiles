@@ -63,6 +63,11 @@ export LESS="--RAW-CONTROL-CHARS -RS#3NM~g" # allow colorize and line numbers
 # -------------------------
 [[ -f $(brew --prefix)/etc/bash_completion ]] && . $(brew --prefix)/etc/bash_completion || echo "\"bash_completion\" not installed. Is it there?"
 
+#  npm & yarn completion
+# -------------------------
+[[ -f $HOME/.npm-completion.bash ]] && . $HOME/.npm-completion.bash || echo "\".npm-completion\" not found. Is it there?"
+[[ -f $HOME/.yarn-completion.bash ]] && . $HOME/.yarn-completion.bash || echo "\".yarn-completion\" not found. Is it there?"
+
 #  rupa.z
 # -------------------------
 # [[ -f $(brew --prefix)/bin/z.sh ]] && . $(brew --prefix)/bin/z.sh || echo "\"z.sh\" not installed. Is it there?"
