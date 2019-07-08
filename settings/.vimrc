@@ -144,7 +144,7 @@ let g:startify_change_to_vcs_root = 1
 let g:startify_bookmarks = [ {'b': '~/.bashrc'}, {'v': '~/.vimrc'} ]
 " }}}
 " nerdtree {{{
-map <C-n> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeFind<CR>
 
 let NERDTreeShowHidden=2
 " Inline menu with `m` shortcut
@@ -154,7 +154,7 @@ let NERDTreeMinimalUI=1
 " Change current working directory based on root directory in NERDTree
 let NERDTreeChDirMode=2
 " Initial NERDTree width
-let NERDTreeWinSize=40
+let NERDTreeWinSize=36
 " Close vim if only window left is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
@@ -166,7 +166,7 @@ let g:echodoc#type = 'floating'
 highlight link EchoDocFloat Pmenu
 " }}}
 " vista.vim {{{
-let g:vista_sidebar_width = 40
+let g:vista_sidebar_width = 36
 let g:vista_echo_cursor_strategy = 'both'
 let g:vista_default_executive = 'coc'
 " }}}
