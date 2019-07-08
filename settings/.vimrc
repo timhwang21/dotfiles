@@ -12,13 +12,17 @@ if $TERM_PROGRAM =~ "iTerm"
     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
     let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
+" skip backups and swp
 set nobackup
 set nowritebackup
+set noswapfile
+" use ag as grep
+set grepprg=ag\ --nogroup\ --nocolor
 " }}}
 " Whitespace {{{
 set autoindent
 set expandtab
-set lcs=tab:\▸\ ,trail:·
+set lcs=tab:\»\ ,trail:·,nbsp:·
 set list
 set shiftwidth=2
 set softtabstop=2
@@ -67,8 +71,8 @@ set hlsearch
 set incsearch
 " }}}
 " ctrlp {{{
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f'] " ignore git stuff
-let g:ctrlp_lazy_update = 1 " debounce search
+" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --ignore-dir .git -g "" %s'
 " }}}
 " ack {{{
 if executable('ag')
@@ -94,6 +98,9 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'normal' " only lint on change in normal mode
 let g:ale_lint_on_insert_leave = 1 " only lint on exit in insert mode
+" Move between linting errors
+nnoremap ]r :ALENextWrap<CR>
+nnoremap [r :ALEPreviousWrap<CR>
 " }}}
 " codi {{{
 " Note that this assumes my dev env has 'esm' installed globally
@@ -309,6 +316,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/echodoc.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/MatchTagAlways'
