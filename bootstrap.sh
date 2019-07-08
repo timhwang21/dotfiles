@@ -5,14 +5,18 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # detect hidden files
 shopt -s dotglob
 
-# symlink dotfiles
+# symlink dotfiles, skipping directories
 for filename in settings/*; do
-  ln -fs "$DIR/$filename" "$HOME/$(basename "$filename")"
+  if [ ! -d "$filename" ]; then
+    ln -fs "$DIR/$filename" "$HOME/$(basename "$filename")"
+  fi
 done
 
-# symlink sources
+# symlink sources, skipping directories
 for filename in sources/*; do
-  ln -fs "$DIR/$filename" "$HOME/$(basename "$filename")"
+  if [ ! -d "$filename" ]; then
+    ln -fs "$DIR/$filename" "$HOME/$(basename "$filename")"
+  fi
 done
 
 # turn off detect hidden files
