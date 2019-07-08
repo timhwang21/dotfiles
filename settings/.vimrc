@@ -130,7 +130,6 @@ let g:airline_theme='base16_monokai'
 " startify {{{
 " Disable cow :'(
 let g:startify_custom_header = [
-        \ '                                   ',
         \ '                 __                ',
         \ '         __  __ /\_\    ___ ___    ',
         \ '        /\ \/\ \\/\ \ /'' __` __`\ ',
@@ -139,9 +138,19 @@ let g:startify_custom_header = [
         \ '          \/__/    \/_/\/_/\/_/\/_/',
         \ '                                   ',
         \ ]
+let g:startify_lists = [
+\ { 'type': 'sessions',  'header': ['        Sessions']       },
+\ { 'type': 'dir',       'header': ['        MRU '. getcwd()] },
+\ { 'type': 'files',     'header': ['        MRU']            },
+\ { 'type': 'bookmarks', 'header': ['        Bookmarks']      },
+\ { 'type': 'commands',  'header': ['        Commands']       },
+\ ]
 " Change dir to Git root when opening file in different dir
 let g:startify_change_to_vcs_root = 1
 let g:startify_bookmarks = [ {'b': '~/.bashrc'}, {'v': '~/.vimrc'} ]
+let g:startify_session_autoload = 1
+let g:startify_session_persistence = 1
+let g:startify_session_delete_buffers = 0
 " }}}
 " nerdtree {{{
 nmap <C-n> :NERDTreeFind<CR>
