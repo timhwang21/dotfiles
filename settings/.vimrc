@@ -208,7 +208,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[c` and `]c` to navigate diagnostics
+" Use `F8` and `F7` to navigate diagnostics
 nmap <silent> <F8> <Plug>(coc-diagnostic-prev)
 nmap <silent> <F7> <Plug>(coc-diagnostic-next)
 
