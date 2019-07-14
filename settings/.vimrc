@@ -54,7 +54,6 @@ let g:netrw_banner=0
 " }}}
 " Buffer configuration {{{
 set hidden " hide buffers on switch instead of trying to close
-autocmd WinEnter * if winnr('$') == 1 && &buftype == 'quickfix' | q | endif " exit if only buffer remaining is quickfix
 " }}}
 " Split configuration {{{
 nnoremap <C-J> <C-W><C-J>
@@ -171,8 +170,6 @@ let NERDTreeMinimalUI=1
 let NERDTreeChDirMode=2
 " Initial NERDTree width
 let NERDTreeWinSize=36
-" Close vim if only window left is nerdtree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
 " echodoc {{{
 let g:echodoc#enable_at_startup = 1
