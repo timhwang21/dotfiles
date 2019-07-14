@@ -183,6 +183,12 @@ let g:vista_sidebar_width = 36
 let g:vista_echo_cursor_strategy = 'both'
 let g:vista_default_executive = 'coc'
 " }}}
+" vim-closetag {{{
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.jsx,*.tsx'
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+" }}}
 " coc.vim {{{
 " Settings almost directly copied from: https://github.com/neoclide/coc.nvim#example-vim-configuration
 " Use tab for trigger completion with characters ahead and navigate.
@@ -298,6 +304,7 @@ nmap <leader>f  <Plug>(coc-format-selected)
 " plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
+Plug 'alvan/vim-closetag'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
