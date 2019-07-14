@@ -6,7 +6,6 @@ set updatetime=300 " default is 4000
 set backspace=indent,eol,start
 set autoread " reload files changed externally
 set showcmd " show in progress commands
-filetype plugin indent on " Indent settings by filetype
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
@@ -20,6 +19,7 @@ set noswapfile
 set grepprg=ag\ --nogroup\ --nocolor
 " }}}
 " Whitespace {{{
+filetype plugin indent on " Indent settings by filetype
 set autoindent
 set expandtab
 set lcs=tab:\»\ ,trail:·,nbsp:·
