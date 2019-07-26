@@ -72,6 +72,10 @@ set incsearch
 " ctrlp {{{
 " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
 let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --ignore-dir .git -g "" %s'
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMRUFiles<CR>
+nnoremap <leader>t :CtrlPTag<CR>
 " }}}
 " ack {{{
 if executable('ag')
