@@ -97,6 +97,10 @@ set gdefault
 set hlsearch
 set incsearch
 " }}}
+" Yank {{{
+" Copy current file path to system clipboard
+nnoremap <leader>p :let @+ = expand("%")<CR>
+" }}}
 " ctrlp {{{
 " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
 let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --ignore-dir .git -g "" %s'
@@ -121,12 +125,7 @@ let g:ale_linters = {
 \  'javascript': ['eslint'],
 \  'typescript': ['tslint'],
 \}
-let g:ale_fixers = {
-\  'javascript': ['prettier'],
-\  'typescript': ['prettier'],
-\  'css': ['prettier'],
-\}
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0 " delegate to coc
 let g:ale_lint_on_text_changed = 'normal' " only lint on change in normal mode
 let g:ale_lint_on_insert_leave = 1 " only lint on exit in insert mode
 " Move between linting errors
@@ -191,7 +190,8 @@ let g:startify_session_persistence = 1
 let g:startify_session_delete_buffers = 0
 " }}}
 " nerdtree {{{
-nmap <C-n> :NERDTreeFind<CR>
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeFind<CR>
 
 let NERDTreeShowHidden=2
 " Inline menu with `m` shortcut
@@ -220,6 +220,13 @@ let g:vista_default_executive = 'coc'
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
 let g:closetag_emptyTags_caseSensitive = 1
+" }}}
+" vim-jsonpath {{{
+" Optionally copy path to a named register (* in this case) when calling :JsonPath
+let g:jsonpath_register = '*'
+" Define mappings for json buffers
+au FileType json noremap <buffer> <silent> <expr> <leader>p jsonpath#echo()
+au FileType json noremap <buffer> <silent> <expr> <leader>g jsonpath#goto()
 " }}}
 " coc.vim {{{
 " Settings almost directly copied from: https://github.com/neoclide/coc.nvim#example-vim-configuration
@@ -347,11 +354,13 @@ Plug 'liuchengxu/vista.vim'
 Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
+Plug 'mogelbrod/vim-jsonpath'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/echodoc.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
