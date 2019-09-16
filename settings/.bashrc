@@ -76,6 +76,7 @@ alias update_all="bundle update && npm update -g && brew update && brew upgrade 
 # ========================
 alias git="hub" # requires Hub to work -- brew install hub
 alias gi="git init"
+alias delete-pruned="git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d"
 
 #  3a. adding & committing
 # -------------------------
