@@ -2,8 +2,6 @@
   excludesfile = ~/.gitignore_global
 [github]
   user = timhwang21
-[diff]
-  tool = vimdiff
 [fetch]
   prune = true ; remove stuff deleted on remote
 [rebase]
@@ -16,8 +14,11 @@
   ff = only
 [diff]
   colorMoved = default
+  tool = vimdiff
+  conflictstyle = diff3
 [difftool]
   trustExitCode = true
+  prompt = false
 [mergetool]
   keepBackup = false ; block creation of unnecessarily persisted backups
   trustExitCode = true
