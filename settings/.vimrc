@@ -17,6 +17,15 @@ set nowritebackup
 set noswapfile
 " use ag as grep
 set grepprg=ag\ --nogroup\ --nocolor
+" disable arrow keys -- break bad habits
+nnoremap <Left> :echo "No left for you!"<CR>
+vnoremap <Left> :<C-u>echo "No left for you!"<CR>
+nnoremap <Right> :echo "No right for you!"<CR>
+vnoremap <Right> :<C-u>echo "No right for you!"<CR>
+nnoremap <Down> :echo "No down for you!"<CR>
+vnoremap <Down> :<C-u>echo "No down for you!"<CR>
+nnoremap <Up> :echo "No up for you!"<CR>
+vnoremap <Up> :<C-u>echo "No up for you!"<CR>
 " }}}
 " Whitespace {{{
 filetype plugin indent on " Indent settings by filetype
