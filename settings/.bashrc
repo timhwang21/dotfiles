@@ -58,14 +58,8 @@ alias be="bundle exec"
 alias ber="bundle exec rspec"
 alias bi="bundle install"
 
-#  2b. npm
+#  2b. UNUSED
 # -------------------------
-alias ni="npm install"
-alias nig="npm install -g"
-function nis() { npm install "$@" --save; }
-function nisd() { npm install "$@" --save-dev; }
-alias ya="yarn add"
-alias yad="yarn add -D"
 
 #  2c. update all
 # -------------------------
@@ -76,7 +70,7 @@ alias update_all="bundle update && npm update -g && brew update && brew upgrade 
 # ========================
 alias git="hub" # requires Hub to work -- brew install hub
 alias gi="git init"
-alias delete-pruned="git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d"
+alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
 
 #  3a. adding & committing
 # -------------------------
