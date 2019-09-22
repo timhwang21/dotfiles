@@ -15,6 +15,7 @@ brew install git-extras
 brew install gnu-sed --with-default-names # installs bin/sed instead of bin/gsed
 brew install gnupg
 brew install gotop
+brew install haskell-stack
 brew install hub
 brew install jq
 brew install --HEAD neovim
@@ -40,9 +41,6 @@ gem install solargraph # ruby language server
 # NPM
 npm install -g neovim
 npm install -g npx
-
-# subl symlink -- requires Sublime to be installed
-ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 
 # powerline-shell
 git clone https://github.com/b-ryan/powerline-shell
