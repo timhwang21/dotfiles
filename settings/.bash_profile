@@ -14,6 +14,11 @@ export EDITOR='nvim'
 export GUI_EDITOR='code'
 set -o vi # use vim mode for editing prev commands
 
+# less syntax highlighting
+# -------------------------
+export LESSOPEN="| $(brew --prefix)/bin/src-hilite-lesspipe.sh %s"
+export LESS=" -R "
+
 #  grep colorize
 # -------------------------
 export GREP_OPTIONS='--color=auto'

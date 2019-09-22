@@ -132,12 +132,12 @@ alias gr="git remote -v"
 alias dc="docker-compose"
 
 # ========================
-#  5. config
+#  5. less
 # ========================
-alias .sublp="open -a Finder ~/Library/Application\ Support/Sublime\ Text\ 3/Packages"
+alias less='less -m -N -g -i -J --underline-special --SILENT'
 
 # ========================
-#  6. db
+#  6. UNUSED
 # ========================
 
 # ========================
