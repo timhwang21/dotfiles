@@ -102,7 +102,8 @@ function gdiff() { _fuzzybranch "$@" | xargs git rev-parse | xargs git diff HEAD
 alias gd="git diff master..."
 alias gch-="git checkout -"
 alias changed="git diff --name-only"
-alias openchanged="$GUI_EDITOR -p . | changed | xargs $GUI_EDITOR"
+alias changed-commit="git diff-tree --no-commit-id --name-only -r"
+alias openchanged='$EDITOR -p `changed`'
 alias gch--.="git checkout -- ." # reset local changes on branch
 alias gm="git merge --no-ff"
 
