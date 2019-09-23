@@ -43,6 +43,7 @@ autocmd BufWritePre *.md %s/\s\+$//e
 " }}}
 " Display {{{
 colorscheme monokai
+set termguicolors
 set guifont=MesloLGMDZ_Nerd_Font:h12 " set font independently from terminal
 set background=dark
 set colorcolumn=120
@@ -238,6 +239,24 @@ au FileType json noremap <buffer> <silent> <expr> <leader>p jsonpath#echo()
 au FileType json noremap <buffer> <silent> <expr> <leader>g jsonpath#goto()
 " }}}
 " coc.vim {{{
+" Declare and install missing dependencies
+let g:coc_global_extensions = [
+    \ "coc-css",
+    \ "coc-elixir",
+    \ "coc-eslint",
+    \ "coc-git",
+    \ "coc-highlight",
+    \ "coc-json",
+    \ "coc-prettier",
+    \ "coc-sh",
+    \ "coc-solargraph",
+    \ "coc-styled-components",
+    \ "coc-svg",
+    \ "coc-tslint-plugin",
+    \ "coc-tsserver",
+    \ "coc-vimlsp"
+    \]
+
 " Settings almost directly copied from: https://github.com/neoclide/coc.nvim#example-vim-configuration
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -354,6 +373,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
 Plug 'flazz/vim-colorschemes'
@@ -378,7 +398,6 @@ Plug 'tpope/vim-surround'
 Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " This must be at the end, as per docs
