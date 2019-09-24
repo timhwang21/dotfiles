@@ -26,6 +26,8 @@ nnoremap <Down> :echo "No down for you!"<CR>
 vnoremap <Down> :<C-u>echo "No down for you!"<CR>
 nnoremap <Up> :echo "No up for you!"<CR>
 vnoremap <Up> :<C-u>echo "No up for you!"<CR>
+" Give some more memory for regex (default is 1000)
+set mmp=5000
 " }}}
 " Whitespace {{{
 filetype plugin indent on " Indent settings by filetype
