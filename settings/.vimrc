@@ -47,7 +47,7 @@ set termguicolors
 set guifont=MesloLGMDZ_Nerd_Font:h12 " set font independently from terminal
 set background=dark
 set colorcolumn=120
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+highlight ColorColumn ctermbg=0 guibg=0
 set cursorline
 set number relativenumber
 set noshowmode
@@ -257,6 +257,8 @@ let g:coc_global_extensions = [
     \ "coc-vimlsp"
     \]
 
+" Use lighter gray for hover window bg
+highlight CocFloating ctermbg=0 guibg=#3d3d38 
 " Settings almost directly copied from: https://github.com/neoclide/coc.nvim#example-vim-configuration
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
