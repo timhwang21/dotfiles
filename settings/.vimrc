@@ -248,7 +248,6 @@ let g:coc_global_extensions = [
     \ "coc-highlight",
     \ "coc-json",
     \ "coc-prettier",
-    \ "coc-sh",
     \ "coc-solargraph",
     \ "coc-styled-components",
     \ "coc-svg",
@@ -377,7 +376,6 @@ Plug 'alvan/vim-closetag'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'elzr/vim-json'
 Plug 'flazz/vim-colorschemes'
 Plug 'janko/vim-test'
 Plug 'jiangmiao/auto-pairs'
