@@ -24,6 +24,11 @@ export LESS=" -R "
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='37;41'
 
+#  bash history
+# -------------------------
+export HISTSIZE=10000 # default 500
+export HISTFILESIZE=10000 # default 500
+
 #  node
 # -------------------------
 # Enable persistent REPL history for `node`.
