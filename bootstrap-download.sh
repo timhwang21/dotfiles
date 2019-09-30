@@ -6,10 +6,13 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install asciinema
 brew install bash-completion
-brew install ccat
+brew install bat
 brew install elixir
 brew install fasd
 brew install fpp
+brew install fzf
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
 brew install git # override xcode default
 brew install git-extras
 brew install gnu-sed --with-default-names # installs bin/sed instead of bin/gsed
