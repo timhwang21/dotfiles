@@ -153,4 +153,3 @@ alias v="nvim"
 function weather() { clear; curl "wttr.in/$@?m"; }
 alias dl="curl -O# -C - --retry 3"
 alias rec="asciinema rec --command=\"/bin/bash -l\" --idle-time-limit=1"
-alias cat="bat" # colorized cat

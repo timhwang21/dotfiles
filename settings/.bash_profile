@@ -46,6 +46,14 @@ export GPG_TTY=$(tty)
 # -------------------------
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
+#  Better manpage colors
+# -------------------------
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+#  bat
+# -------------------------
+export BAT_THEME="Monokai Extended Origin"
+
 ###########################
 ##                       ##
 ##    D O T F I L E S    ##
