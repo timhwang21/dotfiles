@@ -17,9 +17,7 @@ alias ls="ls -AFGlh"
 # -------------------------
 alias ..="cl .." # step back 1 level
 alias ...="cl ../.." # step back 2 levels
-alias b="cd -" # back button
 function cl() { cd "$@" && ls; }
-function md() { mkdir -p "$@" && cd "$_"; }
 
 #  1c. idiot-proofing overwrites
 # -------------------------
@@ -30,7 +28,6 @@ alias rm="rm -i"
 #  1d. CLI management
 # -------------------------
 alias reload="source $HOME/.bash_profile"
-
 alias r="reload"
 
 #  1e. information
@@ -69,7 +66,6 @@ alias update_all="bundle update && npm update -g && brew update && brew upgrade 
 #  3. git
 # ========================
 alias git="hub" # requires Hub to work -- brew install hub
-alias gi="git init"
 alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
 
 #  3a. adding & committing
@@ -77,18 +73,16 @@ alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs 
 alias ga="git add -A"
 alias gc="git commit"
 function gacm() { ga && gcm "$@"; }
-function gcm() { git commit -m "$@" --no-verify; }
+function gcm() { git commit -m "$@"; }
 function greb() { git rebase -i HEAD~"$@"; }
 alias clean="git clean -id"
-alias amend="git commit --amend --no-verify"
-alias amendv="git commit --amend"
-function replace() { git grep -l $1 | xargs sed -i "" -e "s/$1/$2/g"; }
-alias recommit="git commit -C HEAD@{1} --no-verify"
+alias amend="git commit --amend"
+alias recommit="git commit -C HEAD@{1}"
 
 #  3b. branch mgmt
 # -------------------------
 alias gb="git branch -v | cat"
-function gcb() { git checkout -b devs/$USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
+function gcb() { git checkout -b $USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
 function _fuzzybranch() { git branch | grep -m 1 "$@" | tr -d "* "; } # fuzzy match branch names
 function gch() { _fuzzybranch "$@" | xargs git checkout; } # quick git checkout for long branch names
 function gbd() { _fuzzybranch "$@" | xargs git branch -D; gb; } # quick delete -- careful, this fuzzy matches
@@ -99,12 +93,9 @@ alias changed="git diff --name-only"
 alias changed-commit="git diff-tree --no-commit-id --name-only -r"
 alias openchanged='$EDITOR -p `changed`'
 alias gch--.="git checkout -- ." # reset local changes on branch
-alias gm="git merge --no-ff"
 
 #  3c. pulling
 # -------------------------
-alias gcl="git clone"
-alias gpull="git pull --rebase"
 alias gr="git rebase"
 alias grom="git rebase origin/master"
 alias cont="git rebase --continue"
@@ -135,14 +126,8 @@ alias less='less -m -N -g -i -J --underline-special --SILENT'
 # ========================
 
 # ========================
-#  7. heroku
+#  7. UNUSED
 # ========================
-alias hlog="heroku login"
-alias ho="heroku open"
-alias hr="heroku run"
-alias hl="heroku local"
-alias ha="heroku addons"
-alias hac="heroku addons:create"
 
 # ========================
 #  8. watchers
@@ -167,6 +152,5 @@ alias v="nvim"
 # ========================
 function weather() { clear; curl "wttr.in/$@?m"; }
 alias dl="curl -O# -C - --retry 3"
-alias vjq="jq '.' | $EDITOR - -c 'set ft=json'"
-alias rec="asciinema rec --command=\"/bin/bash -l\" --idle-time-limit=2"
+alias rec="asciinema rec --command=\"/bin/bash -l\" --idle-time-limit=1"
 alias cat="bat" # colorized cat

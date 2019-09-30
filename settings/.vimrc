@@ -45,11 +45,14 @@ autocmd BufWritePre *.md %s/\s\+$//e
 " }}}
 " Display {{{
 colorscheme monokai
+" fix termguicolors for vimdiff
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 set guifont=MesloLGMDZ_Nerd_Font:h12 " set font independently from terminal
 set background=dark
 set colorcolumn=120
-highlight ColorColumn ctermbg=0 guibg=0
+highlight ColorColumn ctermbg=0 guibg=#3d3d38
 set cursorline
 set number relativenumber
 set noshowmode

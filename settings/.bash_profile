@@ -137,6 +137,10 @@ export NVM_DIR="$HOME/.nvm"
 # -------------------------
 export PATH="$HOME/.local/bin:$PATH"
 
+# Yarn
+# -------------------------
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 #  Python
 # -------------------------
 export PATH="/Library/Frameworks/Python.framework/Versions/3.3/bin:${PATH}"
@@ -171,4 +175,3 @@ if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then source "$HOME/googl
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
