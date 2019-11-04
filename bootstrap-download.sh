@@ -34,6 +34,7 @@ brew install the_silver_searcher
 brew install tig
 brew install translate-shell
 brew install tree
+brew install tmux
 brew install typespeed
 brew install vim # override system default
 brew install yarn
