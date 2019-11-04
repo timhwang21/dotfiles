@@ -39,9 +39,13 @@ brew install vim # override system default
 brew install yarn
 
 # gems
+gem install neovim
 gem install neovim-ruby-host
 gem install pry
 gem install solargraph # ruby language server
+
+# python
+python -m pip install --user --upgrade pynvim
 
 # NPM
 npm install -g neovim
@@ -62,8 +66,8 @@ brew cask install font-meslo-nerd-font font-inconsolata-nerd-font
 mkdir -p ~/.nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
-# vim plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+# vim plug for neovim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # install coc extensions
