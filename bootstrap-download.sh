@@ -17,6 +17,7 @@ brew install git # override xcode default
 brew install git-extras
 brew install gnu-sed --with-default-names # installs bin/sed instead of bin/gsed
 brew install gnupg
+brew tap cjbassi/gotop
 brew install gotop
 brew install haskell-stack
 brew install hub

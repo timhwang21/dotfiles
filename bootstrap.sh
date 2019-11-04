@@ -19,6 +19,10 @@ for filename in sources/*; do
   fi
 done
 
+# special handling for powerline-shell
+# copy themes
+cp settings/.powerline-shell/* ~/.powerline-shell/
+
 # turn off detect hidden files
 shopt -u dotglob
 
