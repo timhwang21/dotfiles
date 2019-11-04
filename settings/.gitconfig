@@ -31,7 +31,7 @@
   email = timhwang21@gmail.com
   signingkey = 25AFC69C0A218D284E6ACD4F88561CCBE1B87D8E
 [commit]
-  gpgsign = true 
+  gpgsign = false
   verbose = true ; git commit -v by default
 [log]
   follow = true ; default to log --follow
