@@ -422,6 +422,16 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 " installation -- :source % :PlugInstall
 " }}}
+" TEMP: fix Typescript syntax highlighting {{{
+" vim-polyglot's Typescript is supposedly better but has weird errors.
+" Fall back to the old one, and maybe reevaluate once they update.
+let g:polyglot_disabled = ['typescript']
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+augroup filetypedetect
+  autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+augroup end
+" }}}
 " Meta {{{
 set modelines=1 " for page folding
 " }}}
