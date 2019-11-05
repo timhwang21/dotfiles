@@ -169,17 +169,6 @@ let g:ale_lint_on_insert_leave = 1 " only lint on exit in insert mode
 nnoremap ]r :ALENextWrap<CR>
 nnoremap [r :ALEPreviousWrap<CR>
 " }}}
-" codi {{{
-" Note that this assumes my dev env has 'esm' installed globally
-let g:codi#interpreters = {
-\  'javascript': {
-\    'bin': ['node', '-r', 'esm'],
-\  }
-\}
-let g:codi#aliases= {
-\  'javascript.jsx': 'javascript',
-\}
-" }}}
 " wildmenu {{{
 set wildmenu
 set wildmode=longest:list,full
@@ -255,6 +244,7 @@ let g:vista_default_executive = 'coc'
 " vim-closetag {{{
 " These are the file extensions where this plugin is enabled.
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
+let g:closetag_xhtml_filenames = '*.jsx,*.tsx'
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
 let g:closetag_emptyTags_caseSensitive = 1
 " }}}
@@ -407,7 +397,6 @@ Plug 'janko/vim-test'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/vista.vim'
-Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
 Plug 'mogelbrod/vim-jsonpath'
