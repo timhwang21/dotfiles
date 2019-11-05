@@ -152,8 +152,8 @@ if executable('ag')
 endif
 " }}}
 " ale (linting) {{{
-let g:ale_sign_error = "🚫"
-let g:ale_sign_warning = "⚠️"
+let g:ale_sign_error = "🔺"
+let g:ale_sign_warning = "🔸"
 highlight ALEError ctermbg=237 cterm=underline
 highlight ALEWarning ctermbg=237 cterm=underline
 highlight ALEErrorSign ctermbg=237

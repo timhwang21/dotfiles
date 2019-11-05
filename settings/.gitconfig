@@ -22,6 +22,8 @@
 [mergetool]
   keepBackup = false ; block creation of unnecessarily persisted backups
   trustExitCode = true
+[mergetool "vimdiff"] ; use nvim vimdiff
+	; cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [alias]
   currbranch = rev-parse --abbrev-ref HEAD
   gud = !man git

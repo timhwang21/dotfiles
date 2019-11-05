@@ -66,7 +66,6 @@ alias update_all="bundle update && npm update -g && brew update && brew upgrade 
 #  3. git
 # ========================
 alias git="hub" # requires Hub to work -- brew install hub
-alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
 
 #  3a. adding & committing
 # -------------------------
@@ -93,6 +92,7 @@ alias changed="git diff --name-only"
 alias changed-commit="git diff-tree --no-commit-id --name-only -r"
 alias openchanged='$EDITOR -p `changed`'
 alias gch--.="git checkout -- ." # reset local changes on branch
+alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
 
 #  3c. pulling
 # -------------------------
@@ -153,3 +153,5 @@ alias v="nvim"
 function weather() { clear; curl "wttr.in/$@?m"; }
 alias dl="curl -O# -C - --retry 3"
 alias rec="asciinema rec --command=\"/bin/bash -l\" --idle-time-limit=1"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
