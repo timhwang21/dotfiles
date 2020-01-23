@@ -28,6 +28,18 @@ nnoremap <Up> :echo "No up for you!"<CR>
 vnoremap <Up> :<C-u>echo "No up for you!"<CR>
 " Give some more memory for regex (default is 1000)
 set mmp=5000
+" Don't waste time redrawing when running macros etc.
+set lazyredraw
+" }}}
+" Function keys {{{
+map <silent> <F2> :bprevious<CR>
+map <silent> <F3> :bnext<CR>
+" Close the current buffer and move to the next one
+map <silent> <F4> :bn <BAR> bd #<CR>
+" Use `F7` and `F8` to navigate diagnostics
+nmap <silent> <F7> <Plug>(coc-diagnostic-next)
+nmap <silent> <F8> <Plug>(coc-diagnostic-prev)
+
 " }}}
 " Whitespace {{{
 filetype plugin indent on " Indent settings by filetype
@@ -165,9 +177,6 @@ let g:ale_linters = {
 let g:ale_fix_on_save = 0 " delegate to coc
 let g:ale_lint_on_text_changed = 'normal' " only lint on change in normal mode
 let g:ale_lint_on_insert_leave = 1 " only lint on exit in insert mode
-" Move between linting errors
-nnoremap ]r :ALENextWrap<CR>
-nnoremap [r :ALEPreviousWrap<CR>
 " }}}
 " wildmenu {{{
 set wildmenu
@@ -296,10 +305,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `F8` and `F7` to navigate diagnostics
-nmap <silent> <F8> <Plug>(coc-diagnostic-prev)
-nmap <silent> <F7> <Plug>(coc-diagnostic-next)
-
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -317,9 +322,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor and show hint on CursorHold
+" Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
-" autocmd CursorHold * silent call CocActionAsync('doHover')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
