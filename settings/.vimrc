@@ -123,6 +123,8 @@ set splitright
 set gdefault
 set hlsearch
 set incsearch
+" neovim only -- realtime search highlight
+set inccommand=nosplit
 " }}}
 " Yank {{{
 " Copy current file path to system clipboard

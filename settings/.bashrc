@@ -153,5 +153,6 @@ alias v="nvim"
 function weather() { clear; curl "wttr.in/$@?m"; }
 alias dl="curl -O# -C - --retry 3"
 alias rec="asciinema rec --command=\"/bin/bash -l\" --idle-time-limit=1"
+function dlm3u8() { ffmpeg -i "$1" -c copy -bsf:a aac_adtstoasc "$2.mp4"; }
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
