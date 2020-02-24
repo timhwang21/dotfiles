@@ -88,7 +88,7 @@ function gbd() { _fuzzybranch "$@" | xargs git branch -D; gb; } # quick delete -
 function gdiff() { _fuzzybranch "$@" | xargs git rev-parse | xargs git diff HEAD..; } # difference between head and branch
 alias gd="git diff master..."
 alias gch-="git checkout -"
-alias changed="git diff --name-only"
+alias changed="git diff --name-only origin/master"
 alias changed-commit="git diff-tree --no-commit-id --name-only -r"
 alias openchanged='$EDITOR -p `changed`'
 alias gch--.="git checkout -- ." # reset local changes on branch

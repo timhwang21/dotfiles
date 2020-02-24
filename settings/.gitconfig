@@ -28,6 +28,8 @@
   currbranch = rev-parse --abbrev-ref HEAD
   gud = !man git
   authors = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
+  ; usage: git fixup COMMIT
+	fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
 [user]
   name = timhwang21
   email = timhwang21@gmail.com
