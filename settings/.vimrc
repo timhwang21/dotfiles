@@ -266,6 +266,10 @@ let g:jsonpath_register = '*'
 au FileType json noremap <buffer> <silent> <expr> <leader>p jsonpath#echo()
 au FileType json noremap <buffer> <silent> <expr> <leader>g jsonpath#goto()
 " }}}
+" vim-easyalign {{{
+" align markdown tables on |
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+" }}}
 " coc.vim {{{
 " Declare and install missing dependencies
 let g:coc_global_extensions = [
@@ -402,6 +406,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'janko/vim-test'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'liuchengxu/vista.vim'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
@@ -431,7 +436,6 @@ call plug#end()
 " TEMP: fix Typescript syntax highlighting {{{
 " vim-polyglot's Typescript is supposedly better but has weird errors.
 " Fall back to the old one, and maybe reevaluate once they update.
-let g:polyglot_disabled = ['typescript']
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 augroup filetypedetect
