@@ -132,6 +132,8 @@ nnoremap <leader>p :let @+ = expand("%")<CR>
 " }}}
 " fzf {{{
 nnoremap <C-p> :Files!<CR>
+nnoremap <leader>c :Commits!<CR>
+nnoremap <leader>b :Buffers!<CR>
 " Augmenting Ag command using fzf#vim#with_preview function
 "   * fzf#vim#with_preview([[options], [preview window], [toggle keys...]])
 "     * For syntax-highlighting, Ruby and any of the following tools are required:
