@@ -2,7 +2,7 @@
 {
   "suggest.timeout": 500,
   "suggest.snippetIndicator": "🌟",
-  "suggest.triggerCompletionWait": 100,
+  //"suggest.triggerCompletionWait": 100,
   "suggest.echodocSupport": true,
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
@@ -35,37 +35,65 @@
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
-  "diagnostic.refreshOnInsertMode": true,
+  //"diagnostic.refreshOnInsertMode": true,
   "diagnostic.virtualText": true,
+  "diagnostic.maxWindowHeight": 40,
   //git
-  "git.enableGutters": true,
-  "git.branchCharacter":"\uf408",
-  "git.addGlameToBufferVar": true,
-  "git.addGlameToVirtualText": true,
+  "git.branchCharacter": "\uf408",
+  //"git.addGlameToBufferVar": true,
+  //"git.addGlameToVirtualText": true,
   "git.virtualTextPrefix": " ❯❯❯ ",
   "git.addedSign.hlGroup": "GitGutterAdd",
   "git.changedSign.hlGroup": "GitGutterChange",
   "git.removedSign.hlGroup": "GitGutterDelete",
   "git.topRemovedSign.hlGroup": "GitGutterDelete",
   "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-  "git.addedSign.text":"▎",
-  "git.changedSign.text":"▎",
-  "git.removedSign.text":"▏",
-  "git.topRemovedSign.text": "▔",
-  "git.changeRemovedSign.text": "▋",
   //Snippet
   "coc.preferences.snippetStatusText": "Ⓢ ",
-  //tslint
-  "tslint.autoFixOnSave": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "css",
+    "haskell"
+  ],
   //prettier
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact"],
   "prettier.statusItemText": "ⓟ ",
-  "prettier.eslintIntegration": true,
-  "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
-  // eslint
-  "eslint.filetypes": ["javascript", "javascript.jsx", "javascriptreact"],
+  "prettier.onlyUseLocalVersion": true,
+  //eslint
+  "eslint.filetypes": [
+    "javascript",
+    "javascript.jsx",
+    "javascriptreact",
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact"
+  ],
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
-  "languageserver": {}
+  "eslint.packageManager": "yarn",
+  "languageserver": {
+    "haskell": {
+      "command": "hie-wrapper",
+      "rootPatterns": [
+        ".stack.yaml",
+        "cabal.config",
+        "package.yaml"
+      ],
+      "filetypes": [
+        "hs",
+        "lhs",
+        "haskell"
+      ],
+      "initializationOptions": {
+        "languageServerHaskell": {
+          "hlintOn": true
+        }
+      }
+    }
+  }
 }
+
