@@ -36,6 +36,14 @@ tmux_conf_new_pane_reconnect_ssh=false
 #   - false (default)
 tmux_conf_new_session_prompt=false
 
+# https://bezhermoso.github.io/2018/06/02/improved-tmux-experience/
+# Begin numbering at 1
+set -g base-index 1
+set -g pane-base-index 1
+
+# Maintain ordinality after swapping windows; and also make sure there is no gaps after killing windows:
+set -g renumber-windows on
+
 
 # -- display -------------------------------------------------------------------
 

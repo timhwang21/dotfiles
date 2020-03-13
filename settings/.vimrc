@@ -134,6 +134,11 @@ nnoremap <leader>p :let @+ = expand("%")<CR>
 nnoremap <C-p> :Files!<CR>
 nnoremap <leader>c :Commits!<CR>
 nnoremap <leader>b :Buffers!<CR>
+" gs = git status
+" don't use bang version for this -- not needed
+nnoremap <leader>gs :GFiles?<CR>
+" gl = git log
+nnoremap <leader>gl :BCommits!<CR>
 " Augmenting Ag command using fzf#vim#with_preview function
 "   * fzf#vim#with_preview([[options], [preview window], [toggle keys...]])
 "     * For syntax-highlighting, Ruby and any of the following tools are required:

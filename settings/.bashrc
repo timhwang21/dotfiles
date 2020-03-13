@@ -97,7 +97,7 @@ alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs 
 #  3c. pulling
 # -------------------------
 alias gr="git rebase"
-alias grom="git rebase origin/master"
+alias grom="git fetch && git rebase origin/master"
 alias cont="git rebase --continue"
 alias abort="git rebase --abort"
 
