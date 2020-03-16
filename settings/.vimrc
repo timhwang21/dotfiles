@@ -2,6 +2,7 @@
 set mouse=a " enable mouse reporting
 set nowrap
 set sidescroll=1
+set scrolloff=50 " min lines to keep above and below cursor
 set updatetime=300 " default is 4000
 set backspace=indent,eol,start
 set autoread " reload files changed externally
