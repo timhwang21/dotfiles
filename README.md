@@ -1,6 +1,14 @@
 Dotfiles
 =======
 
+![](assets/images/vim.png)
+![](assets/images/vim-coc.png)
+![](assets/images/vim-fzf-file-search.png)
+![](assets/images/vim-fzf-git-log-p.png)
+![](assets/images/vim-diff.png)
+![](assets/images/fira-code-ligatures.png)
+![](assets/images/tig.png)
+
 ## Setup
 
 **Note: for personal use. Don't blame me if this screws up your settings.**
