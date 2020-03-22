@@ -1,4 +1,0 @@
-{
-  "cmd": ["open", "$file"],
-  "selector": "text.html"
-}
