@@ -104,5 +104,8 @@ npm install \
   --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 cd -
 
+# kitty
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
 # run regular bootstrap script
 ./bootstrap.sh
