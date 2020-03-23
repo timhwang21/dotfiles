@@ -8,20 +8,23 @@ shopt -s dotglob
 # symlink dotfiles, skipping directories
 for filename in settings/*; do
   if [ ! -d "$filename" ]; then
-    ln -fs "$DIR/$filename" "$HOME/$(basename "$filename")"
+    ln -fs "$DIR/../$filename" "$HOME/$(basename "$filename")"
   fi
 done
 
 # symlink sources, skipping directories
 for filename in sources/*; do
   if [ ! -d "$filename" ]; then
-    ln -fs "$DIR/$filename" "$HOME/$(basename "$filename")"
+    ln -fs "$DIR/../$filename" "$HOME/$(basename "$filename")"
   fi
 done
 
-# special handling for powerline-shell
-# copy themes
-cp settings/.powerline-shell/* ~/.powerline-shell/
+# symlink app specific config
+for filename in .config/*; do
+  if [ ! -d "$filename" ]; then
+    ln -fs "$DIR/../$filename" "$HOME/.config/$(basename "$filename")"
+  fi
+done
 
 # turn off detect hidden files
 shopt -u dotglob
