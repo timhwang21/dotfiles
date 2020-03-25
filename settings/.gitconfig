@@ -29,7 +29,9 @@
   gud = !man git
   authors = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
   ; usage: git fixup COMMIT
-	fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+  fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+  ; dependencies: fzf, fugitive-vim. $EDITOR being some flavor of vim
+  review = "!f() { BASE=$(git merge-base origin/master HEAD); $EDITOR -c \"tabdo Gdiff $BASE\" -p $(git diff --name-only $BASE | fzf); }; f"
 [user]
   name = timhwang21
   email = timhwang21@gmail.com
