@@ -138,7 +138,7 @@ nnoremap <leader>b :Buffers<CR>
 " gs = git status
 nnoremap <leader>gs :GFiles?<CR>
 " gl = git log
-nnoremap <leader>gl :BCommits!<CR>
+nnoremap <leader>gl :BCommits<CR>
 " Augmenting Ag command using fzf#vim#with_preview function
 "   * fzf#vim#with_preview([[options], [preview window], [toggle keys...]])
 "     * For syntax-highlighting, Ruby and any of the following tools are required:
