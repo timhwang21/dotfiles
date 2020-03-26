@@ -259,6 +259,14 @@ let g:vista_sidebar_width = 36
 let g:vista_echo_cursor_strategy = 'both'
 let g:vista_default_executive = 'coc'
 " }}}
+" indentLine {{{
+let g:indentLine_char = '│'
+" more subtle colors
+let g:indentLine_color_term = 237
+let g:indentLine_color_gui = '#3c3d37'
+let g:indentLine_bgcolor_term = 231
+let g:indentLine_bgcolor_gui = '#272822'
+" }}}
 " vim-closetag {{{
 " These are the file extensions where this plugin is enabled.
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
@@ -432,6 +440,7 @@ Plug 'tpope/vim-surround'
 Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug '/usr/local/opt/fzf'
