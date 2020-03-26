@@ -261,11 +261,11 @@ let g:vista_default_executive = 'coc'
 " }}}
 " indentLine {{{
 let g:indentLine_char = '│'
+" experimental high perf
+let g:indentLine_faster = 1
 " more subtle colors
 let g:indentLine_color_term = 237
 let g:indentLine_color_gui = '#3c3d37'
-let g:indentLine_bgcolor_term = 231
-let g:indentLine_bgcolor_gui = '#272822'
 " }}}
 " vim-closetag {{{
 " These are the file extensions where this plugin is enabled.
