@@ -46,7 +46,6 @@ export GPG_TTY=$(tty)
 # -------------------------
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # speed up past what system preferences allows
-defaults write -g InitialKeyRepeat -int 10
 defaults write -g KeyRepeat -int 1
 
 #  Better manpage colors
