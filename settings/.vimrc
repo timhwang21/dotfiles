@@ -169,7 +169,7 @@ command! -bang -nargs=? -complete=dir Files
 " }}}
 " ack {{{
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --vimgrep --hidden'
 endif
 " }}}
 " ale (linting) {{{
