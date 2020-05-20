@@ -75,7 +75,6 @@ function gacm() { ga && gcm "$@"; }
 function gcm() { git commit -m "$@"; }
 function greb() { git rebase -i HEAD~"$@"; }
 alias clean="git clean -id"
-alias amend="git commit --amend"
 alias recommit="git commit -C HEAD@{1}"
 
 #  3b. branch mgmt
