@@ -51,13 +51,16 @@
   //Snippet
   "coc.preferences.snippetStatusText": "Ⓢ ",
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact",
     "css",
-    "haskell"
+    "haskell",
+    "javascript",
+    "javascript.jsx",
+    "javascriptreact",
+    "json",
+    "markdown",
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact"
   ],
   //prettier
   "prettier.statusItemText": "ⓟ ",
