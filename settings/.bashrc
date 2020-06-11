@@ -34,7 +34,7 @@ alias r="reload"
 # -------------------------
 function h() { history | grep "$@" --color=always; }
 function ch() { history | awk '{ count[$2]++ } END { for (cmd in count) { print count[cmd] " " cmd } }' | sort -rn | head -20; }
-alias t="gotop"
+alias t="ytop"
 
 #  1f. desktop
 # -------------------------

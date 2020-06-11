@@ -34,6 +34,7 @@ set lazyredraw
 " }}}
 " Function keys {{{
 map <silent> <F1> <Nop>
+imap <silent> <F1> <Nop>
 map <silent> <F2> :bprevious<CR>
 map <silent> <F3> :bnext<CR>
 " Close the current buffer without closing split
