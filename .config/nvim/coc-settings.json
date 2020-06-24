@@ -58,6 +58,7 @@
     "javascriptreact",
     "json",
     "markdown",
+    "ruby",
     "typescript",
     "typescript.tsx",
     "typescriptreact"
@@ -78,6 +79,7 @@
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
+  "solargraph.formatting": true,
   "languageserver": {
     "haskell": {
       "command": "hie-wrapper",

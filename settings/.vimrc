@@ -418,6 +418,7 @@ nmap <leader>f  <Plug>(coc-format-selected)
 " plug {{{
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'airblade/vim-gitgutter'
+Plug 'aliou/sql-heredoc.vim'
 Plug 'alvan/vim-closetag'
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
@@ -440,6 +441,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
