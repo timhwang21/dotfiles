@@ -256,11 +256,6 @@ let g:echodoc#type = 'floating'
 " change Pmenu to your highlight group
 highlight link EchoDocFloat Pmenu
 " }}}
-" vista.vim {{{
-let g:vista_sidebar_width = 36
-let g:vista_echo_cursor_strategy = 'both'
-let g:vista_default_executive = 'coc'
-" }}}
 " indentLine {{{
 let g:indentLine_char = '│'
 " experimental high perf
@@ -427,7 +422,6 @@ Plug 'janko/vim-test'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'liuchengxu/vista.vim'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
 Plug 'mogelbrod/vim-jsonpath'
