@@ -76,6 +76,7 @@ set title
 set signcolumn=yes
 syntax on
 hi CursorLineNR cterm=bold
+hi Comment cterm=italic
 set shortmess+=A " ignore .swp files
 " }}}
 " netrw {{{

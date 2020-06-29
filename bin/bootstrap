@@ -29,5 +29,8 @@ done
 # turn off detect hidden files
 shopt -u dotglob
 
+# build xterm italics profile
+tic assets/xterm-256color-italic.terminfo
+
 # source profile
 source $HOME/.bash_profile

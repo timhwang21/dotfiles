@@ -78,6 +78,8 @@ export BAT_THEME="Monokai Extended Origin"
 export LESS="--RAW-CONTROL-CHARS -RS#3NM~g" # allow colorize and line numbers
 [[ -f $HOME/.LESS_TERMCAP ]] && . $HOME/.LESS_TERMCAP || echo "\".LESS_TERMCAP\" not found. Is it there?"
 [[ -f $HOME/.COLORIZE_PROMPT ]] && . $HOME/.COLORIZE_PROMPT || echo "\".COLORIZE_PROMPT\" not found. Is it there?"
+# Enable italics in tmux
+export TERM=xterm-256color-italic
 
 #  Bash completion
 # -------------------------

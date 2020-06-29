@@ -47,6 +47,9 @@ set -g renumber-windows on
 
 # -- display -------------------------------------------------------------------
 
+# Enable italics
+set -g default-terminal "xterm-256color-italic"
+
 # RGB 24-bit colour support (tmux >= 2.2), possible values are:
 #  - true
 #  - false (default)
