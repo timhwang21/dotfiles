@@ -240,7 +240,8 @@ let g:startify_session_delete_buffers = 0
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFind<CR>
 
-let NERDTreeShowHidden=2
+" Show hidden
+let NERDTreeShowHidden=1
 " Inline menu with `m` shortcut
 let NERDTreeMinimalMenu=1
 " Hide help message, etc.
@@ -249,6 +250,51 @@ let NERDTreeMinimalUI=1
 let NERDTreeChDirMode=2
 " Initial NERDTree width
 let NERDTreeWinSize=36
+" Always autoclose buffers on file move/delete
+let NERDTreeAutoDeleteBuffer=1
+
+" Nerdtree syntax highlighting
+" Try to speed up rendering
+let g:NERDTreeHighlightCursorline=0
+
+" Limit syntaxes for speed
+let g:NERDTreeSyntaxDisableDefaultExtensions = 1
+let g:NERDTreeSyntaxEnabledExtensions = [
+  \'bash',
+  \'bmp',
+  \'diff',
+  \'gif',
+  \'hs',
+  \'ico',
+  \'lhs',
+  \'png',
+  \'sh',
+  \'sql',
+  \'ts',
+  \'tsx',
+  \'vim',
+  \'webp',
+  \'conf',
+  \'css',
+  \'erb',
+  \'html',
+  \'ini',
+  \'jpeg',
+  \'jpeg',
+  \'jpg',
+  \'js',
+  \'json',
+  \'jsx',
+  \'md',
+  \'mdx',
+  \'py',
+  \'rb',
+  \'sass', 
+  \'scss', 
+  \'yaml',
+  \'yml'
+  \]
+let g:NERDTreeSyntaxDisableDefaultPatternMatches = 1
 " }}}
 " echodoc {{{
 let g:echodoc#enable_at_startup = 1
