@@ -67,7 +67,7 @@ rm -rf powerline-shell
 
 # powerline fonts
 brew tap homebrew/cask-fonts
-brew cask install font-meslo-nerd-font font-inconsolata-nerd-font font-fira-code-nerd-font
+brew cask install font-fira-code-nerd-font font-jetbrainsmono-nerd-font
 
 # nvm
 mkdir -p ~/.nvm
