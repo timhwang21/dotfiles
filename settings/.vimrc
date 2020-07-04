@@ -1,3 +1,42 @@
+" plug {{{
+call plug#begin(stdpath('data') . '/plugged')
+Plug 'airblade/vim-gitgutter'
+Plug 'aliou/sql-heredoc.vim'
+Plug 'alvan/vim-closetag'
+" Plug 'dense-analysis/ale'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'janko/vim-test'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'mhinz/vim-startify'
+Plug 'mileszs/ack.vim'
+Plug 'mogelbrod/vim-jsonpath'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'Shougo/echodoc.vim'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'Valloric/MatchTagAlways'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug '/usr/local/opt/fzf'
+" This must be at the end, as per docs
+Plug 'ryanoasis/vim-devicons'
+call plug#end()
+" installation -- :source % :PlugInstall
+" }}}
 " Settings {{{
 set mouse=a " enable mouse reporting
 set nowrap
@@ -463,54 +502,6 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " renap range format
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-" }}}
-" plug {{{
-call plug#begin(stdpath('data') . '/plugged')
-Plug 'airblade/vim-gitgutter'
-Plug 'aliou/sql-heredoc.vim'
-Plug 'alvan/vim-closetag'
-" Plug 'dense-analysis/ale'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'flazz/vim-colorschemes'
-Plug 'janko/vim-test'
-Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'mhinz/vim-startify'
-Plug 'mileszs/ack.vim'
-Plug 'mogelbrod/vim-jsonpath'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'Shougo/echodoc.vim'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-surround'
-Plug 'Valloric/MatchTagAlways'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'Yggdroot/indentLine'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-Plug '/usr/local/opt/fzf'
-" This must be at the end, as per docs
-Plug 'ryanoasis/vim-devicons'
-call plug#end()
-" installation -- :source % :PlugInstall
-" }}}
-" TEMP: fix Typescript syntax highlighting {{{
-" vim-polyglot's Typescript is supposedly better but has weird errors.
-" Fall back to the old one, and maybe reevaluate once they update.
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-augroup filetypedetect
-  autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
-augroup end
 " }}}
 " Meta {{{
 set modelines=1 " for page folding
