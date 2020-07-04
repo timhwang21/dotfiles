@@ -66,13 +66,12 @@ colorscheme monokai
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
-set guifont=MesloLGMDZ_Nerd_Font:h12 " set font independently from terminal
 set background=dark
 set colorcolumn=120
 highlight ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
 set cursorline
 set number relativenumber
-set noshowmode
+set noshowmode " don't show mode -- defer to powerline
 set ruler
 set title
 set signcolumn=yes
@@ -80,10 +79,6 @@ syntax on
 hi CursorLineNR cterm=bold
 hi Comment cterm=italic
 set shortmess+=A " ignore .swp files
-" }}}
-" netrw {{{
-let g:netrw_liststyle=3 " always show tree view in :Ex
-let g:netrw_banner=0
 " }}}
 " Buffer configuration {{{
 set hidden " hide buffers on switch instead of trying to close
@@ -201,7 +196,11 @@ let g:mta_filetypes = {
 \  'html': 1,
 \  'xml': 1,
 \  'javascript.jsx': 1,
+\  'typescript.tsx': 1,
 \}
+let g:mta_use_matchparen_group=0 " don't use same syntax as highlighting parens etc.
+let g:mta_set_default_matchtag_color=0 " don't use default highlighting
+highlight MatchTag cterm=bold ctermbg=237 gui=bold guibg=#3c3d37
 " }}}
 " vim-airline {{{
 let g:airline#extensions#tabline#enabled = 1
