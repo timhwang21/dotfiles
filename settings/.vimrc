@@ -107,17 +107,18 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 set background=dark
 set colorcolumn=120
-highlight ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
 set cursorline
 set number relativenumber
 set noshowmode " don't show mode -- defer to powerline
 set ruler
 set title
 set signcolumn=yes
-syntax on
-hi CursorLineNR cterm=bold
-hi Comment cterm=italic
 set shortmess+=A " ignore .swp files
+highlight ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
+highlight CursorLineNR cterm=bold gui=bold
+" }}}
+" Custom syntax highlighting {{{
+highlight Comment cterm=italic gui=italic
 " }}}
 " Buffer configuration {{{
 set hidden " hide buffers on switch instead of trying to close
