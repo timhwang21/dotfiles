@@ -232,7 +232,13 @@ let g:startify_lists = [
 \ ]
 " Change dir to Git root when opening file in different dir
 let g:startify_change_to_vcs_root = 1
-let g:startify_bookmarks = [ {'b': '~/.bashrc'}, {'v': '~/.vimrc'}, {'t': '~/.tmux.conf.local'}, {'K': '~/.config/kitty/kitty.conf'} ]
+let g:startify_bookmarks = [
+\ {'b': '~/.bashrc'},
+\ {'c': '~/.config/nvim/coc-settings.json'},
+\ {'K': '~/.config/kitty/kitty.conf'},
+\ {'t': '~/.tmux.conf.local'},
+\ {'v': '~/.vimrc'}
+\]
 let g:startify_session_autoload = 1
 let g:startify_session_persistence = 1
 let g:startify_session_delete_buffers = 0
