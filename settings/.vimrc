@@ -173,19 +173,19 @@ if executable('ag')
 endif
 " }}}
 " ale (linting) {{{
-let g:ale_sign_error = "🔺"
-let g:ale_sign_warning = "🔸"
-highlight ALEError ctermbg=237 cterm=underline
-highlight ALEWarning ctermbg=237 cterm=underline
-highlight ALEErrorSign ctermbg=237
-highlight ALEWarningSign ctermbg=237
-let g:ale_linters = {
-\  'javascript': ['eslint'],
-\  'typescript': ['tslint'],
-\}
-let g:ale_fix_on_save = 0 " delegate to coc
-let g:ale_lint_on_text_changed = 'normal' " only lint on change in normal mode
-let g:ale_lint_on_insert_leave = 1 " only lint on exit in insert mode
+" let g:ale_sign_error = "🔺"
+" let g:ale_sign_warning = "🔸"
+" highlight ALEError ctermbg=237 cterm=underline
+" highlight ALEWarning ctermbg=237 cterm=underline
+" highlight ALEErrorSign ctermbg=237
+" highlight ALEWarningSign ctermbg=237
+" let g:ale_linters = {
+" \  'javascript': ['eslint'],
+" \  'typescript': ['tslint'],
+" \}
+" let g:ale_fix_on_save = 0 " delegate to coc
+" let g:ale_lint_on_text_changed = 'normal' " only lint on change in normal mode
+" let g:ale_lint_on_insert_leave = 1 " only lint on exit in insert mode
 " }}}
 " wildmenu {{{
 set wildmenu
@@ -463,7 +463,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'aliou/sql-heredoc.vim'
 Plug 'alvan/vim-closetag'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'janko/vim-test'
