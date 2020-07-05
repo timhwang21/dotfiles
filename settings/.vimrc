@@ -431,6 +431,7 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 " coc.vim {{{
 " Declare and install missing dependencies
 let g:coc_global_extensions = [
+    \ "coc-actions",
     \ "coc-css",
     \ "coc-elixir",
     \ "coc-eslint",
@@ -548,9 +549,18 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-" renap range format
+" remap range format
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+" coc-actions
+" Remap for do codeAction of selected region
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+endfunction
+xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+
 " coc-git
 " show chunk diff at current position in floating window
 nmap gs <Plug>(coc-git-chunkinfo)
