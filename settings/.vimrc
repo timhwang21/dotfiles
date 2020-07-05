@@ -101,8 +101,8 @@ autocmd BufWritePre *.md %s/\s\+$//e
 " Display {{{
 colorscheme monokai
 " fix termguicolors for vimdiff
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 set background=dark
 set colorcolumn=120
@@ -113,11 +113,61 @@ set ruler
 set title
 set signcolumn=yes
 set shortmess+=A " ignore .swp files
-highlight ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
-highlight CursorLineNR cterm=bold gui=bold
 " }}}
-" Custom syntax highlighting {{{
-highlight Comment cterm=italic gui=italic
+" Custom highlighting {{{
+" From: https://github.com/flazz/vim-colorschemes/blob/master/colors/Monokai.vim
+" White="#f8f8f0"
+" Black="#272822"
+" Gray100="#f8f8f2"
+" Gray200="#90908a"
+" Gray300="#75715e"
+" Gray400="#64645e"
+" Gray500="#49483e"
+" Gray600="#3c3d37"
+" Gray700="#31322c"
+" Magenta="#f92672"
+" Red="#8b0807"
+" Orange="#fd971f"
+" Yellow="#e6db74"
+" GreenLight="#a6e22e"
+" GreenDark="#46830c"
+" Purple="#ae81ff"
+" Teal="#66d9ef"
+" BlueLight="#204a87"
+" BlueDark="#243955"
+
+" UI elements
+highlight CocFloating guibg=#3c3d37
+highlight ColorColumn guifg=NONE guibg=#31322c gui=NONE
+highlight CursorLine guibg=#31322c
+highlight CursorLineNR guifg=#e6db74 guibg=#272822 gui=bold
+highlight LineNr guifg=#64645e guibg=#272822
+highlight SignColumn guibg=#272822
+" visual selection color
+highlight Visual guibg=#3c3d37
+highlight VertSplit guifg=#3c3d37 guibg=#3c3d37
+" for lines under last text line
+highlight NonText guifg=#272822 guibg=#272822
+
+" Syntax
+highlight Comment gui=italic
+" overwrite nvim colors for diff files
+highlight diffAdded guifg=#a6e22e gui=italic
+highlight diffRemoved guifg=#f92672 gui=italic
+highlight diffChanged guifg=#66d9ef gui=italic
+" GitGutter
+highlight GitGutterAdd guifg=#a6e22e guibg=#272822
+highlight GitGutterDelete guifg=#f92672 guibg=#272822
+highlight GitGutterChange guifg=#66d9ef guibg=#272822
+
+" identify syntax group under cursor
+nmap <leader>hi :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 " }}}
 " Buffer configuration {{{
 set hidden " hide buffers on switch instead of trying to close
@@ -239,7 +289,7 @@ let g:mta_filetypes = {
 \}
 let g:mta_use_matchparen_group=0 " don't use same syntax as highlighting parens etc.
 let g:mta_set_default_matchtag_color=0 " don't use default highlighting
-highlight MatchTag cterm=bold ctermbg=237 gui=bold guibg=#3c3d37
+highlight MatchTag gui=bold guibg=#3c3d37
 " }}}
 " vim-airline {{{
 let g:airline#extensions#tabline#enabled = 1
@@ -304,6 +354,7 @@ let NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeHighlightCursorline=0
 
 " Limit syntaxes for speed
+let g:NERDTreeHighlightFolders = 0
 let g:NERDTreeSyntaxDisableDefaultExtensions = 1
 let g:NERDTreeSyntaxEnabledExtensions = [
   \'bash',
@@ -395,8 +446,6 @@ let g:coc_global_extensions = [
     \ "coc-vimlsp"
     \]
 
-" Use lighter gray for hover window bg
-highlight CocFloating ctermbg=0 guibg=#3d3d38 
 " Settings almost directly copied from: https://github.com/neoclide/coc.nvim#example-vim-configuration
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
