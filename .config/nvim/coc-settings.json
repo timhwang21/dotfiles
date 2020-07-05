@@ -32,22 +32,25 @@
     "default": "\uf29c"
   },
   //diagnostic
-  "diagnostic.errorSign": "▍",
-  "diagnostic.warningSign": "▍",
-  "diagnostic.infoSign": "▍",
-  //"diagnostic.refreshOnInsertMode": true,
+  "diagnostic.errorSign": " •",
+  "diagnostic.warningSign": " •",
+  "diagnostic.infoSign": " •",
   "diagnostic.virtualText": true,
-  "diagnostic.maxWindowHeight": 40,
+  "diagnostic.maxWindowHeight": 50,
   //git
   "git.branchCharacter": "\uf408",
-  //"git.addGBlameToBufferVar": true,
   "git.addGBlameToVirtualText": true,
   "git.virtualTextPrefix": "    ❯❯❯ ",
-  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.text": "▍~", // U+258x D
+  "git.addedSign.text": "▍+",
+  "git.removedSign.text": "▍-",
+  "git.topRemovedSign.text": "▔▔", // U+259x 4
+  "git.changeRemovedSign.text": "▍≃",
   "git.changedSign.hlGroup": "GitGutterChange",
+  "git.addedSign.hlGroup": "GitGutterAdd",
   "git.removedSign.hlGroup": "GitGutterDelete",
   "git.topRemovedSign.hlGroup": "GitGutterDelete",
-  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterDelete",
   //Snippet
   "coc.preferences.snippetStatusText": "Ⓢ ",
   "coc.preferences.formatOnSaveFiletypes": [
@@ -101,4 +104,3 @@
     }
   }
 }
-
