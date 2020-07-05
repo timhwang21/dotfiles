@@ -1,6 +1,5 @@
 " plug {{{
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'airblade/vim-gitgutter'
 Plug 'aliou/sql-heredoc.vim'
 Plug 'alvan/vim-closetag'
 " Plug 'dense-analysis/ale'
@@ -503,6 +502,17 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " renap range format
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+" coc-git
+" show chunk diff at current position in floating window
+nmap gs <Plug>(coc-git-chunkinfo)
+" navigate chunks of current buffer
+nmap [c <Plug>(coc-git-prevchunk)
+nmap ]c <Plug>(coc-git-nextchunk)
+" create text object for git chunks (inner chunk etc.)
+omap ic <Plug>(coc-git-chunk-inner)
+xmap ic <Plug>(coc-git-chunk-inner)
+omap ac <Plug>(coc-git-chunk-outer)
+xmap ac <Plug>(coc-git-chunk-outer)
 " }}}
 " Meta {{{
 set modelines=1 " for page folding
