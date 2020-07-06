@@ -408,7 +408,7 @@ let g:indentLine_faster = 1
 let g:indentLine_color_term = 237
 let g:indentLine_color_gui = '#3c3d37'
 " disable for markup-type files
-autocmd FileType markdown let g:indentLine_enabled = 0
+let g:indentLine_fileTypeExclude = ['startify', 'markdown']
 " }}}
 " vim-closetag {{{
 " These are the file extensions where this plugin is enabled.
