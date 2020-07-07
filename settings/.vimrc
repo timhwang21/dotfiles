@@ -116,9 +116,9 @@ set shortmess+=A " ignore .swp files
 " }}}
 " Custom highlighting {{{
 " From: https://github.com/flazz/vim-colorschemes/blob/master/colors/Monokai.vim
-" White="#f8f8f0"
+" White="#f8f8f2"
 " Black="#272822"
-" Gray100="#f8f8f2"
+" Gray100="#f8f8f0"
 " Gray200="#90908a"
 " Gray300="#75715e"
 " Gray400="#64645e"
