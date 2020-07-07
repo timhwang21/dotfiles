@@ -76,9 +76,9 @@ map <silent> <F1> :Startify<CR>
 map <silent> <F2> :bprevious<CR>
 map <silent> <F3> :bnext<CR>
 " Close the current buffer and show previous without closing split
-map <silent> <F4> :bp<bar>sp<bar>bn<bar>bd<CR>
+map <silent> <F4> :bn<bar>sp<bar>bp<bar>bd<CR>
 " Close the current buffer and show next without closing split
-map <silent> <F5> :bn<bar>sp<bar>bp<bar>bd<CR>
+map <silent> <F5> :bp<bar>sp<bar>bn<bar>bd<CR>
 " Use `F7` and `F8` to navigate diagnostics
 nmap <silent> <F7> <Plug>(coc-diagnostic-next)
 nmap <silent> <F8> <Plug>(coc-diagnostic-prev)
