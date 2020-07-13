@@ -563,7 +563,7 @@ nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<C
 
 " coc-git
 " show chunk diff at current position in floating window
-nmap gs <Plug>(coc-git-chunkinfo)
+nmap <leader>gd <Plug>(coc-git-chunkinfo)
 " navigate chunks of current buffer
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
