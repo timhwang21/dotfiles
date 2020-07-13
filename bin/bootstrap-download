@@ -26,6 +26,7 @@ brew install --HEAD neovim
 brew install pandoc
 brew install pgcli
 brew install postgresql
+brew install proselint
 brew install python # python 3
 ln -s /usr/local/bin/python3 /usr/local/bin/python # allow us to type python instead of python3
 brew install source-highlight
@@ -87,6 +88,7 @@ fi
 # Change extension names to the extensions you need
 npm install \
   coc-css \
+  coc-diagnostic \
   coc-elixir \
   coc-eslint \
   coc-git \

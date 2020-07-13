@@ -32,11 +32,49 @@
     "default": "\uf29c"
   },
   //diagnostic
+  "diagnostic.hintSign": " •",
   "diagnostic.errorSign": " •",
   "diagnostic.warningSign": " •",
   "diagnostic.infoSign": " •",
   "diagnostic.virtualText": true,
   "diagnostic.maxWindowHeight": 50,
+  // diagnostic-languageserver
+  "diagnostic-languageserver.filetypes": {
+    "markdown": [
+      "proselint",
+      "markdownlint"
+    ],
+    "text": [
+      "proselint"
+    ]
+  },
+  "diagnostic-languageserver.linters": {
+    "proselint": {
+      "command": "proselint",
+      "isStdout": true,
+      "isStderr": false,
+      "debounce": 100,
+      "args": [
+        "-"
+      ],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "proselint",
+      "formatLines": 1,
+      "formatPattern": [
+        "^[^:]+:(\\d+):(\\d+):(\\s)(.*)$",
+        {
+          "line": 1,
+          "column": 2,
+          "security": 3,
+          "message": 4
+        }
+      ],
+      "securities": {
+        " ": "info"
+      }
+    }
+  },
   //git
   "git.branchCharacter": "\uf408",
   "git.virtualTextPrefix": "    ❯❯❯ ",
