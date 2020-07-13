@@ -36,10 +36,12 @@
   "diagnostic.errorSign": " •",
   "diagnostic.warningSign": " •",
   "diagnostic.infoSign": " •",
-  "diagnostic.virtualText": true,
   "diagnostic.maxWindowHeight": 50,
   // diagnostic-languageserver
   "diagnostic-languageserver.filetypes": {
+    "gitcommit": [
+      "proselint"
+    ],
     "markdown": [
       "proselint",
       "markdownlint"
@@ -77,6 +79,7 @@
   },
   //git
   "git.branchCharacter": "\uf408",
+  "git.addGBlameToVirtualText": true,
   "git.virtualTextPrefix": "    ❯❯❯ ",
   "git.changedSign.text": "▍~", // U+258x D
   "git.addedSign.text": "▍+",
