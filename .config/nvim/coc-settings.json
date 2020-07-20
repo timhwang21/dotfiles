@@ -32,10 +32,10 @@
     "default": "\uf29c"
   },
   //diagnostic
-  "diagnostic.hintSign": " •",
-  "diagnostic.errorSign": " •",
-  "diagnostic.warningSign": " •",
-  "diagnostic.infoSign": " •",
+  "diagnostic.hintSign": " •", // U+2009 instead of regular whitespace to avoid breaking gutter
+  "diagnostic.errorSign": " •",
+  "diagnostic.warningSign": " •",
+  "diagnostic.infoSign": " •",
   "diagnostic.maxWindowHeight": 50,
   // diagnostic-languageserver
   "diagnostic-languageserver.filetypes": {
