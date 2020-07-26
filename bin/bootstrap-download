@@ -38,6 +38,8 @@ brew install tmux
 brew install typespeed
 brew install vim # override system default
 brew install yarn
+brew tap wtfutil/wtfutil
+brew install wtfutil # customizable dashboard
 brew tap cjbassi/ytop
 brew install ytop
 

@@ -3,6 +3,9 @@
 # Reset config on re-source
 source /etc/profile
 
+# Secrets
+[ -f ~/.secrets ] && source ~/.secrets
+
 ###########################
 ##                       ##
 ##      C O N F I G      ##
@@ -187,3 +190,7 @@ if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then source "$HOME/googl
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+#  wtfutil
+# -------------------------
+export PATH="$HOME/.config/wtf/bin:$PATH"
