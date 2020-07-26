@@ -17,11 +17,10 @@ brew install git # override xcode default
 brew install git-extras
 brew install gnu-sed --with-default-names # installs bin/sed instead of bin/gsed
 brew install gnupg
-brew tap cjbassi/ytop
-brew install ytop
 brew install haskell-stack
 brew install hub
 brew install jq
+brew install navi # cheat sheets
 brew install --HEAD neovim
 brew install pandoc
 brew install pgcli
@@ -39,6 +38,8 @@ brew install tmux
 brew install typespeed
 brew install vim # override system default
 brew install yarn
+brew tap cjbassi/ytop
+brew install ytop
 
 # RVM
 # Check RVM keys
