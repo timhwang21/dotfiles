@@ -2,7 +2,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'aliou/sql-heredoc.vim'
 Plug 'alvan/vim-closetag'
-" Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'janko/vim-test'
@@ -417,6 +416,10 @@ let g:closetag_xhtml_filenames = '*.jsx,*.tsx'
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
 let g:closetag_emptyTags_caseSensitive = 1
 " }}}
+" vim-easyalign {{{
+" align markdown tables on |
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+" }}}
 " vim-jsonpath {{{
 " Optionally copy path to a named register (* in this case) when calling :JsonPath
 let g:jsonpath_register = '*'
@@ -424,9 +427,9 @@ let g:jsonpath_register = '*'
 au FileType json noremap <buffer> <silent> <expr> <leader>p jsonpath#echo()
 au FileType json noremap <buffer> <silent> <expr> <leader>g jsonpath#goto()
 " }}}
-" vim-easyalign {{{
-" align markdown tables on |
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+" vim-test {{{
+" Open tests in a new split
+let test#strategy = "neovim" " good
 " }}}
 " coc.vim {{{
 " Declare and install missing dependencies
