@@ -156,6 +156,19 @@ wtf:
         height: 3
         width: 1
       refreshInterval: 30
+    mutagen-sync-monitor:
+      title: "☢️ Mutagen Sync"
+      type: cmdrunner
+      cmd: "mutagen-sync-monitor"
+      args: [""]
+      enabled: true
+      tail: true
+      position:
+        top: 3
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 1
     docker-logs:
       title: "persona-web logs"
       type: cmdrunner
@@ -165,7 +178,7 @@ wtf:
       tail: true
       position:
         top: 3
-        left: 0
+        left: 1
         height: 1
         width: 5
       refreshInterval: 1

@@ -1,0 +1,4 @@
+#!/bin/bash
+# script to check sync status
+mutagen sync monitor
+
