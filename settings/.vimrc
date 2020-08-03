@@ -436,12 +436,13 @@ let test#strategy = "neovim"
 let g:coc_global_extensions = [
     \ "coc-actions",
     \ "coc-css",
-    \ "coc-elixir",
     \ "coc-eslint",
     \ "coc-git",
     \ "coc-highlight",
+    \ "coc-html",
     \ "coc-jest",
     \ "coc-json",
+    \ "coc-lists",
     \ "coc-pairs",
     \ "coc-prettier",
     \ "coc-solargraph",
@@ -449,7 +450,8 @@ let g:coc_global_extensions = [
     \ "coc-svg",
     \ "coc-tslint-plugin",
     \ "coc-tsserver",
-    \ "coc-vimlsp"
+    \ "coc-vimlsp",
+    \ "coc-yaml"
     \]
 
 " Settings almost directly copied from: https://github.com/neoclide/coc.nvim#example-vim-configuration
