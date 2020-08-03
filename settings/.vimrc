@@ -5,7 +5,7 @@ Plug 'alvan/vim-closetag'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'janko/vim-test'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-startify'
@@ -441,6 +441,7 @@ let g:coc_global_extensions = [
     \ "coc-git",
     \ "coc-highlight",
     \ "coc-json",
+    \ "coc-pairs",
     \ "coc-prettier",
     \ "coc-solargraph",
     \ "coc-styled-components",
