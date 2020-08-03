@@ -4,7 +4,7 @@ Plug 'aliou/sql-heredoc.vim'
 Plug 'alvan/vim-closetag'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
-Plug 'janko/vim-test'
+" Plug 'janko/vim-test'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
@@ -429,7 +429,7 @@ au FileType json noremap <buffer> <silent> <expr> <leader>g jsonpath#goto()
 " }}}
 " vim-test {{{
 " Open tests in a new split
-let test#strategy = "neovim" " good
+let test#strategy = "neovim"
 " }}}
 " coc.vim {{{
 " Declare and install missing dependencies
@@ -440,6 +440,7 @@ let g:coc_global_extensions = [
     \ "coc-eslint",
     \ "coc-git",
     \ "coc-highlight",
+    \ "coc-jest",
     \ "coc-json",
     \ "coc-pairs",
     \ "coc-prettier",
@@ -576,6 +577,15 @@ omap ic <Plug>(coc-git-chunk-inner)
 xmap ic <Plug>(coc-git-chunk-inner)
 omap ac <Plug>(coc-git-chunk-outer)
 xmap ac <Plug>(coc-git-chunk-outer)
+
+" coc-jest
+" Run jest for current file
+command! -nargs=0 JestFile :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+nnoremap <leader>jf :call CocAction('runCommand', 'jest.fileTest', ['%'])<CR>
+
+" Run jest for current test
+command! -nargs=0 JestCurr :call  CocAction('runCommand', 'jest.singleTest')
+nnoremap <leader>jc :call CocAction('runCommand', 'jest.singleTest')<CR>
 " }}}
 " Meta {{{
 set modelines=1 " for page folding
