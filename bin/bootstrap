@@ -7,21 +7,21 @@ shopt -s dotglob
 
 # symlink dotfiles, skipping directories
 for filename in settings/*; do
-  if [ ! -d "$filename" ]; then
+  if [ ! -a "$filename" ]; then
     ln -fs "$DIR/../$filename" "$HOME/$(basename "$filename")"
   fi
 done
 
 # symlink sources, skipping directories
 for filename in sources/*; do
-  if [ ! -d "$filename" ]; then
+  if [ ! -a "$filename" ]; then
     ln -fs "$DIR/../$filename" "$HOME/$(basename "$filename")"
   fi
 done
 
 # symlink app specific config
 for filename in .config/*; do
-  if [ ! -d "$filename" ]; then
+  if [ ! -a "$filename" ]; then
     ln -fs "$DIR/../$filename" "$HOME/.config/$(basename "$filename")"
   fi
 done

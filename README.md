@@ -17,18 +17,15 @@ Dotfiles
 git clone https://github.com/timhwang21/dotfiles.git
 cd dotfiles
 # Initial setup: install from brew, git, etc.
-chmod +x bootstrap-download.sh
-sh bootstrap-download.sh
+bin/bootstrap-download
 # Install from local files
-chmod +x bootstrap.sh
-sh bootstrap.sh
+bin/bootstrap
 ```
 
 ## MacOS Applications
 
-* 2do
 * Adobe
-* Alfred 3 (not 2, from app store)
+* Alfred 4
 * Chrome
 * Discord
 * Divvy
@@ -36,7 +33,6 @@ sh bootstrap.sh
 * Dropbox
 * Fantastical
 * Firefox
-* GIPHY Capture
 * GPG Keychain
 * iTerm
 * Lastpass
@@ -46,6 +42,13 @@ sh bootstrap.sh
 * Steam
 * Sublime Text 3
 * VLC
+
+## Other manual steps
+
+### SSH key
+
+* Generate SSH key and add to `ssh-agent`
+* Add key to sites that need it
 
 ## TODO
 

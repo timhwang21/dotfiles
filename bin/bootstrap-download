@@ -72,7 +72,7 @@ sudo rm -rf powerline-shell
 
 # powerline fonts
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code-nerd-font font-jetbrainsmono-nerd-font
+brew cask install font-fira-code-nerd-font font-jetbrains-mono-nerd-font
 
 # nvm
 mkdir -p ~/.nvm
