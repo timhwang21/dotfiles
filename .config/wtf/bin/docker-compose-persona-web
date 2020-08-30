@@ -1,5 +1,5 @@
 #!/bin/bash
 # script to tail persona-web container
-cd ~/Development/Bitbucket/persona-web
+cd ~/Development/persona-web
 docker-compose logs --tail=25 --follow web
 
