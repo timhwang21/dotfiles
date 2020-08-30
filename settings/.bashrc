@@ -79,7 +79,6 @@ alias recommit="git commit -C HEAD@{1}"
 
 #  3b. branch mgmt
 # -------------------------
-alias gb="git branch -v | cat"
 function gcb() { git checkout -b $USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
 function _fuzzybranch() { git branch | grep -m 1 "$@" | tr -d "* "; } # fuzzy match branch names
 function gch() { _fuzzybranch "$@" | xargs git checkout; } # quick git checkout for long branch names
@@ -121,8 +120,53 @@ alias dc="docker-compose"
 alias less='less -m -N -g -i -J --underline-special --SILENT'
 
 # ========================
-#  6. UNUSED
+#  6. fzf
 # ========================
+#
+# https://github.com/junegunn/fzf/wiki/Examples
+# 
+# fe - fzf edit
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+# Add fasd on top of this for frecency
+function fe() {
+  IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --ansi --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+# gb - fzf branch
+# checkout git branch/tag, with a preview showing the commits between the tag/branch and HEAD
+function gb() {
+  local branches branch
+  branches=$(git --no-pager branch -vv) &&
+  branch=$(echo "$branches" | fzf --query="$1" --height 40% --no-multi --no-hscroll -n 1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# Select a docker container to start and attach to
+function da() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
+}
+
+# Select a running docker container to stop
+function ds() {
+  local cid
+  cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker stop "$cid"
+}
+
+# Select a docker container to remove
+function drm() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker rm "$cid"
+}
 
 # ========================
 #  7. UNUSED
@@ -131,8 +175,6 @@ alias less='less -m -N -g -i -J --underline-special --SILENT'
 # ========================
 #  8. watchers
 # ========================
-alias ww="webpack --watch"
-alias sw="sass --watch"
 
 # ========================
 #  9. Java
