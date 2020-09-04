@@ -82,16 +82,28 @@ alias recommit="git commit -C HEAD@{1}"
 # -------------------------
 function gcb() { git checkout -b $USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
 function _fuzzybranch() { git branch | grep -m 1 "$@" | tr -d "* "; } # fuzzy match branch names
-function gch() { _fuzzybranch "$@" | xargs git checkout; } # quick git checkout for long branch names
-function gbd() { _fuzzybranch "$@" | xargs git branch -D; gb; } # quick delete -- careful, this fuzzy matches
-function gdiff() { _fuzzybranch "$@" | xargs git rev-parse | xargs git diff HEAD..; } # difference between head and branch
 alias gd="git diff master..."
-alias gch-="git checkout -"
-alias changed="git diff --name-only origin/master"
 alias changed-commit="git diff-tree --no-commit-id --name-only -r"
+alias changed="git diff --name-only origin/master"
 alias openchanged='$EDITOR -p `changed`'
 alias gch--.="git checkout -- ." # reset local changes on branch
 alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
+# gch - fzf git checkout
+# checkout git branch/tag, with a preview showing the commits between the tag/branch and HEAD
+function gch() {
+  local branches branch
+  branches=$(git --no-pager branch -vv) &&
+  branch=$(echo "$branches" | fzf -0 -1 -q "$1" +m --height 40% --no-hscroll -n 1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# gbd - fzf git branch delete
+function gbd() {
+  local branches branch
+  branches=$(git --no-pager branch -vv) &&
+  branch=$(echo "$branches" | fzf -0 -1 -q "$1" +m --height 40% --no-hscroll -n 1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
+  git branch -d $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
 
 #  3c. pulling
 # -------------------------
@@ -115,6 +127,47 @@ alias gr="git remote -v"
 # ========================
 alias dc="docker-compose"
 
+# Runs a command in a container
+function dc-run() {
+  local service command
+  service=$(docker-compose ps -a --services | fzf -0 -1 -q "$1" +m --height 40% --no-preview --ansi)
+  command=${2:-/bin/bash}
+
+  [ -n "$service" ] && docker-compose run --rm "$service" "$command"
+}
+
+function dc-logs() {
+  local service tail
+  service=$(docker-compose ps -a --services | fzf -0 -1 -q "$1" +m --height 40% --no-preview --ansi)
+  tail=${2:-200}
+
+  [ -n "$service" ] && docker-compose logs --tail="$tail" -f "$service"
+}
+
+# Select a docker container to start and attach to
+function da() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -0 -1 -q "$1" +m --height 40% --no-preview --ansi | awk '{print $1}')
+
+  [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
+}
+
+# Select a running docker container to stop
+function ds() {
+  local cid
+  cid=$(docker ps | sed 1d | fzf -0 -1 -q "$1" -m --height 40% --no-preview --ansi | awk '{print $1}')
+
+  [ -n "$cid" ] && docker stop "$cid"
+}
+
+# Select a docker container to remove
+function drm() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -0 -1 -q "$1" -m --height 40% --no-preview --ansi | awk '{print $1}')
+
+  [ -n "$cid" ] && docker rm "$cid"
+}
+
 # ========================
 #  5. less
 # ========================
@@ -132,41 +185,8 @@ alias less='less -m -N -g -i -J --underline-special --SILENT'
 #   - Exit if there's no match (--exit-0)
 # Add fasd on top of this for frecency
 function fe() {
-  IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --ansi --exit-0))
+  IFS=$'\n' files=($(fzf -0 -1 -q "$1" -m --ansi))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
-}
-
-# gch - fzf git checkout
-# checkout git branch/tag, with a preview showing the commits between the tag/branch and HEAD
-function gch() {
-  local branches branch
-  branches=$(git --no-pager branch -vv) &&
-  branch=$(echo "$branches" | fzf --query="$1" --height 40% --no-multi --no-hscroll -n 1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-}
-
-# Select a docker container to start and attach to
-function da() {
-  local cid
-  cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
-
-  [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
-}
-
-# Select a running docker container to stop
-function ds() {
-  local cid
-  cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
-
-  [ -n "$cid" ] && docker stop "$cid"
-}
-
-# Select a docker container to remove
-function drm() {
-  local cid
-  cid=$(docker ps -a | sed 1d | fzf -q "$1" | awk '{print $1}')
-
-  [ -n "$cid" ] && docker rm "$cid"
 }
 
 # ========================
