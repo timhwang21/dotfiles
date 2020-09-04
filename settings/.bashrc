@@ -71,6 +71,7 @@ alias git="hub" # requires Hub to work -- brew install hub
 # -------------------------
 alias ga="git add -A"
 alias gc="git commit"
+alias gb="git --no-pager branch"
 function gacm() { ga && gcm "$@"; }
 function gcm() { git commit -m "$@"; }
 function greb() { git rebase -i HEAD~"$@"; }
@@ -135,9 +136,9 @@ function fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
-# gb - fzf branch
+# gch - fzf git checkout
 # checkout git branch/tag, with a preview showing the commits between the tag/branch and HEAD
-function gb() {
+function gch() {
   local branches branch
   branches=$(git --no-pager branch -vv) &&
   branch=$(echo "$branches" | fzf --query="$1" --height 40% --no-multi --no-hscroll -n 1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
