@@ -68,6 +68,21 @@ vnoremap <Up> :<C-u>echo "No up for you!"<CR>
 set mmp=5000
 " Don't waste time redrawing when running macros etc.
 set lazyredraw
+" Better handling of movement commands when line wrap
+noremap <expr> G &wrap ? "G$g0" : "G"
+noremap <expr> 0 &wrap ? 'g0' : '0'
+noremap <expr> $ &wrap ? "g$" : "$"
+noremap <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <expr> k (v:count == 0 ? 'gk' : 'k')
+" Visual mode improvements
+" Fixed I/A
+xnoremap <expr> I mode() ==# 'v' ? "\<c-v>I" : mode() ==# 'V' ? "\<c-v>^o^I" : "I"
+xnoremap <expr> A mode() ==# 'v' ? "\<c-v>A" : mode() ==# 'V' ? "\<c-v>Oo$A" : "A"
+" Keep selection when indenting
+xnoremap < <gv
+xnoremap > >gv
+" Paste without overwriting default register (doesn't work with other registers)
+xnoremap p pgvy
 " }}}
 " Function keys {{{
 imap <silent> <F1> <Nop>
