@@ -93,6 +93,10 @@ export TERM=xterm-256color-italic
 [[ -f $HOME/.npm-completion.bash ]] && . $HOME/.npm-completion.bash || echo "\".npm-completion\" not found. Is it there?"
 [[ -f $HOME/.yarn-completion.bash ]] && . $HOME/.yarn-completion.bash || echo "\".yarn-completion\" not found. Is it there?"
 
+# Git completion
+# -------------------------
+[[ -f ~/.git-completion.bash ]] && . $HOME/.git-completion.bash || echo "\".git-completion\" not found. Is it there?"
+
 #  rupa.z
 # -------------------------
 # [[ -f $(brew --prefix)/bin/z.sh ]] && . $(brew --prefix)/bin/z.sh || echo "\"z.sh\" not installed. Is it there?"
