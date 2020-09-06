@@ -6,6 +6,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
 " Plug 'janko/vim-test'
 " Plug 'jiangmiao/auto-pairs'
+Plug 'jeanCarloMachado/vim-toop'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-startify'
@@ -16,6 +17,7 @@ Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/echodoc.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'timhwang21/vim-i18next'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -434,6 +436,11 @@ let g:closetag_emptyTags_caseSensitive = 1
 " vim-easyalign {{{
 " align markdown tables on |
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+" }}}
+" vim-i18next {{{
+" specify Persona i18next file
+autocmd BufRead,BufNewFile /Users/timothy/Development/Bitbucket/persona-web/*
+\ let g:i18next_locale_path = 'app/assets/locales/translation.en-US.json'
 " }}}
 " vim-jsonpath {{{
 " Optionally copy path to a named register (* in this case) when calling :JsonPath
