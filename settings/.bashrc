@@ -102,7 +102,7 @@ function gbd() {
   local branches branch
   branches=$(git --no-pager branch -vv) &&
   branch=$(echo "$branches" | fzf -0 -1 -q "$1" +m --height 40% --no-hscroll -n 1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
-  git branch -d $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  git branch -D $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
 #  3c. pulling
