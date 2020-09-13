@@ -238,7 +238,7 @@ nnoremap <leader>p :let @+ = expand("%")<CR>
 " }}}
 " fzf {{{
 nnoremap <C-p> :Files!<CR>
-nnoremap <leader>c :Commits!<CR>
+nnoremap <leader>co :Commits!<CR>
 nnoremap <leader>b :Buffers<CR>
 " gs = git status
 nnoremap <leader>gs :GFiles?<CR>
@@ -441,6 +441,8 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 " specify Persona i18next file
 autocmd BufRead,BufNewFile /Users/timothy/Development/Bitbucket/persona-web/*
 \ let g:i18next_locale_path = 'app/assets/locales/translation.en-US.json'
+nmap <silent> <leader>t :call i18next#echo_cursorline()<CR>
+nmap <silent> gt :call i18next#goto_cursorline()<CR>
 " }}}
 " vim-jsonpath {{{
 " Optionally copy path to a named register (* in this case) when calling :JsonPath
@@ -560,7 +562,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>d  :<C-u>CocList diagnostics<cr>
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
