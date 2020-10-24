@@ -3,6 +3,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'AndrewRadev/splitjoin.vim' " gJ to join, gS to split
 Plug 'aliou/sql-heredoc.vim'
 Plug 'alvan/vim-closetag'
+Plug 'coderifous/textobj-word-column.vim' " ic,ac,iC,aC to manipulate columns
 Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
 " Plug 'janko/vim-test'
