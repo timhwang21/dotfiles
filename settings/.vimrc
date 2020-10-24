@@ -6,8 +6,6 @@ Plug 'alvan/vim-closetag'
 Plug 'coderifous/textobj-word-column.vim' " ic,ac,iC,aC to manipulate columns
 Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
-" Plug 'janko/vim-test'
-" Plug 'jiangmiao/auto-pairs'
 Plug 'jeanCarloMachado/vim-toop'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
