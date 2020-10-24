@@ -1,5 +1,6 @@
 " plug {{{
 call plug#begin(stdpath('data') . '/plugged')
+Plug 'AndrewRadev/splitjoin.vim' " gJ to join, gS to split
 Plug 'aliou/sql-heredoc.vim'
 Plug 'alvan/vim-closetag'
 Plug 'editorconfig/editorconfig-vim'
