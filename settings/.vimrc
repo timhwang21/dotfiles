@@ -439,7 +439,7 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 " }}}
 " vim-i18next {{{
 " specify Persona i18next file
-autocmd BufRead,BufNewFile /Users/timothy/Development/Bitbucket/persona-web/*
+autocmd BufRead,BufNewFile ~/Development/persona-web/*
 \ let g:i18next_locale_path = 'app/assets/locales/translation.en-US.json'
 nmap <silent> <leader>t :call i18next#echo_cursorline()<CR>
 nmap <silent> gt :call i18next#goto_cursorline()<CR>
