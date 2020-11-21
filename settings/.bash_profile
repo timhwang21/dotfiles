@@ -17,11 +17,6 @@ export EDITOR='nvim'
 export GUI_EDITOR='code'
 set -o vi # use vim mode for editing prev commands
 
-# less syntax highlighting
-# -------------------------
-export LESSOPEN="| $(brew --prefix)/bin/src-hilite-lesspipe.sh %s"
-export LESS=" -R "
-
 #  grep colorize
 # -------------------------
 export GREP_OPTIONS='--color=auto'
@@ -72,12 +67,9 @@ export BAT_THEME="Monokai Extended Origin"
 [[ -f $HOME/.bashrc.home ]] && . $HOME/.bashrc.home
 # [[ -f $HOME/.bashrc.work ]] && . $HOME/.bashrc.work
 
-#  iTerm2 shell integration
-# -------------------------
-[[ -f $HOME/.iterm2_shell_integration.bash ]] && . $HOME/.iterm2_shell_integration.bash || echo "\".iterm2_shell_integration\" not found. Is it there?"
-
 #  Colorize prompt & less
 # -------------------------
+export LESSOPEN="| $(brew --prefix)/bin/src-hilite-lesspipe.sh %s"
 export LESS="--RAW-CONTROL-CHARS -RS#3NM~g" # allow colorize and line numbers
 [[ -f $HOME/.LESS_TERMCAP ]] && . $HOME/.LESS_TERMCAP || echo "\".LESS_TERMCAP\" not found. Is it there?"
 [[ -f $HOME/.COLORIZE_PROMPT ]] && . $HOME/.COLORIZE_PROMPT || echo "\".COLORIZE_PROMPT\" not found. Is it there?"
@@ -97,11 +89,6 @@ export TERM=xterm-256color-italic
 # -------------------------
 [[ -f ~/.git-completion.bash ]] && . $HOME/.git-completion.bash || echo "\".git-completion\" not found. Is it there?"
 
-#  rupa.z
-# -------------------------
-# [[ -f $(brew --prefix)/bin/z.sh ]] && . $(brew --prefix)/bin/z.sh || echo "\"z.sh\" not installed. Is it there?"
-
-#  Testing how this compares with rupa/z
 #  fasd
 # -------------------------
 [[ -f $(brew --prefix)/bin/fasd ]] && eval "$(fasd --init auto)" || echo "\"fasd\" not installed. Is it there?"
@@ -168,11 +155,6 @@ export PATH="/Library/Frameworks/Python.framework/Versions/3.3/bin:${PATH}"
 # -------------------------
 export PATH="/usr/local/Cellar/chromedriver:$PATH"
 
-#  Rbenv
-# -------------------------
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 #  Haskell
 # -------------------------
 export PATH="$HOME/Library/Haskell/bin:$PATH"
@@ -188,10 +170,6 @@ if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then source "$HOME/google-clou
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then source "$HOME/google-cloud-sdk/completion.bash.inc"; fi
-
-#  wtfutil
-# -------------------------
-export PATH="$HOME/.config/wtf/bin:$PATH"
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!
 # Do not put any PATH changes after this!

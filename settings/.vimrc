@@ -10,7 +10,6 @@ Plug 'jeanCarloMachado/vim-toop'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-startify'
-Plug 'mileszs/ack.vim'
 Plug 'mogelbrod/vim-jsonpath'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
@@ -268,11 +267,6 @@ command! -bang -nargs=* Rg
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-" }}}
-" ack {{{
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep --hidden'
-endif
 " }}}
 " ale (linting) {{{
 " let g:ale_sign_error = "🔺"
