@@ -13,10 +13,8 @@ Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
 Plug 'mogelbrod/vim-jsonpath'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/echodoc.vim'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'timhwang21/vim-i18next'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -29,7 +27,6 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug '/usr/local/opt/fzf'
 " This must be at the end, as per docs
@@ -237,8 +234,8 @@ set inccommand=nosplit
 nnoremap <leader>p :let @+ = expand("%")<CR>
 " }}}
 " fzf {{{
-nnoremap <C-p> :Files!<CR>
-nnoremap <leader>co :Commits!<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>co :Commits<CR>
 nnoremap <leader>b :Buffers<CR>
 " gs = git status
 nnoremap <leader>gs :GFiles?<CR>
@@ -348,66 +345,10 @@ let g:startify_session_autoload = 1
 let g:startify_session_persistence = 1
 let g:startify_session_delete_buffers = 0
 " }}}
-" nerdtree {{{
-nmap <C-n> :NERDTreeToggle<CR>
-nmap <leader>n :NERDTreeFind<CR>
+" coc-explorer {{{
+nmap <C-n> :CocCommand explorer<CR>
+nmap <leader>n :CocCommand explorer<CR>
 
-" Show hidden
-let NERDTreeShowHidden=1
-" Inline menu with `m` shortcut
-let NERDTreeMinimalMenu=1
-" Hide help message, etc.
-let NERDTreeMinimalUI=1
-" Change current working directory based on root directory in NERDTree
-let NERDTreeChDirMode=2
-" Initial NERDTree width
-let NERDTreeWinSize=36
-" Always autoclose buffers on file move/delete
-let NERDTreeAutoDeleteBuffer=1
-
-" Nerdtree syntax highlighting
-" Try to speed up rendering
-let g:NERDTreeHighlightCursorline=0
-
-" Limit syntaxes for speed
-let g:NERDTreeHighlightFolders = 0
-let g:NERDTreeSyntaxDisableDefaultExtensions = 1
-let g:NERDTreeSyntaxEnabledExtensions = [
-  \'bash',
-  \'bmp',
-  \'diff',
-  \'gif',
-  \'hs',
-  \'ico',
-  \'lhs',
-  \'png',
-  \'sh',
-  \'sql',
-  \'ts',
-  \'tsx',
-  \'vim',
-  \'webp',
-  \'conf',
-  \'css',
-  \'erb',
-  \'html',
-  \'ini',
-  \'jpeg',
-  \'jpeg',
-  \'jpg',
-  \'js',
-  \'json',
-  \'jsx',
-  \'md',
-  \'mdx',
-  \'py',
-  \'rb',
-  \'sass', 
-  \'scss', 
-  \'yaml',
-  \'yml'
-  \]
-let g:NERDTreeSyntaxDisableDefaultPatternMatches = 1
 " }}}
 " echodoc {{{
 let g:echodoc#enable_at_startup = 1
@@ -424,7 +365,7 @@ let g:indentLine_faster = 1
 let g:indentLine_color_term = 237
 let g:indentLine_color_gui = '#3c3d37'
 " disable for markup-type files
-let g:indentLine_fileTypeExclude = ['startify', 'markdown']
+let g:indentLine_fileTypeExclude = ['startify', 'markdown', 'coc-explorer']
 " }}}
 " vim-closetag {{{
 " These are the file extensions where this plugin is enabled.
@@ -461,6 +402,7 @@ let g:coc_global_extensions = [
     \ "coc-actions",
     \ "coc-css",
     \ "coc-eslint",
+    \ "coc-explorer",
     \ "coc-git",
     \ "coc-highlight",
     \ "coc-html",
