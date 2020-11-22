@@ -51,8 +51,6 @@ endif
 set nobackup
 set nowritebackup
 set noswapfile
-" use ag as grep
-set grepprg=ag\ --nogroup\ --nocolor
 " disable arrow keys -- break bad habits
 nnoremap <Left> :echo "No left for you!"<CR>
 vnoremap <Left> :<C-u>echo "No left for you!"<CR>

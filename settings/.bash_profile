@@ -106,9 +106,9 @@ fi
 #  fzf
 # -------------------------
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# Use ag as default find command
-export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
-export FZF_DEFAULT_OPTS='--inline-info --multi --reverse --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"'
+# Use rg as default find command
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_OPTS='--inline-info --multi --reverse --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"'Aa
 
 ###########################
 ##                       ##

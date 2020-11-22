@@ -28,6 +28,7 @@ brew install pgcli
 brew install postgresql
 brew install proselint
 brew install python # python 3
+brew install ripgrep
 ln -s /usr/local/bin/python3 /usr/local/bin/python # allow us to type python instead of python3
 brew install source-highlight
 brew install task
