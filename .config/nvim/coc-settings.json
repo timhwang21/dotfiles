@@ -2,6 +2,8 @@
 {
   //coc-explorer
   "explorer.keyMappings.global": {
+    "<C-U>": "normal:18k",
+    "<C-D>": "normal:18j",
     "<cr>": [
       "expandable?",
       [
