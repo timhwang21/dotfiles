@@ -46,24 +46,24 @@
   "explorer.icon.collapsed": "\uf460", // > to oct-chevron_right
   "explorer.file.showHiddenFiles": true, // . to toggle hidden
   // rootStatus icons should have trailing space for proper sizing
-  "explorer.git.icon.rootStatus.untracked": "\uf0fe ", // ? -> fa-plus_square
-  "explorer.git.icon.status.untracked": "\uf0fe", // ? -> fa-plus_square
-  "explorer.git.icon.rootStatus.modified": "\uf14b ", // ~ -> fa-pencil_square
-  "explorer.git.icon.status.modified": "\uf14b", // ~ -> fa-pencil_square
-  "explorer.git.icon.rootStatus.added": "\uf14a ", // + -> fa-check_square
-  "explorer.git.icon.status.added": "\uf14a", // + -> fa-check_square
-  "explorer.git.icon.rootStatus.renamed": "\uf14d ", // → -> fa-share_square
-  "explorer.git.icon.status.renamed": "\uf14d", // → -> fa-share_square
-  "explorer.git.icon.rootStatus.deleted": "\uf146 ", // ✗ -> fa-minus_square
-  "explorer.git.icon.status.deleted": "\uf146", // ✗ -> fa-minus_square
+  "explorer.git.icon.rootStatus.untracked": "\uf196 ", // ? -> fa-plus_square_o
+  "explorer.git.icon.status.untracked": "\uf196", // ? -> fa-plus_square_o
+  "explorer.git.icon.rootStatus.modified": "\uf044 ", // ~ -> fa-pencil_square_o
+  "explorer.git.icon.status.modified": "\uf044", // ~ -> fa-pencil_square_o
+  "explorer.git.icon.rootStatus.added": "\uf046 ", // + -> fa-check_square_o
+  "explorer.git.icon.status.added": "\uf046", // + -> fa-check_square_o
+  "explorer.git.icon.rootStatus.renamed": "\uf045 ", // → -> fa-share_square_o
+  "explorer.git.icon.status.renamed": "\uf045", // → -> fa-share_square_o
+  "explorer.git.icon.rootStatus.deleted": "\uf147 ", // ✗ -> fa-minus_square_o
+  "explorer.git.icon.status.deleted": "\uf147", // ✗ -> fa-minus_square_o
   "explorer.git.icon.rootStatus.stashed": "\uf56e ", // $ -> mdi-backup_restore
   "explorer.git.icon.rootStatus.ahead": "\uf55d ", // ⇡ -> mdi-arrow_up_thick
   "explorer.git.icon.rootStatus.behind": "\uf545 ", // ⇣ -> mdi-arrow_down_thick
   "explorer.git.icon.rootStatus.conflicted": "\uf47f ", // = -> oct-git_compare
   "explorer.git.icon.status.mixed": "\uf695", // * -> mfa-contrast_box
-  "explorer.git.icon.status.copied": "\uf0c5", // C -> fa-copy
+  "explorer.git.icon.status.copied": "\uf0c5", // C -> fa-files_o
   "explorer.git.icon.status.unmerged": "\uf407", // ✗ -> oct-git_pull_request
-  "explorer.git.icon.status.ignored": "\uf12a", // ! -> fa-exclamation
+  "explorer.git.icon.status.ignored": " ", // ! -> whitespace
   "suggest.timeout": 1000,
   "suggest.snippetIndicator": "🌟",
   //"suggest.triggerCompletionWait": 100,
