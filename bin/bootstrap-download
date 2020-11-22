@@ -32,7 +32,6 @@ brew install ripgrep
 ln -s /usr/local/bin/python3 /usr/local/bin/python # allow us to type python instead of python3
 brew install source-highlight
 brew install task
-brew install the_silver_searcher
 brew install tig
 brew install translate-shell
 brew install tree
