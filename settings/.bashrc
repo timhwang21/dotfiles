@@ -13,11 +13,12 @@
 # -------------------------
 alias ls="exa --icons -laF"
 
-#  1b. cd
+#  1b. dir
 # -------------------------
 alias ..="cl .." # step back 1 level
 alias ...="cl ../.." # step back 2 levels
 function cl() { cd "$@" && ls; }
+alias mkdir="mkdir -p" # create intermediary dirs
 
 #  1c. idiot-proofing overwrites
 # -------------------------
