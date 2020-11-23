@@ -79,6 +79,8 @@ xnoremap < <gv
 xnoremap > >gv
 " Paste without overwriting default register (doesn't work with other registers)
 xnoremap p pgvy
+" Block Ex mode
+nnoremap Q <Nop>
 " }}}
 " Function keys {{{
 imap <silent> <F1> <Nop>
