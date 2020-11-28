@@ -25,6 +25,7 @@ Plug 'tpope/vim-surround'
 Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'voldikss/vim-skylight'
 Plug 'Yggdroot/indentLine'
 
 Plug '/usr/local/opt/fzf'
@@ -380,6 +381,10 @@ let g:jsonpath_register = '*'
 " Define mappings for json buffers
 au FileType json noremap <buffer> <silent> <leader>d :call jsonpath#echo()<CR>
 au FileType json noremap <buffer> <silent> <leader>g :call jsonpath#goto()<CR>
+" }}}
+" vim-skylight {{{
+" Open preview window and switch to it
+nmap <leader>k :SkylightPreview<CR> <bar> :wincmd w<CR>
 " }}}
 " vim-test {{{
 " Open tests in a new split
