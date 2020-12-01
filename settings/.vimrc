@@ -126,6 +126,11 @@ set ruler
 set title
 set signcolumn=yes
 set shortmess+=A " ignore .swp files
+
+" enable folding in JSON
+autocmd FileType json setl foldmethod=syntax
+autocmd FileType json normal zR
+
 " }}}
 " Custom highlighting {{{
 " From: https://github.com/flazz/vim-colorschemes/blob/master/colors/Monokai.vim
