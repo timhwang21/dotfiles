@@ -10,6 +10,7 @@ brew install bat
 brew install elixir
 brew install exa # ls replacement
 brew install fasd
+brew install fd # find replacement
 brew install fpp
 brew install fzf
 # To install useful key bindings and fuzzy completion:
@@ -28,7 +29,7 @@ brew install pgcli
 brew install postgresql
 brew install proselint
 brew install python # python 3
-brew install ripgrep
+brew install ripgrep # grep / ag replacement
 ln -s /usr/local/bin/python3 /usr/local/bin/python # allow us to type python instead of python3
 brew install source-highlight
 brew install task
