@@ -2,3 +2,10 @@ set diff-highlight = /usr/local/opt/git/share/git-core/contrib/diff-highlight/di
 set line-graphics = utf-8
 set main-view-date = custom
 set main-view-id = yes
+
+# Interactive rebase
+bind main B !?git rebase -i %(commit)
+# Revert
+bind main ! !?git revert %(commit)
+# Copy SHA
+bind generic 9 +sh -c "git show -s --format=%h %(commit) | pbcopy && echo Copied %(commit) to clipboard"
