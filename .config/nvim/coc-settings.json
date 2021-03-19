@@ -187,6 +187,7 @@
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
+  "solargraph.diagnostics": true,
   "solargraph.formatting": true,
   "languageserver": {
     "haskell": {

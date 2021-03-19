@@ -38,7 +38,7 @@ call plug#end()
 set mouse=a " enable mouse reporting
 set nowrap
 set sidescroll=1
-set scrolloff=10 " min lines to keep above and below cursor
+set scrolloff=2 " min lines to keep above and below cursor
 set updatetime=300 " default is 4000
 set backspace=indent,eol,start
 set autoread " reload files changed externally
@@ -129,7 +129,8 @@ set shortmess+=A " ignore .swp files
 
 " enable folding in JSON
 autocmd FileType json setl foldmethod=syntax
-autocmd FileType json normal zR
+autocmd FileType yaml setl foldmethod=indent
+autocmd FileType json,yaml normal zR
 
 " }}}
 " Custom highlighting {{{
@@ -361,6 +362,10 @@ let g:indentLine_color_term = 237
 let g:indentLine_color_gui = '#3c3d37'
 " disable for markup-type files
 let g:indentLine_fileTypeExclude = ['startify', 'markdown', 'coc-explorer']
+" }}}
+" vim-abolish {{{
+" Allow usage of text objects, e.g. criW
+" nmap cr <Plug>(abolish-coerce)
 " }}}
 " vim-closetag {{{
 " These are the file extensions where this plugin is enabled.

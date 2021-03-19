@@ -83,9 +83,8 @@ alias recommit="git commit -C HEAD@{1}"
 # -------------------------
 function gcb() { git checkout -b $USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
 function _fuzzybranch() { git branch | grep -m 1 "$@" | tr -d "* "; } # fuzzy match branch names
-alias gd="git diff master..."
-alias changed-commit="git diff-tree --no-commit-id --name-only -r"
-alias changed="git diff --name-only origin/master"
+alias gd="git diff origin/master..."
+alias changed="git --no-pager diff --name-only origin/master"
 alias openchanged='$EDITOR -p `changed`'
 alias gch--.="git checkout -- ." # reset local changes on branch
 alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
@@ -122,6 +121,53 @@ alias gpom="git push origin master"
 # -------------------------
 alias gs="git status"
 alias gr="git remote -v"
+
+# 3f. patch git-extras
+# https://github.com/tj/git-extras/blob/master/bin/git-summary
+# -------------------------
+function _git_dedup_by_email() {
+    LC_ALL=C awk '
+    {
+        sum += $1
+        if ($NF in emails) {
+            emails[$NF] += $1
+        } else {
+            email = $NF
+            emails[email] = $1
+            # set commits/email to empty
+            $1=$NF=""
+            sub(/^[[:space:]]+/, "", $0)
+            sub(/[[:space:]]+$/, "", $0)
+            name = $0
+            if (name in names) {
+                # when the same name is associated with existed email,
+                # merge the previous email into the later one.
+                emails[email] += emails[names[name]]
+                emails[names[name]] = 0
+            }
+            names[name] = email
+        }
+    }
+    END {
+        for (name in names) {
+            email = names[name]
+            printf "%6d\t%s\n", emails[email], name
+        }
+    }' | sort -rn -k 1
+}
+function _git_format_authors() {
+  # a rare unicode character is used as separator to avoid conflicting with
+  # author name. However, Linux column utility will escape tab if separator
+  # specified, so we do unesaping after it.
+  LC_ALL=C awk '
+  { args[NR] = $0; sum += $0 }
+  END {
+    for (i = 1; i <= NR; ++i) {
+      printf "%s♪%2.1f%%\n", args[i], 100 * args[i] / sum
+    }
+  }
+  ' | column -t -s♪ | sed "s/\\\x09/\t/g"
+}
 
 # ========================
 #  4. docker
