@@ -159,17 +159,25 @@ autocmd FileType json,yaml normal zR
 " BlueDark="#243955"
 
 " UI elements
-highlight CocFloating guibg=#3c3d37
-highlight ColorColumn guifg=NONE guibg=#31322c gui=NONE
+" Popup windows. Does NOT include dropdown dialogs.
+highlight CocFloating guibg=#31322c
+" Dropdown dialog
+highlight Pmenu guibg=#31322c
+highlight PmenuSel guibg=#a6e22e guifg=#272822
+highlight PmenuSbar guibg=#31322c
+highlight PmenuThumb guibg=#49483e
+" 120 char vertical indicator
+highlight ColorColumn guibg=#31322c guifg=NONE gui=NONE
+" horizontal cursor indicator
 highlight CursorLine guibg=#31322c
-highlight CursorLineNR guifg=#e6db74 guibg=#272822 gui=bold
-highlight LineNr guifg=#64645e guibg=#272822
+highlight CursorLineNR guibg=#272822 guifg=#e6db74 gui=bold
+highlight LineNr guibg=#272822 guifg=#64645e
 highlight SignColumn guibg=#272822
 " visual selection color
 highlight Visual guibg=#3c3d37
-highlight VertSplit guifg=#3c3d37 guibg=#3c3d37
+highlight VertSplit guibg=#3c3d37 guifg=#3c3d37
 " for lines under last text line
-highlight NonText guifg=#272822 guibg=#272822
+highlight NonText guibg=#272822 guifg=#272822
 
 " Syntax
 highlight Comment gui=italic
