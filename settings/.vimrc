@@ -92,9 +92,12 @@ map <silent> <F3> :bnext<CR>
 map <silent> <F4> :bn<bar>sp<bar>bp<bar>bd<CR>
 " Close the current buffer and show next without closing split
 map <silent> <F5> :bp<bar>sp<bar>bn<bar>bd<CR>
+" Close all other buffers
+map <silent> <F6> :%bd\|e#\|bd#<CR>
 " Use `F7` and `F8` to navigate diagnostics
 nmap <silent> <F7> <Plug>(coc-diagnostic-next)
 nmap <silent> <F8> <Plug>(coc-diagnostic-prev)
+nmap <silent> <F9> <Plug>(coc-references)
 
 " }}}
 " Whitespace {{{
