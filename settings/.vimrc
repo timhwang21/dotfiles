@@ -4,6 +4,7 @@ Plug 'AndrewRadev/splitjoin.vim' " gJ to join, gS to split
 Plug 'aliou/sql-heredoc.vim'
 Plug 'alvan/vim-closetag'
 Plug 'coderifous/textobj-word-column.vim' " ic,ac,iC,aC to manipulate columns
+Plug 'dstein64/nvim-scrollview', { 'branch': 'main' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'folke/lsp-colors.nvim' " LSP patcher for ANY colorscheme
