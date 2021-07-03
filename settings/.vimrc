@@ -10,10 +10,12 @@ Plug 'folke/lsp-colors.nvim' " LSP patcher for ANY colorscheme
 Plug 'jeanCarloMachado/vim-toop'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'mogelbrod/vim-jsonpath'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
+Plug 'sindrets/diffview.nvim'
 Plug 'Shougo/echodoc.vim'
 Plug 'timhwang21/vim-i18next'
 Plug 'tpope/vim-abolish'
@@ -408,6 +410,13 @@ au FileType json noremap <buffer> <silent> <leader>g :call jsonpath#goto()<CR>
 " Open tests in a new split
 let test#strategy = "neovim"
 " }}}
+" diffview.nvim {{{
+" Open diff against head
+" :tabc to exit
+nmap <leader>gd :<C-u>execute 'DiffviewOpen'<CR>
+command! -nargs=0 Diff :DiffviewOpen
+command! -nargs=0 DiffMaster :DiffviewOpen master
+" }}}
 " coc.vim {{{
 " Declare and install missing dependencies
 let g:coc_global_extensions = [
@@ -546,9 +555,6 @@ endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
-" coc-git
-" show chunk diff at current position in floating window
-nmap <leader>gd <Plug>(coc-git-chunkinfo)
 " navigate chunks of current buffer
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
