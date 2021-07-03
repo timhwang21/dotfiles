@@ -93,7 +93,7 @@ alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs 
 function gch() {
   local branches branch
   branches=$(git --no-pager branch -vv) &&
-  branch=$(echo "$branches" | fzf -0 -1 -q "$1" +m --height 40% --no-hscroll -n 1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
+  branch=$(echo "$branches" | fzf --exit-0 --select-1 --query="$1" --no-multi --height 40% --no-hscroll --nth=1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
@@ -101,7 +101,7 @@ function gch() {
 function gbd() {
   local branches branch
   branches=$(git --no-pager branch -vv) &&
-  branch=$(echo "$branches" | fzf -0 -1 -q "$1" +m --height 40% --no-hscroll -n 1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
+  branch=$(echo "$branches" | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-hscroll --nth=1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
   git branch -D $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
@@ -177,15 +177,22 @@ alias dc="docker-compose"
 # Runs a command in a container
 function dc-run() {
   local service command
-  service=$(docker-compose ps -a --services | fzf -0 -1 -q "$1" +m --height 40% --no-preview --ansi)
+  service=$(docker-compose ps -a --services | fzf --exit-0 --select-1 --query="$1" --no-multi --height 40% --no-preview --ansi)
   command=${2:-/bin/bash}
 
   [ -n "$service" ] && docker-compose run --rm "$service" "$command"
 }
 
+function dc-stop() {
+  local service
+  service=$(docker-compose ps -a --services | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi)
+
+  [ -n "$service" ] && docker-compose stop "$service"
+}
+
 function dc-logs() {
   local service tail
-  service=$(docker-compose ps -a --services | fzf -0 -1 -q "$1" +m --height 40% --no-preview --ansi)
+  service=$(docker-compose ps -a --services | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi)
   tail=${2:-200}
 
   [ -n "$service" ] && docker-compose logs --tail="$tail" -f "$service"
@@ -194,7 +201,7 @@ function dc-logs() {
 # Select a docker container to start and attach to
 function da() {
   local cid
-  cid=$(docker ps -a | sed 1d | fzf -0 -1 -q "$1" +m --height 40% --no-preview --ansi | awk '{print $1}')
+  cid=$(docker ps -a | sed 1d | fzf --exit-0 --select-1 --query="$1" --no-multi --height 40% --no-preview --ansi | awk '{print $1}')
 
   [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
 }
@@ -202,7 +209,7 @@ function da() {
 # Select a running docker container to stop
 function ds() {
   local cid
-  cid=$(docker ps | sed 1d | fzf -0 -1 -q "$1" -m --height 40% --no-preview --ansi | awk '{print $1}')
+  cid=$(docker ps | sed 1d | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi | awk '{print $1}')
 
   [ -n "$cid" ] && docker stop "$cid"
 }
@@ -210,7 +217,7 @@ function ds() {
 # Select a docker container to remove
 function drm() {
   local cid
-  cid=$(docker ps -a | sed 1d | fzf -0 -1 -q "$1" -m --height 40% --no-preview --ansi | awk '{print $1}')
+  cid=$(docker ps -a | sed 1d | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi | awk '{print $1}')
 
   [ -n "$cid" ] && docker rm "$cid"
 }
@@ -228,11 +235,9 @@ alias less='less -m -N -g -i -J --underline-special --SILENT'
 # 
 # fe - fzf edit
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
-#   - Bypass fuzzy finder if there's only one match (--select-1)
-#   - Exit if there's no match (--exit-0)
 # Add fasd on top of this for frecency
 function fe() {
-  IFS=$'\n' files=($(fzf -0 -1 -q "$1" -m --ansi))
+  IFS=$'\n' files=($(fzf --exit-0 --select-1 --query="$1" --multi --ansi))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
