@@ -54,6 +54,7 @@ gem install neovim
 gem install neovim-ruby-host
 gem install pry
 gem install solargraph # ruby language server
+gem install solargraph-rails --pre
 
 # python
 python -m pip install --user --upgrade pynvim
