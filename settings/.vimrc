@@ -413,8 +413,9 @@ let test#strategy = "neovim"
 " Open diff against head
 " :tabc to exit
 nmap <leader>gd :<C-u>execute 'DiffviewOpen'<CR>
-command! -nargs=0 Diff :DiffviewOpen
+command! -nargs=? Diff :DiffviewOpen
 command! -nargs=0 DiffMaster :DiffviewOpen master
+command! -nargs=? DiffClose :DiffviewClose
 " }}}
 " coc.vim {{{
 " Declare and install missing dependencies
