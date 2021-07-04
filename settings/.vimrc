@@ -422,6 +422,7 @@ command! -nargs=? DiffClose :DiffviewClose
 let g:coc_global_extensions = [
     \ "coc-actions",
     \ "coc-css",
+    \ "coc-diagnostic",
     \ "coc-eslint",
     \ "coc-explorer",
     \ "coc-git",
