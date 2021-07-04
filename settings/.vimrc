@@ -28,7 +28,6 @@ Plug 'tpope/vim-eunuch' " Vim sugar for the UNIX shell commands
 Plug 'aliou/sql-heredoc.vim' " highlight SQL in Ruby heredocs
 Plug 'alvan/vim-closetag' " autocomplete HTML/JSX tags
 Plug 'mogelbrod/vim-jsonpath' " <leader>d to copy path, <leader>j to jump to path
-Plug 'sheerun/vim-polyglot' " Syntax highlighting pack
 Plug 'timhwang21/vim-i18next'
 Plug 'tpope/vim-rails' " :Emodel, :Econtroller, :A(lternate), :R(elated)
 Plug 'Valloric/MatchTagAlways' " highlight HTML/JSX tags
