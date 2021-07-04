@@ -4,6 +4,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
 Plug 'sindrets/diffview.nvim' " :Diff, :DiffMaster
 Plug 'tpope/vim-fugitive' " Vim git integration
 Plug 'vim-airline/vim-airline'
@@ -307,7 +308,9 @@ highlight MatchTag gui=bold guibg=#3c3d37
 " }}}
 " vim-airline {{{
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#coc#enabled = 0 " this is useless
+" use nvim-treesitter; default of showing filename is useless
+let g:airline_section_c = '%{nvim_treesitter#statusline(90)}'
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -401,6 +404,42 @@ nmap <leader>gd :<C-u>execute 'DiffviewOpen'<CR>
 command! -nargs=? Diff :DiffviewOpen
 command! -nargs=0 DiffMaster :DiffviewOpen master
 command! -nargs=? DiffClose :DiffviewClose
+" }}}
+" nvim-treesitter {{{
+" Language parsers: copy/paste this ONCE on fresh install
+" :TSInstall bash comment css dockerfile html javascript jsdoc json kotlin python regex ruby tsx typescript yaml
+
+" Modules: enable highlighting, indentation, folding, etc. :h nvim-treesitter-modules
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = {},  -- list of language that will be disabled
+  },
+  -- gnn - start incremental selection
+  -- grn - increment to upper named parent in visual mode
+  -- grc - increment to upper scope in visual mode
+  -- grm - decrement to previous named node in visual mode
+  incremental_selection = {
+    enable = true,              -- false will disable the whole extension
+    disable = {},  -- list of language that will be disabled
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  indent = {
+    enable = true,
+  },
+  textobjects = {
+    enable = true,              -- false will disable the whole extension
+    disable = {},  -- list of language that will be disabled
+  },
+}
+EOF
 " }}}
 " coc.vim {{{
 " Declare and install missing dependencies
