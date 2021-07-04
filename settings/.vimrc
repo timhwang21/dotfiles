@@ -35,7 +35,7 @@ Plug 'dstein64/nvim-scrollview', { 'branch': 'main' } " nvim scrollbars
 Plug 'flazz/vim-colorschemes' " large collection of colorschemes
 Plug 'folke/lsp-colors.nvim' " LSP patcher for ANY colorscheme
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 " Configs
 Plug 'editorconfig/editorconfig-vim'
 
@@ -188,7 +188,6 @@ highlight Visual guibg=#3c3d37
 highlight VertSplit guibg=#3c3d37 guifg=#3c3d37
 " for lines under last text line
 highlight NonText guibg=#272822 guifg=#272822
-
 " Syntax
 highlight Comment gui=italic
 " overwrite nvim colors for diff files
@@ -199,6 +198,10 @@ highlight diffChanged guifg=#66d9ef gui=italic
 highlight GitGutterAdd guifg=#a6e22e guibg=#272822
 highlight GitGutterDelete guifg=#f92672 guibg=#272822
 highlight GitGutterChange guifg=#66d9ef guibg=#272822
+" indent-blankline
+" more subtle divider color
+highlight IndentBlanklineChar guifg=#3c3d37 gui=nocombine
+highlight IndentBlanklineContextChar guifg=#66d9ef gui=nocombine
 
 " identify syntax group under cursor
 nmap <leader>hi :call <SID>SynStack()<CR>
@@ -352,17 +355,55 @@ let g:startify_session_delete_buffers = 0
 " coc-explorer {{{
 nmap <C-n> :CocCommand explorer<CR>
 nmap <leader>n :CocCommand explorer<CR>
-
 " }}}
 " indentLine {{{
-let g:indentLine_char = '│'
-" experimental high perf
-let g:indentLine_faster = 1
-" more subtle colors
-let g:indentLine_color_term = 237
-let g:indentLine_color_gui = '#3c3d37'
+let g:indent_blankline_char = '│'
+" tree sitter highlight
+let g:indent_blankline_use_treesitter = v:true
+" different highlight within nested blocks
+let g:indent_blankline_show_current_context = v:true
 " disable for markup-type files
-let g:indentLine_fileTypeExclude = ['startify', 'markdown', 'coc-explorer']
+let g:indent_blankline_filetype_exclude = ['startify', 'markdown', 'coc-explorer']
+let g:indent_blankline_buftype_exclude = ['terminal']
+" contexts to highlight nested
+" this is kind of shitty
+let g:indent_blankline_context_patterns = [
+    \'class',
+    \'function', 
+    \'method',
+    \'module',
+    \'array',
+    \'hash',
+    \'object',
+    \'argument_list',
+    \'arguments',
+    \'begin',
+    \'block',
+    \'case',
+    \'catch',
+    \'comment',
+    \'conditional',
+    \'declaration',
+    \'do',
+    \'else',
+    \'elsif',
+    \'expression',
+    \'finally',
+    \'for',
+    \'if',
+    \'import',
+    \'interface',
+    \'jsx_element',
+    \'jsx_expression',
+    \'jsx_self_closing_element',
+    \'lambda',
+    \'return',
+    \'statement',
+    \'ternary',
+    \'unless',
+    \'until',
+    \'while'
+    \]
 " }}}
 " vim-abolish {{{
 " Allow usage of text objects, e.g. criW
