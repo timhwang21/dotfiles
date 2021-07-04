@@ -290,21 +290,6 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 " }}}
-" ale (linting) {{{
-" let g:ale_sign_error = "🔺"
-" let g:ale_sign_warning = "🔸"
-" highlight ALEError ctermbg=237 cterm=underline
-" highlight ALEWarning ctermbg=237 cterm=underline
-" highlight ALEErrorSign ctermbg=237
-" highlight ALEWarningSign ctermbg=237
-" let g:ale_linters = {
-" \  'javascript': ['eslint'],
-" \  'typescript': ['tslint'],
-" \}
-" let g:ale_fix_on_save = 0 " delegate to coc
-" let g:ale_lint_on_text_changed = 'normal' " only lint on change in normal mode
-" let g:ale_lint_on_insert_leave = 1 " only lint on exit in insert mode
-" }}}
 " wildmenu {{{
 set wildmenu
 set wildmode=longest:list,full
