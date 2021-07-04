@@ -1,38 +1,43 @@
 " plug {{{
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'AndrewRadev/splitjoin.vim' " gJ to join, gS to split
-Plug 'aliou/sql-heredoc.vim'
-Plug 'alvan/vim-closetag'
-Plug 'coderifous/textobj-word-column.vim' " ic,ac,iC,aC to manipulate columns
-Plug 'dstein64/nvim-scrollview', { 'branch': 'main' }
-Plug 'editorconfig/editorconfig-vim'
-Plug 'flazz/vim-colorschemes'
-Plug 'folke/lsp-colors.nvim' " LSP patcher for ANY colorscheme
-Plug 'jeanCarloMachado/vim-toop'
+" Tools
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'mhinz/vim-startify'
-Plug 'mogelbrod/vim-jsonpath'
+Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sheerun/vim-polyglot'
-Plug 'sindrets/diffview.nvim'
-Plug 'Shougo/echodoc.vim'
-Plug 'timhwang21/vim-i18next'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-surround'
-Plug 'Valloric/MatchTagAlways'
+Plug 'sindrets/diffview.nvim' " :Diff, :DiffMaster
+Plug 'tpope/vim-fugitive' " Vim git integration
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'wellle/targets.vim' " text objects for separators, quotes, etc.
-Plug 'Yggdroot/indentLine'
-
 Plug '/usr/local/opt/fzf'
+" Text manipulation
+Plug 'AndrewRadev/splitjoin.vim' " multiline join. gJ to join, gS to split
+Plug 'junegunn/vim-easy-align' " <visual>ga{char} or ga{textobj}{char} to align around char
+Plug 'coderifous/textobj-word-column.vim' " ic,ac,iC,aC to manipulate columns
+Plug 'tpope/vim-abolish' " toggling casing and substitution across cases
+Plug 'tpope/vim-commentary' " toggling comments generically across languages
+Plug 'tpope/vim-surround' " ysiw{char}
+Plug 'wellle/targets.vim' " text objects for separators, quotes, etc.
+" Functions, commands, etc.
+Plug 'jeanCarloMachado/vim-toop' " Allow sending text objects to vim functions
+Plug 'tpope/vim-dispatch' " :Dispatch for async command executor
+Plug 'tpope/vim-eunuch' " Vim sugar for the UNIX shell commands
+" Language specific
+Plug 'aliou/sql-heredoc.vim' " highlight SQL in Ruby heredocs
+Plug 'alvan/vim-closetag' " autocomplete HTML/JSX tags
+Plug 'mogelbrod/vim-jsonpath' " <leader>d to copy path, <leader>j to jump to path
+Plug 'sheerun/vim-polyglot' " Syntax highlighting pack
+Plug 'timhwang21/vim-i18next'
+Plug 'tpope/vim-rails' " :Emodel, :Econtroller, :A(lternate), :R(elated)
+Plug 'Valloric/MatchTagAlways' " highlight HTML/JSX tags
+" Visual
+Plug 'dstein64/nvim-scrollview', { 'branch': 'main' } " nvim scrollbars
+Plug 'flazz/vim-colorschemes' " large collection of colorschemes
+Plug 'folke/lsp-colors.nvim' " LSP patcher for ANY colorscheme
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'Yggdroot/indentLine'
+" Configs
+Plug 'editorconfig/editorconfig-vim'
+
 " This must be at the end, as per docs
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -360,13 +365,6 @@ let g:startify_session_delete_buffers = 0
 nmap <C-n> :CocCommand explorer<CR>
 nmap <leader>n :CocCommand explorer<CR>
 
-" }}}
-" echodoc {{{
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'floating'
-" To use a custom highlight for the float window,
-" change Pmenu to your highlight group
-highlight link EchoDocFloat Pmenu
 " }}}
 " indentLine {{{
 let g:indentLine_char = '│'
