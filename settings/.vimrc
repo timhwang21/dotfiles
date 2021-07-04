@@ -449,13 +449,27 @@ command! -nargs=0 DiffMaster :DiffviewOpen master
 command! -nargs=? DiffClose :DiffviewClose
 " }}}
 " nvim-treesitter {{{
-" Language parsers: copy/paste this ONCE on fresh install
-" :TSInstall bash comment css dockerfile html javascript jsdoc json kotlin python regex ruby tsx typescript yaml
-
 " Modules: enable highlighting, indentation, folding, etc. :h nvim-treesitter-modules
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {
+    "bash",
+    "comment",
+    "css",
+    "dockerfile",
+    "html",
+    "javascript",
+    "jsdoc",
+    "json",
+    "kotlin",
+    "lua",
+    "python",
+    "regex",
+    "ruby",
+    "tsx",
+    "typescript",
+    "yaml",
+  },
   highlight = {
     enable = true,              -- false will disable the whole extension
     disable = {},  -- list of language that will be disabled
