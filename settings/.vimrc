@@ -5,6 +5,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'sindrets/diffview.nvim' " :Diff, :DiffMaster
 Plug 'tpope/vim-fugitive' " Vim git integration
 Plug 'vim-airline/vim-airline'
@@ -463,8 +464,8 @@ require'nvim-treesitter.configs'.setup {
   -- grc - increment to upper scope in visual mode
   -- grm - decrement to previous named node in visual mode
   incremental_selection = {
-    enable = true,              -- false will disable the whole extension
-    disable = {},  -- list of language that will be disabled
+    enable = true,
+    disable = {},
     keymaps = {
       init_selection = "gnn",
       node_incremental = "grn",
@@ -476,8 +477,20 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
   textobjects = {
-    enable = true,              -- false will disable the whole extension
-    disable = {},  -- list of language that will be disabled
+    enable = true,
+    disable = {},
+    select = {
+      enable = true,
+      lookahead = true, -- selects next available obj if not within one
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["aP"] = { -- a stretch, but "outer proc" for Ruby; handles procs, blocks, and lambdas
+          ruby = "@block.outer",
+        },
+        ["aP"] = "@block.outer",
+      },
+    },
   },
 }
 EOF
