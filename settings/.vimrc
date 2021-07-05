@@ -465,13 +465,15 @@ require'nvim-treesitter.configs'.setup {
     "python",
     "regex",
     "ruby",
+    "swift",
     "tsx",
     "typescript",
     "yaml",
   },
   highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = {},  -- list of language that will be disabled
+    enable = true,
+    disable = {},
+    custom_captures = {},
   },
   -- gnn - start incremental selection
   -- grn - increment to upper named parent in visual mode
