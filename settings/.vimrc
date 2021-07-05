@@ -501,10 +501,11 @@ require'nvim-treesitter.configs'.setup {
       keymaps = {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["aP"] = { -- a stretch, but "outer proc" for Ruby; handles procs, blocks, and lambdas
+        ["aP"] = { 
+          -- a stretch, but "outer Proc" for Ruby; handles procs, blocks, and lambdas
+          -- note that Ruby doesn't support @block.inner
           ruby = "@block.outer",
         },
-        ["aP"] = "@block.outer",
       },
     },
   },
