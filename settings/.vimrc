@@ -149,60 +149,62 @@ autocmd FileType json,yaml normal zR
 " }}}
 " Custom highlighting {{{
 " From: https://github.com/flazz/vim-colorschemes/blob/master/colors/Monokai.vim
-" White="#f8f8f2"
-" Black="#272822"
-" Gray100="#f8f8f0"
-" Gray200="#90908a"
-" Gray300="#75715e"
-" Gray400="#64645e"
-" Gray500="#49483e"
-" Gray600="#3c3d37"
-" Gray700="#31322c"
-" Magenta="#f92672"
-" Red="#8b0807"
-" Orange="#fd971f"
-" Yellow="#e6db74"
-" GreenLight="#a6e22e"
-" GreenDark="#46830c"
-" Purple="#ae81ff"
-" Teal="#66d9ef"
-" BlueLight="#204a87"
-" BlueDark="#243955"
+let s:ColorWhite="#f8f8f2"
+let s:ColorBlack="#272822"
+let s:ColorGray100="#f8f8f0"
+let s:ColorGray200="#90908a"
+let s:ColorGray300="#75715e"
+let s:ColorGray400="#64645e"
+let s:ColorGray500="#49483e"
+let s:ColorGray600="#3c3d37"
+let s:ColorGray700="#31322c"
+let s:ColorMagenta="#f92672"
+let s:ColorRed="#8b0807"
+let s:ColorOrange="#fd971f"
+let s:ColorYellow="#e6db74"
+let s:ColorGreenLight="#a6e22e"
+let s:ColorGreenDark="#46830c"
+let s:ColorPurple="#ae81ff"
+let s:ColorTeal="#66d9ef"
+let s:ColorBlueLight="#204a87"
+let s:ColorBlueDark="#243955"
 
 " UI elements
 " Popup windows. Does NOT include dropdown dialogs.
-highlight CocFloating guibg=#31322c
+execute 'highlight CocFloating guibg='.s:ColorGray700
 " Dropdown dialog
-highlight Pmenu guibg=#31322c
-highlight PmenuSel guibg=#a6e22e guifg=#272822
-highlight PmenuSbar guibg=#31322c
-highlight PmenuThumb guibg=#49483e
+execute 'highlight Pmenu guibg='.s:ColorGray700
+execute 'highlight PmenuSel guibg='.s:ColorGreenLight.' guifg='.s:ColorBlack
+execute 'highlight PmenuSbar guibg='.s:ColorGray700
+execute 'highlight PmenuThumb guibg='.s:ColorGray500
 " 120 char vertical indicator
-highlight ColorColumn guibg=#31322c guifg=NONE gui=NONE
+execute 'highlight ColorColumn guibg='.s:ColorGray700.' guifg=NONE gui=NONE'
 " horizontal cursor indicator
-highlight CursorLine guibg=#31322c
-highlight CursorLineNR guibg=#272822 guifg=#e6db74 gui=bold
-highlight LineNr guibg=#272822 guifg=#64645e
-highlight SignColumn guibg=#272822
+execute 'highlight CursorLine guibg='.s:ColorGray700
+execute 'highlight CursorLineNR guibg='.s:ColorBlack.' guifg='.s:ColorYellow.' gui=bold'
+execute 'highlight LineNr guibg='.s:ColorBlack.' guifg='.s:ColorGray400
+execute 'highlight SignColumn guibg='.s:ColorBlack
 " visual selection color
-highlight Visual guibg=#3c3d37
-highlight VertSplit guibg=#3c3d37 guifg=#3c3d37
+execute 'highlight Visual guibg='.s:ColorGray600
+execute 'highlight VertSplit guibg='.s:ColorGray600.' guifg='.s:ColorGray600
 " for lines under last text line
-highlight NonText guibg=#272822 guifg=#272822
+execute 'highlight NonText guibg='.s:ColorBlack.' guifg='.s:ColorBlack
 " Syntax
-highlight Comment gui=italic
+execute 'highlight Comment gui=italic'
 " overwrite nvim colors for diff files
-highlight diffAdded guifg=#a6e22e gui=italic
-highlight diffRemoved guifg=#f92672 gui=italic
-highlight diffChanged guifg=#66d9ef gui=italic
+execute 'highlight diffAdded guifg='.s:ColorGreenLight.' gui=italic'
+execute 'highlight diffRemoved guifg='.s:ColorMagenta.' gui=italic'
+execute 'highlight diffChanged guifg='.s:ColorTeal.' gui=italic'
 " GitGutter
-highlight GitGutterAdd guifg=#a6e22e guibg=#272822
-highlight GitGutterDelete guifg=#f92672 guibg=#272822
-highlight GitGutterChange guifg=#66d9ef guibg=#272822
+execute 'highlight GitGutterAdd guifg='.s:ColorGreenLight.' guibg='.s:ColorBlack
+execute 'highlight GitGutterDelete guifg='.s:ColorMagenta.' guibg='.s:ColorBlack
+execute 'highlight GitGutterChange guifg='.s:ColorTeal.' guibg='.s:ColorBlack
 " indent-blankline
 " more subtle divider color
-highlight IndentBlanklineChar guifg=#3c3d37 gui=nocombine
-highlight IndentBlanklineContextChar guifg=#66d9ef gui=nocombine
+execute 'highlight IndentBlanklineChar guifg='.s:ColorGray600.' gui=nocombine'
+execute 'highlight IndentBlanklineContextChar guifg='.s:ColorTeal.' gui=nocombine'
+" MatchTag
+execute 'highlight MatchTag guifg='.s:ColorGray600.' gui=bold'
 
 " identify syntax group under cursor
 nmap <leader>hi :call <SID>SynStack()<CR>
@@ -308,7 +310,6 @@ let g:mta_filetypes = {
 \}
 let g:mta_use_matchparen_group=0 " don't use same syntax as highlighting parens etc.
 let g:mta_set_default_matchtag_color=0 " don't use default highlighting
-highlight MatchTag gui=bold guibg=#3c3d37
 " }}}
 " vim-airline {{{
 let g:airline#extensions#tabline#enabled = 1
