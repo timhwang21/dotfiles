@@ -41,7 +41,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'editorconfig/editorconfig-vim'
 
 " This must be at the end, as per docs
-Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons' " still used for bufferline and some other stuff
 call plug#end()
 " installation -- :source % :PlugInstall
 " }}}
