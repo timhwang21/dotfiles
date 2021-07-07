@@ -26,11 +26,11 @@ Plug 'tpope/vim-dispatch' " :Dispatch for async command executor
 Plug 'tpope/vim-eunuch' " Vim sugar for the UNIX shell commands
 " Language specific
 Plug 'aliou/sql-heredoc.vim' " highlight SQL in Ruby heredocs
-Plug 'alvan/vim-closetag' " autocomplete HTML/JSX tags
 Plug 'mogelbrod/vim-jsonpath' " <leader>d to copy path, <leader>j to jump to path
 Plug 'timhwang21/vim-i18next'
 Plug 'tpope/vim-rails' " :Emodel, :Econtroller, :A(lternate), :R(elated)
 Plug 'Valloric/MatchTagAlways' " highlight HTML/JSX tags
+Plug 'windwp/nvim-ts-autotag' " autocomplete HTML/JSX tags
 " Visual
 Plug 'dstein64/nvim-scrollview', { 'branch': 'main' } " nvim scrollbars
 Plug 'flazz/vim-colorschemes' " large collection of colorschemes
@@ -410,13 +410,6 @@ let g:indent_blankline_context_patterns = [
 " Allow usage of text objects, e.g. criW
 " nmap cr <Plug>(abolish-coerce)
 " }}}
-" vim-closetag {{{
-" These are the file extensions where this plugin is enabled.
-let g:closetag_filenames = '*.html,*.jsx,*.tsx'
-let g:closetag_xhtml_filenames = '*.jsx,*.tsx'
-" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
-let g:closetag_emptyTags_caseSensitive = 1
-" }}}
 " vim-easyalign {{{
 " align markdown tables on |
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
@@ -469,6 +462,9 @@ require'nvim-treesitter.configs'.setup {
     "tsx",
     "typescript",
     "yaml",
+  },
+  autotag = {
+    enable = true, -- nvim-ts-autotag
   },
   highlight = {
     enable = true,
