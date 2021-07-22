@@ -2,7 +2,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 " Tools
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-peekaboo' " Register preview with \" and Ctrl-R
 Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
