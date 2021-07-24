@@ -16,6 +16,7 @@ source /etc/profile
 export EDITOR='nvim'
 export GUI_EDITOR='code'
 set -o vi # use vim mode for editing prev commands
+export BASH_SILENCE_DEPRECATION_WARNING=1 # hide zsh switch message
 
 #  grep colorize
 # -------------------------
