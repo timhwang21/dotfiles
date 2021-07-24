@@ -148,9 +148,6 @@ autocmd BufWritePre *.md %s/\s\+$//e
 " }}}
 " Display {{{
 colorscheme monokai
-" fix termguicolors for vimdiff
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 set background=dark
 set colorcolumn=120
@@ -275,6 +272,19 @@ nnoremap <C-H> <C-W><C-H>
 
 set splitbelow
 set splitright
+" }}}
+" Diff configuration {{{
+" default: diffopt=internal,filler,closeoff
+" Turn off whitespaces compare
+set diffopt+=iwhite
+" Turn off folding
+set diffopt+=vertical
+" Show filler lines, to keep the text synchronized with a window that has inserted lines at the same position
+set diffopt+=filler
+" More 'aesthetically pleasing' diffs via whitespace
+set diffopt+=indent-heuristic
+" Better diff algorithm
+set diffopt+=algorithm:histogram
 " }}}
 " Search {{{
 set gdefault
