@@ -78,12 +78,13 @@ export TERM=xterm-256color-italic
 
 #  Bash completion
 # -------------------------
-[[ -f $(brew --prefix)/etc/bash_completion ]] && . $(brew --prefix)/etc/bash_completion || echo "\"bash_completion\" not installed. Is it there?"
+[[ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh" || echo "\"bash_completion\" not installed. Is it there?"
 
 #  npm & yarn completion
 # -------------------------
-[[ -f $HOME/.npm-completion.bash ]] && . $HOME/.npm-completion.bash || echo "\".npm-completion\" not found. Is it there?"
-[[ -f $HOME/.yarn-completion.bash ]] && . $HOME/.yarn-completion.bash || echo "\".yarn-completion\" not found. Is it there?"
+source <(npm completion)
+# Does not work on bash-completion@2
+# [[ -f $HOME/.yarn-completion.bash ]] && . $HOME/.yarn-completion.bash || echo "\".yarn-completion\" not found. Is it there?"
 
 # Git completion
 # -------------------------
@@ -125,19 +126,11 @@ export PATH="/usr/local/sbin:$PATH"
 # -------------------------
 export JAVA_HOME="/usr/libexec/java_home"
 
-#  Node & NVM
+#  Node & Nodenv
 # -------------------------
 export PATH="/usr/local/lib/node_modules:$PATH"
 export NODE_PATH="/usr/local/lib/node_modules"
-# NOTE: nvm doesn't support brew, if things go south ininstall and use curl script
-# NOTE 2: The `use stable` is a no-op most of the time but helps sublime linter find eslint
-# Recommended config
-export NVM_DIR="$HOME/.nvm"
-[[ -f "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"
-[[ -f "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
-# Homebrew config
-[[ -f $(brew --prefix)/opt/nvm/nvm.sh ]] && . $(brew --prefix)/opt/nvm/nvm.sh
-[[ -f $(brew --prefix)/opt/nvm/bash_completion ]] && . $(brew --prefix)/opt/nvm/bash_completion
+eval "$(nodenv init -)"
 
 # Home
 # -------------------------

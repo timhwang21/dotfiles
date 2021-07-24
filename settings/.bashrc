@@ -56,13 +56,6 @@ alias be="bundle exec"
 alias ber="bundle exec rspec"
 alias bi="bundle install"
 
-#  2b. UNUSED
-# -------------------------
-
-#  2c. update all
-# -------------------------
-alias update_all="bundle update && npm update -g && brew update && brew upgrade `brew outdated`"
-
 # ========================
 #  3. git
 # ========================
