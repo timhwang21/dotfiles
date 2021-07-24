@@ -1,3 +1,25 @@
+" disable default plugins {{{
+" Speed up init by disabling unused built-ins.
+" Handled by tree-sitter
+let g:loaded_matchparen        = 1
+" Compressed file editing
+let g:loaded_gzip              = 1
+let g:loaded_tar               = 1
+let g:loaded_tarPlugin         = 1
+let g:loaded_zip               = 1
+let g:loaded_zipPlugin         = 1
+let g:loaded_2html_plugin      = 1
+" Script stuff
+let g:loaded_vimball           = 1
+let g:loaded_vimballPlugin     = 1
+let g:loaded_getscript         = 1
+let g:loaded_getscriptPlugin   = 1
+" netrw
+let g:loaded_netrw             = 1
+let g:loaded_netrwPlugin       = 1
+let g:loaded_netrwSettings     = 1
+let g:loaded_netrwFileHandlers = 1
+" }}}
 " plug {{{
 call plug#begin(stdpath('data') . '/plugged')
 " Tools
