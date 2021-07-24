@@ -3,7 +3,12 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Homebrew
-yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+which -s brew
+if [[ $? != 0 ]] ; then
+  yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+else
+  brew update
+fi
 # Modern bash
 brew install bash # macOS default is bash@3
 sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells' # whitelist new bash
