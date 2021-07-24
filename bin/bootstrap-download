@@ -83,7 +83,7 @@ sudo rm -rf powerline-shell
 
 # powerline fonts
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code-nerd-font font-jetbrains-mono-nerd-font
+brew install --cask font-fira-code-nerd-font font-jetbrains-mono-nerd-font
 
 # vim plug for neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
