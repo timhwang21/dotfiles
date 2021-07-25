@@ -17,6 +17,8 @@ chsh -s /usr/local/bin/bash
 brew install asciinema
 brew install bash-completion@2
 brew install bat
+brew tap clementtsang/bottom
+brew install bottom
 brew install elixir
 brew install exa # ls replacement
 brew install fasd
@@ -51,8 +53,6 @@ brew install tmux
 brew install typespeed
 brew install vim # override system default
 brew install yarn
-brew tap cjbassi/ytop
-brew install ytop
 
 # RVM
 # Check RVM keys
