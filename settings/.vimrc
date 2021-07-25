@@ -26,8 +26,8 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compat'} " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch': '0.5-compat'}
 Plug 'sindrets/diffview.nvim' " :Diff, :DiffMaster
 Plug 'tpope/vim-fugitive' " Vim git integration
 Plug 'vim-airline/vim-airline'
