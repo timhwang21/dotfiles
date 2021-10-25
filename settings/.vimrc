@@ -23,6 +23,7 @@ let g:loaded_netrwFileHandlers = 1
 " plug {{{
 call plug#begin(stdpath('data') . '/plugged')
 " Tools
+Plug 'gabrielpoca/replacer.nvim' " <Leader>h in quickfix to modify files
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -470,6 +471,9 @@ nmap <leader>gd :<C-u>execute 'DiffviewOpen'<CR>
 command! -nargs=? Diff :DiffviewOpen
 command! -nargs=0 DiffMaster :DiffviewOpen master
 command! -nargs=? DiffClose :DiffviewClose
+" }}}
+" replacer.nvim {{{
+nmap <leader>h :lua require("replacer").run()<cr>
 " }}}
 " nvim-treesitter {{{
 " Modules: enable highlighting, indentation, folding, etc. :h nvim-treesitter-modules
