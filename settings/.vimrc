@@ -22,13 +22,15 @@ let g:loaded_netrwFileHandlers = 1
 " }}}
 " plug {{{
 call plug#begin(stdpath('data') . '/plugged')
+" Utilities
+Plug 'nvim-lua/plenary.nvim' " Lua utilities
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compat'} " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch': '0.5-compat'}
 " Tools
 Plug 'gabrielpoca/replacer.nvim' " <Leader>h in quickfix to modify files
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compat'} " We recommend updating the parsers on update
-Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch': '0.5-compat'}
 Plug 'sindrets/diffview.nvim' " :Diff, :DiffMaster
 Plug 'tpope/vim-fugitive' " Vim git integration
 Plug 'vim-airline/vim-airline'
@@ -36,8 +38,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug '/usr/local/opt/fzf'
 " Text manipulation
 Plug 'AndrewRadev/splitjoin.vim' " multiline join. gJ to join, gS to split
-Plug 'junegunn/vim-easy-align' " <visual>ga{char} or ga{textobj}{char} to align around char
 Plug 'coderifous/textobj-word-column.vim' " ic,ac,iC,aC to manipulate columns
+" doesn't work, causes crashes
+" Plug 'ggandor/lightspeed.nvim' " s / S for quick jump -- 
+Plug 'junegunn/vim-easy-align' " <visual>ga{char} or ga{textobj}{char} to align around char
 Plug 'tpope/vim-abolish' " toggling casing and substitution across cases
 Plug 'tpope/vim-commentary' " toggling comments generically across languages
 Plug 'tpope/vim-surround' " ysiw{char}
