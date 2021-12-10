@@ -127,12 +127,6 @@ export PATH="/usr/local/sbin:$PATH"
 # -------------------------
 export JAVA_HOME="/usr/libexec/java_home"
 
-#  Node & Nodenv
-# -------------------------
-export PATH="/usr/local/lib/node_modules:$PATH"
-export NODE_PATH="/usr/local/lib/node_modules"
-eval "$(nodenv init -)"
-
 # Home
 # -------------------------
 export PATH="$HOME/.local/bin:$PATH"
@@ -169,9 +163,7 @@ if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then source "$HOME/googl
 # Do not put any PATH changes after this!
 # !!!!!!!!!!!!!!!!!!!!!!!!!
 
-#  rvm
+#  asdf
 # -------------------------
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
+. /usr/local/opt/asdf/libexec/asdf.sh
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
