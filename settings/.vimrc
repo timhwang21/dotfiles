@@ -53,6 +53,7 @@ Plug 'tpope/vim-eunuch' " Vim sugar for the UNIX shell commands
 " Language specific
 Plug 'aliou/sql-heredoc.vim' " highlight SQL in Ruby heredocs
 Plug 'mogelbrod/vim-jsonpath' " <leader>d to copy path, <leader>j to jump to path
+Plug 'RRethy/nvim-treesitter-endwise' " Tree-sitter based `end` insertion
 Plug 'timhwang21/vim-i18next'
 Plug 'tpope/vim-rails' " :Emodel, :Econtroller, :A(lternate), :R(elated)
 Plug 'Valloric/MatchTagAlways' " highlight HTML/JSX tags
@@ -504,6 +505,9 @@ require'nvim-treesitter.configs'.setup {
   },
   autotag = {
     enable = true, -- nvim-ts-autotag
+  },
+  endwise = {
+    enable = true, -- nvim-treesitter-endwise
   },
   highlight = {
     enable = true,
