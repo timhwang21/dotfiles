@@ -56,7 +56,8 @@ Plug 'mogelbrod/vim-jsonpath' " <leader>d to copy path, <leader>j to jump to pat
 Plug 'RRethy/nvim-treesitter-endwise' " Tree-sitter based `end` insertion
 Plug 'timhwang21/vim-i18next'
 Plug 'tpope/vim-rails' " :Emodel, :Econtroller, :A(lternate), :R(elated)
-Plug 'Valloric/MatchTagAlways' " highlight HTML/JSX tags
+" Doesn't work with Python 3?
+" Plug 'Valloric/MatchTagAlways' " highlight HTML/JSX tags
 Plug 'windwp/nvim-ts-autotag' " autocomplete HTML/JSX tags
 " Visual
 Plug 'dstein64/nvim-scrollview', { 'branch': 'main' } " nvim scrollbars
