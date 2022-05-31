@@ -28,6 +28,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compa
 Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch': '0.5-compat'}
 " Tools
 Plug 'gabrielpoca/replacer.nvim' " <Leader>h in quickfix to modify files
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -35,7 +36,6 @@ Plug 'sindrets/diffview.nvim' " :Diff, :DiffMaster
 Plug 'tpope/vim-fugitive' " Vim git integration
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug '/usr/local/opt/fzf'
 " Text manipulation
 Plug 'AndrewRadev/splitjoin.vim' " multiline join. gJ to join, gS to split
 Plug 'coderifous/textobj-word-column.vim' " ic,ac,iC,aC to manipulate columns
