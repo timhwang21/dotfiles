@@ -654,7 +654,8 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR      :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 Autofix :call     CocAction('runCommand', 'eslint.executeAutofix')
 
 " Using CocList
 " Show all diagnostics
