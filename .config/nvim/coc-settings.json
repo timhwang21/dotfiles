@@ -176,16 +176,7 @@
   "prettier.stylelintIntegration": true,
   "prettier.onlyUseLocalVersion": true,
   //eslint
-  "eslint.filetypes": [
-    "javascript",
-    "javascript.jsx",
-    "javascriptreact",
-    "typescript",
-    "typescript.tsx",
-    "typescriptreact"
-  ],
-  "eslint.autoFix": true,
-  "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": false, // makes save unacceptably slow
   "eslint.packageManager": "yarn",
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
