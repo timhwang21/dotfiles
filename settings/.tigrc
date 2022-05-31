@@ -1,4 +1,5 @@
-set diff-highlight = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight
+# find path with brew info git
+set diff-highlight = /opt/homebrew/Cellar/git/2.36.1/share/git-core/contrib/diff-highlight/diff-highlight
 set line-graphics = utf-8
 set main-view-date = custom
 set main-view-id = yes
