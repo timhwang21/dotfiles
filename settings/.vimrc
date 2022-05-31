@@ -135,7 +135,8 @@ map <silent> <F6> :%bd\|e#\|bd#<CR>
 " Use `F7` and `F8` to navigate diagnostics
 nmap <silent> <F7> <Plug>(coc-diagnostic-next)
 nmap <silent> <F8> <Plug>(coc-diagnostic-prev)
-nmap <silent> <F9> <Plug>(coc-references)
+nmap <silent> <F9> <Plug>(coc-diagnostic-info)
+nmap <silent> <F10> <Plug>(coc-references)
 
 " }}}
 " Whitespace {{{

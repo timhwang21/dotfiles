@@ -102,6 +102,7 @@
   "diagnostic.warningSign": " •",
   "diagnostic.infoSign": " •",
   "diagnostic.maxWindowHeight": 50,
+  "diagnostic.enableMessage": "jump", // <Plug>(coc-diagnostic-info) for diagnostics
   // diagnostic-languageserver
   "diagnostic-languageserver.filetypes": {
     "gitcommit": [
