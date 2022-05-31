@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR="$( cd "$( dirname "${(%):-%x}" )" && pwd )"
 
 # Homebrew
 which -s brew
@@ -9,18 +9,12 @@ if [[ $? != 0 ]] ; then
 else
   brew update
 fi
-# Modern bash
-brew install bash # macOS default is bash@3
-sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells' # whitelist new bash
-chsh -s /usr/local/bin/bash
+
 # Other libs
 brew install asciinema
-brew install asdf
-brew install bash-completion@2
 brew install bat
 brew tap clementtsang/bottom
 brew install bottom
-brew install elixir
 brew install exa # ls replacement
 brew install fasd
 brew install fd # find replacement
@@ -32,46 +26,41 @@ brew install git # override xcode default
 brew install git-extras
 brew install gnu-sed --with-default-names # installs bin/sed instead of bin/gsed
 brew install gnupg
-brew install haskell-stack
-brew install hub
 brew install jq
-brew install navi # cheat sheets
-brew install --HEAD neovim
 brew install pandoc
-brew install pgcli
-brew install postgresql
 brew install proselint
-brew install python # python 3
 brew install ripgrep # grep / ag replacement
-ln -s /usr/local/bin/python3 /usr/local/bin/python # allow us to type python instead of python3
 brew install source-highlight
-brew install task
 brew install tig
-brew install translate-shell
-brew install tree
 brew install tmux
 brew install typespeed
-brew install vim # override system default
 brew install yarn
 
-# gems
-gem install neovim
-gem install neovim-ruby-host
+# asdf
+brew install asdf
+asdf plugin add ruby
+asdf install ruby latest
+asdf global ruby latest
+asdf plugin add nodejs
+asdf install nodejs latest
+asdf global nodejs latest
+
+# ruby
 gem install pry
 gem install solargraph # ruby language server
 gem install solargraph-rails --pre
 
 # python
-python -m pip install --user --upgrade pynvim
+pip3 install --user --upgrade pynvim
 
-# NPM
-npm install -g neovim
+# node
 npm install -g npx
+npm install -g tldr
 
 # powerline-shell
 git clone https://github.com/b-ryan/powerline-shell
 cd powerline-shell
-sudo python setup.py install
+python3 setup.py install
 cd ..
 sudo rm -rf powerline-shell
 
@@ -79,9 +68,14 @@ sudo rm -rf powerline-shell
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code-nerd-font font-jetbrains-mono-nerd-font
 
+# neovim
+brew install --HEAD neovim
 # vim plug for neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+gem install neovim
+gem install neovim-ruby-host
+npm install -g neovim
 
 # kitty
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin

@@ -1,4 +1,127 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+
+# Reset config on re-source
+source /etc/profile
+
+# Secrets
+[ -f ~/.secrets ] && source ~/.secrets
+
+###########################
+##                       ##
+##       P A T H S       ##
+##                       ##
+###########################
+
+# Home
+# -------------------------
+export PATH="$HOME/.local/bin:$PATH"
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!
+# Do not put any PATH changes after this!
+# !!!!!!!!!!!!!!!!!!!!!!!!!
+
+###########################
+##                       ##
+##      C O N F I G      ##
+##                       ##
+###########################
+
+# -------------------------
+export EDITOR='nvim'
+export GUI_EDITOR='code'
+
+#  grep colorize
+# -------------------------
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='37;41'
+
+#  history
+# -------------------------
+export HISTSIZE=10000 # default 500
+export HISTFILESIZE=10000 # default 500
+
+#  node
+# -------------------------
+# Enable persistent REPL history for `node`.
+export NODE_REPL_HISTORY=~/.node_history;
+# Allow 32³ entries; the default is 1000.
+export NODE_REPL_HISTORY_SIZE='32768';
+# Use sloppy mode by default, matching web browsers.
+export NODE_REPL_MODE='sloppy';
+
+#  gpg
+# -------------------------
+export GPG_TTY=$(tty)
+
+#  Enable key repeat
+# -------------------------
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+# speed up past what system preferences allows
+defaults write -g KeyRepeat -int 1
+
+#  Better manpage colors
+# -------------------------
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+#  bat
+# -------------------------
+export BAT_THEME="Monokai Extended Origin"
+
+###########################
+##                       ##
+##    D O T F I L E S    ##
+##                       ##
+###########################
+
+#  Home or work machine
+# -------------------------
+# Uncomment the appropriate line
+# [[ -f $HOME/.zshrc.home ]] && . $HOME/.zshrc.home
+[[ -f $HOME/.zshrc.work ]] && . $HOME/.zshrc.work
+
+#  Colorize prompt & less
+# -------------------------
+export LESSOPEN="| $(brew --prefix)/bin/src-hilite-lesspipe.sh %s"
+export LESS="--RAW-CONTROL-CHARS -RS#3NM~g" # allow colorize and line numbers
+[[ -f $HOME/.LESS_TERMCAP ]] && . $HOME/.LESS_TERMCAP || echo "\".LESS_TERMCAP\" not found. Is it there?"
+# Doesn't work in zsh
+# [[ -f $HOME/.COLORIZE_PROMPT ]] && . $HOME/.COLORIZE_PROMPT || echo "\".COLORIZE_PROMPT\" not found. Is it there?"
+# Enable italics in tmux
+export TERM=xterm-256color-italic
+
+#  fasd
+# -------------------------
+[[ -f $(brew --prefix)/bin/fasd ]] && eval "$(fasd --init posix-alias zsh-hook)" || echo "\"fasd\" not installed. Is it there?"
+
+#  powerline-shell
+# -------------------------
+function powerline_precmd() {
+    PS1="$(powerline-shell --shell zsh $?)"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+fi
+
+#  fzf
+# -------------------------
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Use rg as default find command
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_OPTS='--inline-info --multi --reverse --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"'Aa
+
+#  asdf
+# -------------------------
+[[ -f $(brew --prefix)/opt/asdf/libexec/asdf.sh ]] && . $(brew --prefix)/opt/asdf/libexec/asdf.sh || echo "\"asdf\" not installed. Is it there?"
 
 ###########################
 ##                       ##
@@ -7,61 +130,44 @@
 ###########################
 
 # =========================
-#  1. shell
+#  shell
 # =========================
-#  1a. ls
+#  ls
 # -------------------------
 alias ls="exa --icons -laF"
 
-#  1b. dir
+#  dir
 # -------------------------
 alias ..="cl .." # step back 1 level
 alias ...="cl ../.." # step back 2 levels
 function cl() { cd "$@" && ls; }
 alias mkdir="mkdir -p" # create intermediary dirs
 
-#  1c. idiot-proofing overwrites
+#  idiot-proofing overwrites
 # -------------------------
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 
-#  1d. CLI management
+#  CLI management
 # -------------------------
-alias reload="source $HOME/.bash_profile"
+alias reload="source $HOME/.zshrc"
 alias r="reload"
 
-#  1e. information
+#  information
 # -------------------------
 function h() { history | grep "$@" --color=always; }
 function ch() { history | awk '{ count[$2]++ } END { for (cmd in count) { print count[cmd] " " cmd } }' | sort -rn | head -20; }
 alias t="ytop"
 
-#  1f. desktop
-# -------------------------
-
-#  1g. emoji
+#  emoji
 # -------------------------
 function copyemoji() { echo "$1" | pbcopy | echo "$2 $1"; }
 alias supson="copyemoji \"¯\_(ツ)_/¯\" \"READY TO SHRUG\""
 alias tableflip="copyemoji \"(╯°□°）╯︵ ┻━┻\" \"READY TO TABLEFLIP\""
 alias disapproval="copyemoji \"ಠ_ಠ\" \"LOOK OF DISAPPROVAL\""
 
-# ========================
-#  2. package manager
-# ========================
-#  2a. rails
-# -------------------------
-alias be="bundle exec"
-alias ber="bundle exec rspec"
-alias bi="bundle install"
-
-# ========================
-#  3. git
-# ========================
-alias git="hub" # requires Hub to work -- brew install hub
-
-#  3a. adding & committing
+#  adding & committing
 # -------------------------
 alias ga="git add -A"
 alias gc="git commit"
@@ -72,7 +178,7 @@ function greb() { git rebase -i HEAD~"$@"; }
 alias clean="git clean -id"
 alias recommit="git commit -C HEAD@{1}"
 
-#  3b. branch mgmt
+#  branch mgmt
 # -------------------------
 function gcb() { git checkout -b $USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
 function _fuzzybranch() { git branch | grep -m 1 "$@" | tr -d "* "; } # fuzzy match branch names
@@ -98,24 +204,24 @@ function gbd() {
   git branch -D $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-#  3c. pulling
+#  pulling
 # -------------------------
 alias gr="git rebase"
 alias grom="git fetch && git rebase origin/master"
 alias cont="git rebase --continue"
 alias abort="git rebase --abort"
 
-#  3d. pushing
+#  pushing
 # -------------------------
 alias gp="git push"
 alias gpom="git push origin master"
 
-#  3e. information
+#  information
 # -------------------------
 alias gs="git status"
 alias gr="git remote -v"
 
-# 3f. patch git-extras
+#  patch git-extras
 # https://github.com/tj/git-extras/blob/master/bin/git-summary
 # -------------------------
 function _git_dedup_by_email() {
@@ -163,7 +269,7 @@ function _git_format_authors() {
 }
 
 # ========================
-#  4. docker
+#  docker
 # ========================
 alias dc="docker-compose"
 
@@ -216,12 +322,12 @@ function drm() {
 }
 
 # ========================
-#  5. less
+#  less
 # ========================
 alias less='less -m -N -g -i -J --underline-special --SILENT'
 
 # ========================
-#  6. fzf
+#  fzf
 # ========================
 #
 # https://github.com/junegunn/fzf/wiki/Examples
@@ -235,29 +341,17 @@ function fe() {
 }
 
 # ========================
-#  7. UNUSED
-# ========================
-
-# ========================
-#  8. watchers
-# ========================
-
-# ========================
-#  9. Java
-# ========================
-# function jc() { javac "$@".java && java "$@"; }
-
-# ========================
-#  10. Editor
+#  Editor
 # ========================
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
 
 # ========================
-#  #. Other Utilities
+#  Other Utilities
 # ========================
 function weather() { clear; curl "wttr.in/$@?m"; }
 alias dl="curl -O# -C - --retry 3"
-alias rec="asciinema rec --command=\"/bin/bash -l\" --idle-time-limit=1"
+alias rec="asciinema rec --command=\"/bin/zsh -l\" --idle-time-limit=1"
 function dlm3u8() { ffmpeg -i "$1" -bsf:a aac_adtstoasc -c copy -vcodec copy -crf 30 "$2.mp4"; }
+
