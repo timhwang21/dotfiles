@@ -3,8 +3,6 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
-set-option -g default-shell /usr/local/bin/bash
-
 # -- navigation ----------------------------------------------------------------
 
 # if you're running tmux within iTerm2
