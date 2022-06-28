@@ -151,7 +151,7 @@ alias rm="rm -i"
 
 #  CLI management
 # -------------------------
-alias reload="source $HOME/.zshrc"
+alias reload="exec zsh"
 alias r="reload"
 
 #  information
