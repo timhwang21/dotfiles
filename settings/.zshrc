@@ -157,7 +157,6 @@ alias r="reload"
 # -------------------------
 alias ga="git add -A"
 alias gc="git commit"
-alias gb="git --no-pager branch"
 function gacm() { ga && gcm "$@"; }
 function gcm() { git commit -m "$@"; }
 function greb() { git rebase -i HEAD~"$@"; }
@@ -167,26 +166,42 @@ alias recommit="git commit -C HEAD@{1}"
 #  branch mgmt
 # -------------------------
 function gcb() { git checkout -b $USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
-alias gd="git diff origin/master..."
 alias changed="git --no-pager diff --name-only origin/master"
 alias openchanged='$EDITOR -p `changed`'
 alias gch--.="git checkout -- ." # reset local changes on branch
 alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
-# gch - fzf git checkout
-# checkout git branch/tag, with a preview showing the commits between the tag/branch and HEAD
-function gch() {
-  local branches branch
-  branches=$(git --no-pager branch -vv) &&
-  branch=$(echo "$branches" | fzf --exit-0 --select-1 --query="$1" --no-multi --height 40% --no-hscroll --nth=1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+alias gb="git --no-pager branch -vv"
+# gl - fzf git log
+function gl() {
+  local commits sha
+  commits=$(git --no-pager log --max-count="${1:-500}" --pretty=format:"%h%x09%an%x09%s") &&
+  sha=$(echo "$commits" | fzf --no-multi --height 100% --no-hscroll --ansi --preview-window=up,60% --preview="git --no-pager show --compact-summary {1} | bat --style=numbers --color=always --line-range=:100") &&
+  # echo "$sha"
+  echo "$sha" | awk '{print $1}'
 }
-
-# gbd - fzf git branch delete
+# FZF git branch
+function _gbr() {
+  local branch
+  branch=$(echo "$(gb)" | fzf --exit-0 --select-1 --query="$1" --no-multi --height 35% --no-hscroll --nth=1 --ansi --preview="git --no-pager log -150 --compact-summary --pretty=format:%s '..{2}'") &&
+  echo "$branch" | sed "s/^*//" | awk '{print $1}' | sed "s/.* //"
+}
+# Check out the selected branch
+function gch() {
+  local branch
+  branch=$(_gbr "$1")
+  [[ ! -z "$branch" ]] && git checkout "$branch"
+}
+# Delete the selected branch
 function gbd() {
-  local branches branch
-  branches=$(git --no-pager branch -vv) &&
-  branch=$(echo "$branches" | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-hscroll --nth=1 --ansi --preview="git --no-pager log -150 --stat --pretty=format:%s '..{2}'") &&
-  git branch -D $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  local branch
+  branch=$(_gbr "$1")
+  [[ ! -z "$branch" ]] && git branch -D "$branch"
+}
+# Diff the selected branch against the current branch
+function gd() {
+  local branch
+  branch=$(_gbr "$1")
+  [[ ! -z "$branch" ]] && git diff "$branch"...
 }
 
 #  pulling
