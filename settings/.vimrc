@@ -383,10 +383,10 @@ let g:startify_lists = [
 " Change dir to Git root when opening file in different dir
 let g:startify_change_to_vcs_root = 1
 let g:startify_bookmarks = [
-\ {'b': '~/.bashrc'},
+\ {'z': '~/.zshrc'},
 \ {'c': '~/.config/nvim/coc-settings.json'},
 \ {'K': '~/.config/kitty/kitty.conf'},
-\ {'t': '~/.tmux.conf.local'},
+\ {'T': '~/.tmux.conf.local'},
 \ {'v': '~/.vimrc'}
 \]
 let g:startify_session_autoload = 1
