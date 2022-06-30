@@ -32,6 +32,7 @@ brew install proselint
 brew install ripgrep # grep / ag replacement
 brew install source-highlight
 brew install tig
+brew install tldr
 brew install tmux
 brew install typespeed
 brew install yarn
@@ -55,7 +56,6 @@ pip3 install --user --upgrade pynvim
 
 # node
 npm install -g npx
-npm install -g tldr
 
 # powerline-shell
 git clone https://github.com/b-ryan/powerline-shell
