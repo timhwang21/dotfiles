@@ -117,7 +117,8 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Use rg as default find command
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
-export FZF_DEFAULT_OPTS='--inline-info --multi --reverse --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"'Aa
+# NOTE: Not recommended to add --preview to FZF default options
+export FZF_DEFAULT_OPTS='--inline-info --multi --reverse'
 
 #  asdf
 # -------------------------
@@ -138,9 +139,7 @@ alias ls="exa --icons -laF"
 
 #  dir
 # -------------------------
-alias ..="cl .." # step back 1 level
-alias ...="cl ../.." # step back 2 levels
-function cl() { cd "$@" && ls; }
+alias ..="cd .." # step back 1 level
 alias mkdir="mkdir -p" # create intermediary dirs
 
 #  idiot-proofing overwrites
@@ -153,19 +152,6 @@ alias rm="rm -i"
 # -------------------------
 alias reload="exec zsh"
 alias r="reload"
-
-#  information
-# -------------------------
-function h() { history | grep "$@" --color=always; }
-function ch() { history | awk '{ count[$2]++ } END { for (cmd in count) { print count[cmd] " " cmd } }' | sort -rn | head -20; }
-alias t="ytop"
-
-#  emoji
-# -------------------------
-function copyemoji() { echo "$1" | pbcopy | echo "$2 $1"; }
-alias supson="copyemoji \"¯\_(ツ)_/¯\" \"READY TO SHRUG\""
-alias tableflip="copyemoji \"(╯°□°）╯︵ ┻━┻\" \"READY TO TABLEFLIP\""
-alias disapproval="copyemoji \"ಠ_ಠ\" \"LOOK OF DISAPPROVAL\""
 
 #  adding & committing
 # -------------------------
@@ -181,7 +167,6 @@ alias recommit="git commit -C HEAD@{1}"
 #  branch mgmt
 # -------------------------
 function gcb() { git checkout -b $USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
-function _fuzzybranch() { git branch | grep -m 1 "$@" | tr -d "* "; } # fuzzy match branch names
 alias gd="git diff origin/master..."
 alias changed="git --no-pager diff --name-only origin/master"
 alias openchanged='$EDITOR -p `changed`'
