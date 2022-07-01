@@ -174,7 +174,7 @@ alias gb="git --no-pager branch -vv"
 # gl - fzf git log
 function gl() {
   local commits sha
-  commits=$(git --no-pager log --max-count="${1:-500}" --pretty=format:"%h%x09%an%x09%s") &&
+  commits=$(git --no-pager log "${1:-HEAD}" --max-count=1000 --pretty=format:"%h%x09%an%x09%s") &&
   sha=$(echo "$commits" | fzf --no-multi --height 100% --no-hscroll --ansi --preview-window=up,60% --preview="git --no-pager show --compact-summary {1} | bat --style=numbers --color=always --line-range=:100") &&
   # echo "$sha"
   echo "$sha" | awk '{print $1}'
