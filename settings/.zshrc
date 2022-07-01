@@ -166,8 +166,6 @@ alias recommit="git commit -C HEAD@{1}"
 #  branch mgmt
 # -------------------------
 function gcb() { git checkout -b $USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
-alias changed="git --no-pager diff --name-only origin/master"
-alias openchanged='$EDITOR -p `changed`'
 alias gch--.="git checkout -- ." # reset local changes on branch
 alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
 alias gb="git --no-pager branch -vv"
@@ -175,14 +173,14 @@ alias gb="git --no-pager branch -vv"
 function gl() {
   local commits sha
   commits=$(git --no-pager log "${1:-HEAD}" --max-count=1000 --pretty=format:"%h%x09%an%x09%s") &&
-  sha=$(echo "$commits" | fzf --no-multi --height 100% --no-hscroll --ansi --preview-window=up,60% --preview="git --no-pager show --compact-summary {1} | bat --style=numbers --color=always --line-range=:100") &&
+  sha=$(echo "$commits" | fzf --no-multi --no-hscroll --ansi --preview-window=up,60% --preview="git --no-pager show --compact-summary {1} | bat --style=numbers --color=always --line-range=:100") &&
   # echo "$sha"
   echo "$sha" | awk '{print $1}'
 }
 # FZF git branch
 function _gbr() {
   local branch
-  branch=$(echo "$(gb)" | fzf --exit-0 --select-1 --query="$1" --no-multi --height 35% --no-hscroll --nth=1 --ansi --preview="git --no-pager log -150 --compact-summary --pretty=format:%s '..{2}'") &&
+  branch=$(echo "$(gb -a)" | fzf --exit-0 --select-1 --query="$1 !^remotes" --no-multi --height 35% --no-hscroll --nth=1 --ansi --preview="git --no-pager log -150 --compact-summary --pretty=format:%s '..{2}'") &&
   echo "$branch" | sed "s/^*//" | awk '{print $1}' | sed "s/.* //"
 }
 # Check out the selected branch
@@ -202,6 +200,11 @@ function gd() {
   local branch
   branch=$(_gbr "$1")
   [[ ! -z "$branch" ]] && git diff "$branch"...
+}
+function changed() {
+  local branch
+  branch=$(_gbr "$1")
+  [[ ! -z "$branch" ]] && git --no-pager diff --name-only "$branch"...
 }
 
 #  pulling
@@ -332,14 +335,13 @@ alias less='less -m -N -g -i -J --underline-special --SILENT'
 #
 # https://github.com/junegunn/fzf/wiki/Examples
 # 
-# fe - fzf edit
-# fe [FUZZY PATTERN] - Open the selected file with the default editor
+# e -- edit
+# e [FUZZY PATTERN] - Open the selected file with the default editor
 # Add fasd on top of this for frecency
-function fe() {
-  IFS=$'\n' files=($(fzf --exit-0 --select-1 --query="$1" --multi --ansi))
+function e() {
+  IFS=$'\n' files=($(fzf --exit-0 --select-1 --query="$1" --multi --ansi --preview="bat --style=numbers --color=always --line-range=:100 {1}"))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
-
 # ========================
 #  Editor
 # ========================
