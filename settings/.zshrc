@@ -83,9 +83,6 @@ export BAT_THEME="Monokai Extended Origin"
 # -------------------------
 export LESSOPEN="| $(brew --prefix)/bin/src-hilite-lesspipe.sh %s"
 export LESS="--RAW-CONTROL-CHARS -RS#3NM~g" # allow colorize and line numbers
-[[ -f $HOME/.LESS_TERMCAP ]] && . $HOME/.LESS_TERMCAP || echo "\".LESS_TERMCAP\" not found. Is it there?"
-# Doesn't work in zsh
-# [[ -f $HOME/.COLORIZE_PROMPT ]] && . $HOME/.COLORIZE_PROMPT || echo "\".COLORIZE_PROMPT\" not found. Is it there?"
 # Enable italics in tmux
 export TERM=xterm-256color-italic
 
@@ -93,24 +90,9 @@ export TERM=xterm-256color-italic
 # -------------------------
 [[ -f $(brew --prefix)/bin/zoxide ]] && eval "$(zoxide init zsh)" || echo "\"zoxide\" not installed. Is it there?"
 
-#  powerline-shell
+#  starship
 # -------------------------
-function powerline_precmd() {
-    PS1="$(powerline-shell --shell zsh $?)"
-}
-
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
+eval "$(starship init zsh)"
 
 #  fzf
 # -------------------------
