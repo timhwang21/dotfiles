@@ -1,0 +1,80 @@
+# White="#f8f8f2"
+# Black="#272822"
+# Gray100="#f8f8f0"
+# Gray200="#90908a"
+# Gray300="#75715e"
+# Gray400="#64645e"
+# Gray500="#49483e"
+# Gray600="#3c3d37"
+# Gray700="#31322c"
+# Magenta="#f92672"
+# Red="#8b0807"
+# Orange="#fd971f"
+# Yellow="#e6db74"
+# GreenLight="#a6e22e"
+# GreenDark="#46830c"
+# Purple="#ae81ff"
+# Teal="#66d9ef"
+# BlueLight="#204a87"
+# BlueDark="#243955"
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+format = """
+$time\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$jobs\
+$cmd_duration\
+$line_break\
+$sudo\
+$character"""
+
+[time]
+format = "[ $time ](fg:#f8f8f0 bg:#64645e)[ ](fg:#64645e bg:#3c3d37)"
+disabled = false
+
+[directory]
+truncate_to_repo = false
+format = "[$path$read_only ](fg:#f8f8f0 bg:#3c3d37)[ ](fg:#3c3d37 bg:#272822)"
+read_only = " \uf023"
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch) ](bold fg:#ae8aff bg:#272822)"
+
+[git_status]
+format = '[$ahead_behind](bold fg:#fd971f bg:#272822)[ ](fg:#272822 bg:#3c3d37)[$all_status]($style)[ ](fg:#3c3d37)'
+
+ahead = "[${count}\uf431](fg:#a6e22e) "
+behind = "[${count}\uf433](fg:#f92672) "
+diverged = "[${ahead_count}\uf431](fg:#a6e22e)[${behind_count}\uf433](fg:#f92672) "
+up_to_date = ""
+
+conflicted = "[${count}\uf5f7 ](bold fg:#f92672 bg:#3c3d37)"
+stashed = "[${count}\uf8d6 ](bold fg:#e6db74 bg:#3c3d37)"
+deleted = "[${count}\uf00d ](bold fg:#90908a bg:#3c3d37)"
+renamed = "[${count}\uf064 ](bold fg:#fd971f bg:#3c3d37)"
+modified = "[${count}\uf8ea ](bold fg:#fd971f bg:#3c3d37)"
+staged = "[${count}\uf067 ](bold fg:#a6e22e bg:#3c3d37)"
+untracked = "[${count}\uf128 ](bold fg:#90908a bg:#3c3d37)"
+
+[jobs]
+format = "[$symbol$number ](bold fg:#66d9ef)"
+number_threshold = 1
+symbol = "\uf5ef "
+
+[cmd_duration]
+format = "[\ufa1e${duration} ]($style)"
+style = "bold fg:#f92672"
+
+[sudo]
+disabled = false
+format = "[$symbol]($style) "
+symbol = "\uf09c"
+style = "#f92672"

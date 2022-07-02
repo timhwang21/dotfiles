@@ -9,13 +9,6 @@ for filename in settings/*(D); do
   fi
 done
 
-# symlink sources, skipping directories
-for filename in sources/*(D); do
-  if [ ! -a "$filename" ]; then
-    ln -fs "$DIR/../$filename" "$HOME/$(basename "$filename")"
-  fi
-done
-
 # symlink app specific config
 for filename in .config/*(D); do
   if [ ! -a "$filename" ]; then
