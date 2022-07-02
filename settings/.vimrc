@@ -82,11 +82,7 @@ set updatetime=300 " default is 4000
 set backspace=indent,eol,start
 set autoread " reload files changed externally
 set showcmd " show in progress commands
-" Change cursor shape between insert and normal mode in iTerm2.app
-if $TERM_PROGRAM =~ "iTerm"
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
+set laststatus=3 " global statusline
 " skip backups and swp
 set nobackup
 set nowritebackup
@@ -231,6 +227,8 @@ execute 'highlight IndentBlanklineChar guifg='.s:ColorGray600.' gui=nocombine'
 execute 'highlight IndentBlanklineContextChar guifg='.s:ColorTeal.' gui=nocombine'
 " MatchTag
 execute 'highlight MatchTag guifg='.s:ColorGray600.' gui=bold'
+" Minimal split dividers
+execute 'highlight WinSeparator guifg='.s:ColorGray600.' gui=bold'
 
 " identify syntax group under cursor
 nmap <leader>hi :call <SID>SynStack()<CR>
