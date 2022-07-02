@@ -89,9 +89,9 @@ export LESS="--RAW-CONTROL-CHARS -RS#3NM~g" # allow colorize and line numbers
 # Enable italics in tmux
 export TERM=xterm-256color-italic
 
-#  fasd
+#  zoxide
 # -------------------------
-[[ -f $(brew --prefix)/bin/fasd ]] && eval "$(fasd --init posix-alias zsh-hook)" || echo "\"fasd\" not installed. Is it there?"
+[[ -f $(brew --prefix)/bin/zoxide ]] && eval "$(zoxide init zsh)" || echo "\"zoxide\" not installed. Is it there?"
 
 #  powerline-shell
 # -------------------------
@@ -337,7 +337,6 @@ alias less='less -m -N -g -i -J --underline-special --SILENT'
 # 
 # e -- edit
 # e [FUZZY PATTERN] - Open the selected file with the default editor
-# Add fasd on top of this for frecency
 function e() {
   IFS=$'\n' files=($(fzf --exit-0 --select-1 --query="$1" --multi --ansi --preview="bat --style=numbers --color=always --line-range=:100 {1}"))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
