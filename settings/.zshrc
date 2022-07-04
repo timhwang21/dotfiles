@@ -115,14 +115,10 @@ export FZF_DEFAULT_OPTS='--inline-info --multi --reverse'
 # =========================
 #  shell
 # =========================
-#  ls
-# -------------------------
 alias ls="exa --icons -laF"
-
-#  dir
-# -------------------------
 alias ..="cd .." # step back 1 level
 alias mkdir="mkdir -p" # create intermediary dirs
+alias icat="kitty +kitten icat"
 
 #  idiot-proofing overwrites
 # -------------------------
