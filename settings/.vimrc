@@ -40,7 +40,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'AndrewRadev/splitjoin.vim' " multiline join. gJ to join, gS to split
 Plug 'coderifous/textobj-word-column.vim' " ic,ac,iC,aC to manipulate columns
 " doesn't work, causes crashes
-" Plug 'ggandor/lightspeed.nvim' " s / S for quick jump -- 
 Plug 'junegunn/vim-easy-align' " <visual>ga{char} or ga{textobj}{char} to align around char
 Plug 'tpope/vim-abolish' " toggling casing and substitution across cases
 Plug 'tpope/vim-commentary' " toggling comments generically across languages
@@ -57,7 +56,6 @@ Plug 'RRethy/nvim-treesitter-endwise' " Tree-sitter based `end` insertion
 Plug 'timhwang21/vim-i18next'
 Plug 'tpope/vim-rails' " :Emodel, :Econtroller, :A(lternate), :R(elated)
 " Doesn't work with Python 3?
-" Plug 'Valloric/MatchTagAlways' " highlight HTML/JSX tags
 Plug 'windwp/nvim-ts-autotag' " autocomplete HTML/JSX tags
 " Visual
 Plug 'dstein64/nvim-scrollview', { 'branch': 'main' } " nvim scrollbars
