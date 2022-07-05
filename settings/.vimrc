@@ -58,8 +58,7 @@ Plug 'tpope/vim-rails' " :Emodel, :Econtroller, :A(lternate), :R(elated)
 " Doesn't work with Python 3?
 Plug 'windwp/nvim-ts-autotag' " autocomplete HTML/JSX tags
 " Visual
-Plug 'petertriho/nvim-scrollbar' " nvim scrollbars
-Plug 'kevinhwang91/nvim-hlslens' " visual search indicators
+Plug 'dstein64/nvim-scrollview', { 'branch': 'main' } " nvim scrollbars
 Plug 'flazz/vim-colorschemes' " large collection of colorschemes
 Plug 'folke/lsp-colors.nvim' " LSP patcher for ANY colorscheme
 Plug 'kyazdani42/nvim-web-devicons'
@@ -224,15 +223,10 @@ execute 'highlight GitGutterChange guifg='.s:ColorTeal.' guibg='.s:ColorBlack
 " more subtle divider color
 execute 'highlight IndentBlanklineChar guifg='.s:ColorGray600.' gui=nocombine'
 execute 'highlight IndentBlanklineContextChar guifg='.s:ColorTeal.' gui=nocombine'
+" MatchTag
+execute 'highlight MatchTag guifg='.s:ColorGray600.' gui=bold'
 " Minimal split dividers
 execute 'highlight WinSeparator guifg='.s:ColorGray600.' gui=bold'
-" nvim-hlslens
-execute 'highlight HlSearchNear guibg='.s:ColorGray600.' gui=underline'
-execute 'highlight HlSearchLens guifg='.s:ColorGray200
-execute 'highlight HlSearchLensNear guifg='.s:ColorYellow.' gui=bold'
-highlight default link HlSearchFloat HlSearchLensNear
-" nvim-scrollbar
-execute 'highlight ScrollbarHandle guibg='.s:ColorRed
 
 " identify syntax group under cursor
 nmap <leader>hi :call <SID>SynStack()<CR>
@@ -342,6 +336,16 @@ command! -bang -nargs=? -complete=dir Files
 set wildmenu
 set wildmode=longest:list,full
 " }}}
+" MatchTagAlways {{{
+let g:mta_filetypes = {
+\  'html': 1,
+\  'xml': 1,
+\  'javascript.jsx': 1,
+\  'typescript.tsx': 1,
+\}
+let g:mta_use_matchparen_group=0 " don't use same syntax as highlighting parens etc.
+let g:mta_set_default_matchtag_color=0 " don't use default highlighting
+" }}}
 " vim-airline {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#coc#enabled = 0 " this is useless
@@ -439,7 +443,7 @@ let g:indent_blankline_context_patterns = [
 " }}}
 " vim-abolish {{{
 " Allow usage of text objects, e.g. criW
-nmap cr <Plug>(abolish-coerce)
+" nmap cr <Plug>(abolish-coerce)
 " }}}
 " vim-easyalign {{{
 " align markdown tables on |
@@ -473,40 +477,6 @@ command! -nargs=? DiffClose :DiffviewClose
 " }}}
 " replacer.nvim {{{
 nmap <leader>h :lua require("replacer").run()<cr>
-" }}}
-" nvim-scrollbar + nvim-hlslens {{{
-lua <<EOF
-local kopts = { noremap = true, silent = true }
-
-vim.api.nvim_set_keymap('n', 'n',
-    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', 'N',
-    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-
-vim.api.nvim_set_keymap('n', '<Leader>l', ':noh<CR>', kopts)
-require("scrollbar").setup {
-  handlers = {
-    search = true,
-  },
-  handle = {
-    color = "#3c3d37",
-  },
-  marks = {
-    Search = { color = "#e6db74" },
-    Error = { color = "#8b0807" },
-    Warn = { color = "#fd971f" },
-    Info = { color = "#66d9ef" },
-    Hint = { color = "#a6e22e" },
-    Misc = { color = "#ae81ff" },
-  }
-}
-EOF
 " }}}
 " nvim-treesitter {{{
 " Modules: enable highlighting, indentation, folding, etc. :h nvim-treesitter-modules
