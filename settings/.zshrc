@@ -102,9 +102,11 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 # NOTE: Not recommended to add --preview to FZF default options
 export FZF_DEFAULT_OPTS='--inline-info --multi --reverse'
 
-#  asdf
+#  version managers
 # -------------------------
-[[ -f $(brew --prefix)/opt/asdf/libexec/asdf.sh ]] && . $(brew --prefix)/opt/asdf/libexec/asdf.sh || echo "\"asdf\" not installed. Is it there?"
+# [ -f $(brew --prefix)/opt/asdf/libexec/asdf.sh ] && . $(brew --prefix)/opt/asdf/libexec/asdf.sh
+[ -d $(brew --prefix)/opt/nodenv ] && eval "$(nodenv init -)"
+[ -d $(brew --prefix)/opt/rbenv ] && eval "$(rbenv init - zsh)"
 
 ###########################
 ##                       ##
