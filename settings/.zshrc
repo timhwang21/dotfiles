@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# allow inline comments
+setopt interactivecomments
+
 # Reset config on re-source
 source /etc/profile
 
