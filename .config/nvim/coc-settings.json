@@ -177,7 +177,7 @@
   "prettier.stylelintIntegration": true,
   "prettier.onlyUseLocalVersion": true,
   //eslint
-  "eslint.autoFixOnSave": false, // makes save unacceptably slow
+  "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
