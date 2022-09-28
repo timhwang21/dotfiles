@@ -15,10 +15,12 @@ let g:loaded_vimballPlugin     = 1
 let g:loaded_getscript         = 1
 let g:loaded_getscriptPlugin   = 1
 " netrw
-let g:loaded_netrw             = 1
+" Actual plugin is disabled.
 let g:loaded_netrwPlugin       = 1
 let g:loaded_netrwSettings     = 1
 let g:loaded_netrwFileHandlers = 1
+" ENABLED. Needed for fugitive for some reason.
+" let g:loaded_netrw             = 1
 " }}}
 " plug {{{
 call plug#begin(stdpath('data') . '/plugged')
@@ -34,6 +36,7 @@ Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sindrets/diffview.nvim' " :Diff, :DiffMaster
 Plug 'tpope/vim-fugitive' " Vim git integration
+Plug 'tommcdo/vim-fubitive' " Fugitive bitbucket integration
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Text manipulation
