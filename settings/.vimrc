@@ -66,6 +66,7 @@ Plug 'flazz/vim-colorschemes' " large collection of colorschemes
 Plug 'folke/lsp-colors.nvim' " LSP patcher for ANY colorscheme
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git' " Pretty quickfix
 " Configs
 Plug 'editorconfig/editorconfig-vim'
 
@@ -707,6 +708,11 @@ nnoremap <leader>jf :call CocAction('runCommand', 'jest.fileTest', ['%'])<CR>
 " Run jest for current test
 command! -nargs=0 JestCurr :call  CocAction('runCommand', 'jest.singleTest')
 nnoremap <leader>jc :call CocAction('runCommand', 'jest.singleTest')<CR>
+" }}}
+" nvim-pqf {{{
+lua <<EOF
+require('pqf').setup()
+EOF
 " }}}
 " Meta {{{
 set modelines=1 " for page folding
