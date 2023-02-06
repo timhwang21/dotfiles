@@ -534,10 +534,9 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
   textobjects = {
-    enable = true,
-    disable = {},
+    enable = false,
     select = {
-      enable = true,
+      enable = false,
       lookahead = true, -- selects next available obj if not within one
       keymaps = {
         ["af"] = "@function.outer",
