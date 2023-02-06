@@ -26,8 +26,8 @@ let g:loaded_netrwFileHandlers = 1
 call plug#begin(stdpath('data') . '/plugged')
 " Utilities
 Plug 'nvim-lua/plenary.nvim' " Lua utilities
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compat'} " We recommend updating the parsers on update
-Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch': '0.5-compat'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter-textobjects' 
 " Tools
 Plug 'gabrielpoca/replacer.nvim' " <Leader>h in quickfix to modify files
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
