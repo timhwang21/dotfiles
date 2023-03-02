@@ -28,7 +28,8 @@
 [alias]
   currbranch = rev-parse --abbrev-ref HEAD
   gud = !man git
-  authors = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
+  authors = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --no-merges
+  commitcount = "!f() { git log --format=\"%ae\" --no-merges --author="$1" | wc -l; }; f"
   amend = commit --amend --no-verify
   fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
   ; dependencies: fzf, fugitive-vim. $EDITOR being some flavor of vim
