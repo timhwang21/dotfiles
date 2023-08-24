@@ -17,7 +17,7 @@ for filename in .config/*(D); do
 done
 
 # build xterm italics profile
-tic assets/xterm-256color-italic.terminfo
+tic -x assets/xterm-256color-italic.terminfo
 
 # source profile
 source $HOME/.zshrc
