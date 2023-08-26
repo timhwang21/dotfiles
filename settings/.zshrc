@@ -107,9 +107,7 @@ export FZF_DEFAULT_OPTS='--inline-info --multi --reverse'
 
 #  version managers
 # -------------------------
-# [ -f $(brew --prefix)/opt/asdf/libexec/asdf.sh ] && . $(brew --prefix)/opt/asdf/libexec/asdf.sh
-[ -d $(brew --prefix)/opt/nodenv ] && eval "$(nodenv init -)"
-[ -d $(brew --prefix)/opt/rbenv ] && eval "$(rbenv init - zsh)"
+[ -f $(brew --prefix asdf)/libexec/asdf.sh ] && . $(brew --prefix)/opt/asdf/libexec/asdf.sh
 
 ###########################
 ##                       ##
@@ -337,5 +335,6 @@ alias v="nvim"
 function weather() { clear; curl "wttr.in/$@?m"; }
 alias dl="curl -O# -C - --retry 3"
 alias rec="asciinema rec --command=\"/bin/zsh -l\" --idle-time-limit=1"
-function dlm3u8() { ffmpeg -i "$1" -bsf:a aac_adtstoasc -c copy -vcodec copy -crf 30 "$2.mp4"; }
-
+function dlm3u8() {
+  ffmpeg -i "$1" -bsf:a aac_adtstoasc -c copy -vcodec copy -crf 30 "$(date +%s).mp4";
+}

@@ -6,18 +6,23 @@ DIR="$( cd "$( dirname "${(%):-%x}" )" && pwd )"
 which -s brew
 if [[ $? != 0 ]] ; then
   yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   brew update
 fi
 
+# Core dependencies
+brew install coreutils
+brew install git
+
 # Other libs
+brew install asdf
 brew install bat
 brew install exa
 brew install fd
 brew install fzf
 # To install useful key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install
-brew install git
 brew install jq
 brew install pandoc
 brew install ripgrep
@@ -31,6 +36,17 @@ brew install zoxide
 # nerd fonts
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code-nerd-font font-jetbrains-mono-nerd-font
+
+# reload dependencies
+exec zsh
+
+# languages
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf install nodejs latest
+asdf global nodejs latest
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+asdf install ruby latest
+asdf global ruby latest
 
 # ruby
 gem install pry

@@ -1,4 +1,4 @@
-" disable default plugins {{{
+" disable default plugins
 " Speed up init by disabling unused built-ins.
 " Handled by tree-sitter
 let g:loaded_matchparen        = 1
@@ -21,8 +21,7 @@ let g:loaded_netrwSettings     = 1
 let g:loaded_netrwFileHandlers = 1
 " ENABLED. Needed for fugitive for some reason.
 " let g:loaded_netrw             = 1
-" }}}
-" plug {{{
+" plug
 call plug#begin(stdpath('data') . '/plugged')
 " Utilities
 Plug 'nvim-lua/plenary.nvim' " Lua utilities
@@ -66,7 +65,7 @@ Plug 'flazz/vim-colorschemes' " large collection of colorschemes
 Plug 'folke/lsp-colors.nvim' " LSP patcher for ANY colorscheme
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git' " Pretty quickfix
+Plug 'yorickpeterse/nvim-pqf' " Pretty quickfix
 " Configs
 Plug 'editorconfig/editorconfig-vim'
 
@@ -74,8 +73,12 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons' " still used for bufferline and some other stuff
 call plug#end()
 " installation -- :source % :PlugInstall
-" }}}
-" Settings {{{
+" Remember to periodically run:
+" :PlugUpdate, :PlugClean
+" :TSUpdate for tree-sitter
+" :CocUpdate for COC
+" 
+" Settings 
 set mouse=a " enable mouse reporting
 set nowrap
 set sidescroll=1
@@ -119,8 +122,8 @@ xnoremap > >gv
 xnoremap p pgvy
 " Block Ex mode
 nnoremap Q <Nop>
-" }}}
-" Function keys {{{
+" 
+" Function keys 
 imap <silent> <F1> <Nop>
 map <silent> <F1> :Startify<CR>
 map <silent> <F2> :bprevious<CR>
@@ -137,8 +140,8 @@ nmap <silent> <F8> <Plug>(coc-diagnostic-prev)
 nmap <silent> <F9> <Plug>(coc-diagnostic-info)
 nmap <silent> <F10> <Plug>(coc-references)
 
-" }}}
-" Whitespace {{{
+" 
+" Whitespace 
 filetype plugin indent on " Indent settings by filetype
 set autoindent
 set expandtab
@@ -151,8 +154,8 @@ set tabstop=2
 " Add filetypes where whitespace should be trimmed
 autocmd BufWritePre *.md %s/\s\+$//e
 
-" }}}
-" Display {{{
+" 
+" Display 
 colorscheme monokai
 set termguicolors
 set background=dark
@@ -170,8 +173,8 @@ autocmd FileType json setl foldmethod=syntax
 autocmd FileType yaml setl foldmethod=indent
 autocmd FileType json,yaml normal zR
 
-" }}}
-" Custom highlighting {{{
+" 
+" Custom highlighting 
 " From: https://github.com/flazz/vim-colorschemes/blob/master/colors/Monokai.vim
 let s:ColorWhite="#f8f8f2"
 let s:ColorBlack="#272822"
@@ -240,8 +243,8 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-" }}}
-" Buffer configuration {{{
+" 
+" Buffer configuration 
 set hidden " hide buffers on switch instead of trying to close
 
 " https://vim.fandom.com/wiki/Avoid_scrolling_when_switch_buffers
@@ -271,8 +274,8 @@ if v:version >= 700
     autocmd BufLeave * call AutoSaveWinView()
     autocmd BufEnter * call AutoRestoreWinView()
 endif
-"}}}
-" Split configuration {{{
+
+" Split configuration 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -280,8 +283,8 @@ nnoremap <C-H> <C-W><C-H>
 
 set splitbelow
 set splitright
-" }}}
-" Diff configuration {{{
+" 
+" Diff configuration 
 " default: diffopt=internal,filler,closeoff
 " Turn off whitespaces compare
 set diffopt+=iwhite
@@ -293,19 +296,19 @@ set diffopt+=filler
 set diffopt+=indent-heuristic
 " Better diff algorithm
 set diffopt+=algorithm:histogram
-" }}}
-" Search {{{
+" 
+" Search 
 set gdefault
 set hlsearch
 set incsearch
 " neovim only -- realtime search highlight
 set inccommand=nosplit
-" }}}
-" Yank {{{
+" 
+" Yank 
 " Copy current file path to system clipboard
 nnoremap <leader>p :let @+ = expand("%")<CR>
-" }}}
-" fzf {{{
+" 
+" fzf 
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>co :Commits<CR>
 nnoremap <leader>b :Buffers<CR>
@@ -335,12 +338,12 @@ command! -bang -nargs=* Rg
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-" }}}
-" wildmenu {{{
+" 
+" wildmenu 
 set wildmenu
 set wildmode=longest:list,full
-" }}}
-" MatchTagAlways {{{
+" 
+" MatchTagAlways 
 let g:mta_filetypes = {
 \  'html': 1,
 \  'xml': 1,
@@ -349,8 +352,8 @@ let g:mta_filetypes = {
 \}
 let g:mta_use_matchparen_group=0 " don't use same syntax as highlighting parens etc.
 let g:mta_set_default_matchtag_color=0 " don't use default highlighting
-" }}}
-" vim-airline {{{
+" 
+" vim-airline 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#coc#enabled = 0 " this is useless
 " use nvim-treesitter; default of showing filename is useless
@@ -361,8 +364,8 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_solarized_bg='dark'
 let g:airline_theme='base16_monokai'
-" }}}
-" startify {{{
+" 
+" startify 
 " Disable cow :'(
 let g:startify_custom_header = [
         \ '                 __                ',
@@ -392,12 +395,12 @@ let g:startify_bookmarks = [
 let g:startify_session_autoload = 1
 let g:startify_session_persistence = 1
 let g:startify_session_delete_buffers = 0
-" }}}
-" coc-explorer {{{
+" 
+" coc-explorer 
 nmap <C-n> :CocCommand explorer<CR>
 nmap <leader>n :CocCommand explorer<CR>
-" }}}
-" indentLine {{{
+" 
+" indentLine 
 let g:indent_blankline_char = '│'
 " tree sitter highlight
 let g:indent_blankline_use_treesitter = v:true
@@ -444,45 +447,45 @@ let g:indent_blankline_context_patterns = [
     \'until',
     \'while'
     \]
-" }}}
-" vim-abolish {{{
+" 
+" vim-abolish 
 " Allow usage of text objects, e.g. criW
 " nmap cr <Plug>(abolish-coerce)
-" }}}
-" vim-easyalign {{{
+" 
+" vim-easyalign 
 " align markdown tables on |
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-" }}}
-" vim-i18next {{{
+" 
+" vim-i18next 
 " specify Persona i18next file
 autocmd BufRead,BufNewFile ~/Development/persona-web/*
 \ let g:i18next_locale_path = 'app/assets/locales/translation.en-US.json'
 nmap <silent> <leader>t :call i18next#echo_cursorline()<CR>
 nmap <silent> gt :call i18next#goto_cursorline()<CR>
-" }}}
-" vim-jsonpath {{{
+" 
+" vim-jsonpath 
 " Optionally copy path to a named register (* in this case) when calling :JsonPath
 let g:jsonpath_register = '*'
 " Define mappings for json buffers
 au FileType json noremap <buffer> <silent> <leader>d :call jsonpath#echo()<CR>
 au FileType json noremap <buffer> <silent> <leader>g :call jsonpath#goto()<CR>
-" }}}
-" vim-test {{{
+" 
+" vim-test 
 " Open tests in a new split
 let test#strategy = "neovim"
-" }}}
-" diffview.nvim {{{
+" 
+" diffview.nvim 
 " Open diff against head
 " :tabc to exit
 nmap <leader>gd :<C-u>execute 'DiffviewOpen'<CR>
 command! -nargs=? Diff :DiffviewOpen
 command! -nargs=0 DiffMaster :DiffviewOpen master
 command! -nargs=? DiffClose :DiffviewClose
-" }}}
-" replacer.nvim {{{
+" 
+" replacer.nvim 
 nmap <leader>h :lua require("replacer").run()<cr>
-" }}}
-" nvim-treesitter {{{
+" 
+" nvim-treesitter 
 " Modules: enable highlighting, indentation, folding, etc. :h nvim-treesitter-modules
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -500,7 +503,6 @@ require'nvim-treesitter.configs'.setup {
     "python",
     "regex",
     "ruby",
-    "swift",
     "tsx",
     "typescript",
     "yaml",
@@ -551,8 +553,8 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-" }}}
-" coc.vim {{{
+" 
+" coc.vim 
 " Declare and install missing dependencies
 let g:coc_global_extensions = [
     \ "coc-actions",
@@ -707,13 +709,13 @@ nnoremap <leader>jf :call CocAction('runCommand', 'jest.fileTest', ['%'])<CR>
 " Run jest for current test
 command! -nargs=0 JestCurr :call  CocAction('runCommand', 'jest.singleTest')
 nnoremap <leader>jc :call CocAction('runCommand', 'jest.singleTest')<CR>
-" }}}
-" nvim-pqf {{{
+" 
+" nvim-pqf 
 lua <<EOF
 require('pqf').setup()
 EOF
-" }}}
-" Meta {{{
+" 
+" Meta 
 set modelines=1 " for page folding
-" }}}
+" 
 " vim: foldmethod=marker:foldlevel=0
