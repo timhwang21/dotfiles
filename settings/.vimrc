@@ -480,6 +480,13 @@ command! -nargs=? DiffClose :DiffviewClose
 " 
 " replacer.nvim 
 nmap <leader>h :lua require("replacer").run()<cr>
+"
+" targets.vim 
+" Disable unused mappings for argument, pair, quote
+autocmd User targets#mappings#user call targets#mappings#extend(
+\ {
+\   'a': {}, 'b': {}, 'q': {}
+\ })
 " 
 lua <<EOF
 -- nvim-hlslens
@@ -531,30 +538,33 @@ require('nvim-treesitter.configs').setup {
   -- grm - decrement to previous named node in visual mode
   incremental_selection = {
     enable = true,
-    disable = {},
     keymaps = {
       init_selection = "gnn",
-      node_incremental = "grn",
+      node_incremental = "<TAB>",
       scope_incremental = "grc",
-      node_decremental = "grm",
+      node_decremental = "<S-TAB>",
     },
   },
   indent = {
     enable = true,
   },
   textobjects = {
-    enable = false,
     select = {
-      enable = false,
+      enable = true,
       lookahead = true, -- selects next available obj if not within one
       keymaps = {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["aP"] = { 
-          -- a stretch, but "outer Proc" for Ruby; handles procs, blocks, and lambdas
-          -- note that Ruby doesn't support @block.inner
-          ruby = "@block.outer",
-        },
+        ["ab"] = "@block.outer",
+        ["ib"] = "@block.inner",
+        ["ar"] = "@frame.outer",
+        ["ir"] = "@frame.inner",
+        ["at"] = "@attribute.outer",
+        ["it"] = "@attribute.inner",
+        ["ae"] = "@scopename.inner",
+        ["ie"] = "@scopename.inner",
+        ["as"] = "@statement.outer",
+        ["is"] = "@statement.outer",
       },
     },
   },
@@ -653,9 +663,10 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+" DISABLED -- now handled by tree-sitter
+" nmap <silent> <TAB> <Plug>(coc-range-select)
+" xmap <silent> <TAB> <Plug>(coc-range-select)
+" xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
