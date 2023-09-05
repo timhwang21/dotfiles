@@ -31,8 +31,10 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'gabrielpoca/replacer.nvim' " <Leader>h in quickfix to modify files
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'kevinhwang91/nvim-hlslens' " more search info
 Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ruifm/gitlinker.nvim' " Generate permalinks to source with <leader>gY
 Plug 'sindrets/diffview.nvim' " :Diff, :DiffMaster
 Plug 'tpope/vim-fugitive' " Vim git integration
 Plug 'tommcdo/vim-fubitive' " Fugitive bitbucket integration
@@ -41,7 +43,6 @@ Plug 'vim-airline/vim-airline-themes'
 " Text manipulation
 Plug 'AndrewRadev/splitjoin.vim' " multiline join. gJ to join, gS to split
 Plug 'coderifous/textobj-word-column.vim' " ic,ac,iC,aC to manipulate columns
-" doesn't work, causes crashes
 Plug 'junegunn/vim-easy-align' " <visual>ga{char} or ga{textobj}{char} to align around char
 Plug 'tpope/vim-abolish' " toggling casing and substitution across cases
 Plug 'tpope/vim-commentary' " toggling comments generically across languages
@@ -55,7 +56,6 @@ Plug 'tpope/vim-eunuch' " Vim sugar for the UNIX shell commands
 Plug 'aliou/sql-heredoc.vim' " highlight SQL in Ruby heredocs
 Plug 'mogelbrod/vim-jsonpath' " <leader>d to copy path, <leader>j to jump to path
 Plug 'RRethy/nvim-treesitter-endwise' " Tree-sitter based `end` insertion
-Plug 'timhwang21/vim-i18next'
 Plug 'tpope/vim-rails' " :Emodel, :Econtroller, :A(lternate), :R(elated)
 " Doesn't work with Python 3?
 Plug 'windwp/nvim-ts-autotag' " autocomplete HTML/JSX tags
@@ -234,6 +234,9 @@ execute 'highlight IndentBlanklineContextChar guifg='.s:ColorTeal.' gui=nocombin
 execute 'highlight MatchTag guifg='.s:ColorGray600.' gui=bold'
 " Minimal split dividers
 execute 'highlight WinSeparator guifg='.s:ColorGray600.' gui=bold'
+" hlslens
+execute 'highlight HlSearchLens guifg='.s:ColorGray400
+execute 'highlight HlSearchLensNear guifg='.s:ColorYellow.' gui=bold'
 
 " identify syntax group under cursor
 nmap <leader>hi :call <SID>SynStack()<CR>
@@ -456,13 +459,6 @@ let g:indent_blankline_context_patterns = [
 " align markdown tables on |
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 " 
-" vim-i18next 
-" specify Persona i18next file
-autocmd BufRead,BufNewFile ~/Development/persona-web/*
-\ let g:i18next_locale_path = 'app/assets/locales/translation.en-US.json'
-nmap <silent> <leader>t :call i18next#echo_cursorline()<CR>
-nmap <silent> gt :call i18next#goto_cursorline()<CR>
-" 
 " vim-jsonpath 
 " Optionally copy path to a named register (* in this case) when calling :JsonPath
 let g:jsonpath_register = '*'
@@ -485,10 +481,21 @@ command! -nargs=? DiffClose :DiffviewClose
 " replacer.nvim 
 nmap <leader>h :lua require("replacer").run()<cr>
 " 
-" nvim-treesitter 
-" Modules: enable highlighting, indentation, folding, etc. :h nvim-treesitter-modules
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
+-- nvim-hlslens
+require('hlslens').setup()
+
+-- gitlinker.nvim 
+require('gitlinker').setup({
+  mappings = "<leader>gY"
+})
+
+-- nvim-pqf 
+require('pqf').setup()
+
+-- nvim-treesitter 
+-- Modules: enable highlighting, indentation, folding, etc. :h nvim-treesitter-modules
+require('nvim-treesitter.configs').setup {
   ensure_installed = {
     "bash",
     "comment",
@@ -709,13 +716,3 @@ nnoremap <leader>jf :call CocAction('runCommand', 'jest.fileTest', ['%'])<CR>
 " Run jest for current test
 command! -nargs=0 JestCurr :call  CocAction('runCommand', 'jest.singleTest')
 nnoremap <leader>jc :call CocAction('runCommand', 'jest.singleTest')<CR>
-" 
-" nvim-pqf 
-lua <<EOF
-require('pqf').setup()
-EOF
-" 
-" Meta 
-set modelines=1 " for page folding
-" 
-" vim: foldmethod=marker:foldlevel=0
