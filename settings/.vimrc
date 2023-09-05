@@ -60,7 +60,7 @@ Plug 'tpope/vim-rails' " :Emodel, :Econtroller, :A(lternate), :R(elated)
 " Doesn't work with Python 3?
 Plug 'windwp/nvim-ts-autotag' " autocomplete HTML/JSX tags
 " Visual
-Plug 'dstein64/nvim-scrollview', { 'branch': 'main' } " nvim scrollbars
+Plug 'petertriho/nvim-scrollbar'
 Plug 'flazz/vim-colorschemes' " large collection of colorschemes
 Plug 'folke/lsp-colors.nvim' " LSP patcher for ANY colorscheme
 Plug 'kyazdani42/nvim-web-devicons'
@@ -491,6 +491,9 @@ autocmd User targets#mappings#user call targets#mappings#extend(
 lua <<EOF
 -- nvim-hlslens
 require('hlslens').setup()
+
+-- nvim-scrollbar
+require("scrollbar").setup()
 
 -- gitlinker.nvim 
 require('gitlinker').setup({
