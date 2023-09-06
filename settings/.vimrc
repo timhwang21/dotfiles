@@ -31,7 +31,6 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'gabrielpoca/replacer.nvim' " <Leader>h in quickfix to modify files
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'kevinhwang91/nvim-hlslens' " more search info
 Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ruifm/gitlinker.nvim' " Generate permalinks to source with <leader>gY
@@ -234,9 +233,6 @@ execute 'highlight IndentBlanklineContextChar guifg='.s:ColorTeal.' gui=nocombin
 execute 'highlight MatchTag guifg='.s:ColorGray600.' gui=bold'
 " Minimal split dividers
 execute 'highlight WinSeparator guifg='.s:ColorGray600.' gui=bold'
-" hlslens
-execute 'highlight HlSearchLens guifg='.s:ColorGray400
-execute 'highlight HlSearchLensNear guifg='.s:ColorYellow.' gui=bold'
 
 " identify syntax group under cursor
 nmap <leader>hi :call <SID>SynStack()<CR>
@@ -489,9 +485,6 @@ autocmd User targets#mappings#user call targets#mappings#extend(
 \ })
 " 
 lua <<EOF
--- nvim-hlslens
-require('hlslens').setup()
-
 -- nvim-scrollbar
 require("scrollbar").setup()
 
