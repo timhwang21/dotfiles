@@ -196,6 +196,10 @@ let s:ColorBlueLight="#204a87"
 let s:ColorBlueDark="#243955"
 
 " UI elements
+" Search
+execute 'highlight IncSearch guifg='.s:ColorBlack.' guibg='.s:ColorYellow
+execute 'highlight Search guibg='.s:ColorGray600.' gui=NONE'
+
 " Popup windows. Does NOT include dropdown dialogs.
 execute 'highlight CocFloating guibg='.s:ColorGray700
 " Dropdown dialog
