@@ -229,10 +229,6 @@ execute 'highlight diffChanged guifg='.s:ColorTeal.' gui=italic'
 execute 'highlight GitGutterAdd guifg='.s:ColorGreenLight.' guibg='.s:ColorBlack
 execute 'highlight GitGutterDelete guifg='.s:ColorMagenta.' guibg='.s:ColorBlack
 execute 'highlight GitGutterChange guifg='.s:ColorTeal.' guibg='.s:ColorBlack
-" indent-blankline
-" more subtle divider color
-execute 'highlight IndentBlanklineChar guifg='.s:ColorGray600.' gui=nocombine'
-execute 'highlight IndentBlanklineContextChar guifg='.s:ColorTeal.' gui=nocombine'
 " MatchTag
 execute 'highlight MatchTag guifg='.s:ColorGray600.' gui=bold'
 " Minimal split dividers
@@ -403,54 +399,6 @@ let g:startify_session_delete_buffers = 0
 nmap <C-n> :CocCommand explorer<CR>
 nmap <leader>n :CocCommand explorer<CR>
 " 
-" indentLine 
-let g:indent_blankline_char = '│'
-" tree sitter highlight
-let g:indent_blankline_use_treesitter = v:true
-" different highlight within nested blocks
-let g:indent_blankline_show_current_context = v:true
-" disable for markup-type files
-let g:indent_blankline_filetype_exclude = ['startify', 'markdown', 'coc-explorer']
-let g:indent_blankline_buftype_exclude = ['terminal']
-" contexts to highlight nested
-" this is kind of shitty
-let g:indent_blankline_context_patterns = [
-    \'argument_list',
-    \'arguments',
-    \'array',
-    \'begin',
-    \'block',
-    \'case',
-    \'catch',
-    \'class',
-    \'conditional',
-    \'declaration',
-    \'do',
-    \'else',
-    \'elsif',
-    \'expression',
-    \'finally',
-    \'for',
-    \'function', 
-    \'hash',
-    \'if',
-    \'import',
-    \'interface',
-    \'jsx_element',
-    \'jsx_expression',
-    \'jsx_self_closing_element',
-    \'lambda',
-    \'method',
-    \'module',
-    \'object',
-    \'return',
-    \'statement',
-    \'ternary',
-    \'unless',
-    \'until',
-    \'while'
-    \]
-" 
 " vim-abolish 
 " Allow usage of text objects, e.g. criW
 " nmap cr <Plug>(abolish-coerce)
@@ -495,6 +443,20 @@ require("scrollbar").setup()
 -- gitlinker.nvim 
 require('gitlinker').setup({
   mappings = "<leader>gY"
+})
+
+-- indent-blankline
+require("ibl").setup({
+  exclude = {
+    filetypes = {
+      "startify",
+      "markdown",
+      "coc-explorer"
+    },
+    buftypes = {
+      "terminal"
+    }
+  }
 })
 
 -- nvim-pqf 
