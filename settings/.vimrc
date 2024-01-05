@@ -396,7 +396,6 @@ let g:startify_session_persistence = 1
 let g:startify_session_delete_buffers = 0
 " 
 " coc-explorer 
-nmap <C-n> :CocCommand explorer<CR>
 nmap <leader>n :CocCommand explorer<CR>
 " 
 " vim-abolish 
@@ -623,12 +622,6 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-" DISABLED -- now handled by tree-sitter
-" nmap <silent> <TAB> <Plug>(coc-range-select)
-" xmap <silent> <TAB> <Plug>(coc-range-select)
-" xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
-
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
@@ -641,7 +634,7 @@ command! -nargs=0 Autofix :call     CocAction('runCommand', 'eslint.executeAutof
 
 " Using CocList
 " Show all diagnostics
-nnoremap <silent> <space>d  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>d  :<C-u>CocDiagnostic<cr>
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
