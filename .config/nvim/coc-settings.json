@@ -179,9 +179,32 @@
   //eslint
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
-  "solargraph.diagnostics": true,
-  "solargraph.formatting": true,
   "languageserver": {
+    "ruby-lsp": {
+      "command": "ruby-lsp",
+      "initializationOptions": {
+        "experimentalFeaturesEnabled": false,
+        "enabledFeatures": [
+          "codeActions",
+          "diagnostics",
+          "documentHighlights",
+          "documentLink",
+          "documentSymbols",
+          "foldingRanges",
+          "formatting",
+          "hover",
+          "inlayHint",
+          "onTypeFormatting",
+          "selectionRanges",
+          "semanticHighlighting",
+          "completion"
+        ],
+        "formatter": "auto"
+      },
+      "filetypes": ["ruby"],
+      "rootPatterns": [".git", "Gemfile"],
+      "requireRootPattern": true
+    },
     "haskell": {
       "command": "hie-wrapper",
       "rootPatterns": [

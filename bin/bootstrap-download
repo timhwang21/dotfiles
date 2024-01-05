@@ -51,8 +51,9 @@ asdf global ruby latest
 
 # ruby
 gem install pry
-gem install solargraph # ruby language server
-gem install solargraph-rails --pre
+gem install ruby-lsp # ruby language server
+gem install ruby-lsp-rails
+gem install ruby-lsp-rspec
 
 # neovim
 brew install neovim

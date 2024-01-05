@@ -550,7 +550,6 @@ let g:coc_global_extensions = [
     \ "coc-pairs",
     \ "coc-prettier",
     \ "coc-react-refactor",
-    \ "coc-solargraph",
     \ "coc-styled-components",
     \ "coc-svg",
     \ "coc-tslint-plugin",
