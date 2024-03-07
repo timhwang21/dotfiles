@@ -478,6 +478,7 @@ require('nvim-treesitter.configs').setup {
     "python",
     "regex",
     "ruby",
+    "terraform",
     "tsx",
     "typescript",
     "yaml",

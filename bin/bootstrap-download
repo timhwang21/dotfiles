@@ -24,6 +24,7 @@ brew install fd
 brew install fzf
 # To install useful key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install
+brew install hashicorp/tap/terraform-ls
 brew install jq
 brew install pandoc
 brew install ripgrep
