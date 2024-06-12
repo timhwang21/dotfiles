@@ -147,8 +147,12 @@ alias recommit="git commit -C HEAD@{1}"
 #  branch mgmt
 # -------------------------
 function gcb() { git checkout -b $USER/"$@"; } # make new branch with just ticket name -- eg. 'gcb ORION-699'
+alias _gmainbranch="git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
 alias gch--.="git checkout -- ." # reset local changes on branch
-alias delete-pruned="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
+function deletepruned() {
+  local mainbranch=$(_gmainbranch)
+  git branch --merged "$mainbranch" | grep -v "* $mainbranch" | xargs -n 1 git branch -d
+}
 alias gb="git --no-pager branch -vv"
 # gl - fzf git log
 function gl() {
@@ -191,14 +195,16 @@ function changed() {
 #  pulling
 # -------------------------
 alias gr="git rebase"
-alias grom="git fetch && git rebase origin/master"
+function grom() {
+  local mainbranch=$(_gmainbranch)
+  git fetch && git rebase origin/"$mainbranch"
+}
 alias cont="git rebase --continue"
 alias abort="git rebase --abort"
 
 #  pushing
 # -------------------------
 alias gp="git push"
-alias gpom="git push origin master"
 
 #  information
 # -------------------------
