@@ -261,30 +261,30 @@ function _git_format_authors() {
 # ========================
 #  docker
 # ========================
-alias dc="docker-compose"
+alias dc="docker compose"
 
 # Runs a command in a container
 function dc-run() {
   local service command
-  service=$(docker-compose ps -a --services | fzf --exit-0 --select-1 --query="$1" --no-multi --height 40% --no-preview --ansi)
+  service=$(docker compose ps -a --services | fzf --exit-0 --select-1 --query="$1" --no-multi --height 40% --no-preview --ansi)
   command=${2:-/bin/bash}
 
-  [ -n "$service" ] && docker-compose run --rm "$service" "$command"
+  [ -n "$service" ] && docker compose run --rm "$service" "$command"
 }
 
 function dc-stop() {
   local service
-  service=$(docker-compose ps -a --services | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi)
+  service=$(docker compose ps -a --services | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi)
 
-  [ -n "$service" ] && docker-compose stop "$service"
+  [ -n "$service" ] && docker compose stop "$service"
 }
 
 function dc-logs() {
   local service tail
-  service=$(docker-compose ps -a --services | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi)
+  service=$(docker compose ps -a --services | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi)
   tail=${2:-200}
 
-  [ -n "$service" ] && docker-compose logs --tail="$tail" -f "$service"
+  [ -n "$service" ] && docker compose logs --tail="$tail" -f "$service"
 }
 
 # Select a docker container to start and attach to

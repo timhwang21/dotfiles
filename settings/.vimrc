@@ -27,6 +27,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'nvim-lua/plenary.nvim' " Lua utilities
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
 Plug 'nvim-treesitter/nvim-treesitter-textobjects' 
+Plug 'nvim-treesitter/nvim-treesitter-context'
 " Tools
 Plug 'gabrielpoca/replacer.nvim' " <Leader>h in quickfix to modify files
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -233,6 +234,9 @@ execute 'highlight GitGutterChange guifg='.s:ColorTeal.' guibg='.s:ColorBlack
 execute 'highlight MatchTag guifg='.s:ColorGray600.' gui=bold'
 " Minimal split dividers
 execute 'highlight WinSeparator guifg='.s:ColorGray600.' gui=bold'
+" Treesitter-context
+execute 'highlight TreesitterContext guibg='.s:ColorGray600
+execute 'highlight TreesitterContextLineNumber gui=bold guibg='.s:ColorGray600.' guifg='.s:ColorYellow
 
 " identify syntax group under cursor
 nmap <leader>hi :call <SID>SynStack()<CR>
@@ -531,6 +535,20 @@ require('nvim-treesitter.configs').setup {
     },
   },
 }
+require('treesitter-context').setup {
+    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+    max_lines = 8, -- How many lines the window should span. Values <= 0 mean no limit.
+    min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+    line_numbers = true,
+    multiline_threshold = 8, -- Maximum number of lines to show for a single context
+    trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+    mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
+    -- Separator between context and content. Should be a single character string, like '-'.
+    -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+    separator = nil,
+    zindex = 20, -- The Z-index of the context window
+    on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+  }
 EOF
 " 
 " coc.vim 
@@ -562,10 +580,10 @@ let g:coc_global_extensions = [
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -577,7 +595,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
