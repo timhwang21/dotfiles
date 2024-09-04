@@ -19,7 +19,7 @@ brew install git
 brew install --cask docker
 brew install asdf
 brew install bat
-brew install exa
+brew install eza
 brew install fd
 brew install fzf
 # To install useful key bindings and fuzzy completion:
