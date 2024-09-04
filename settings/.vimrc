@@ -30,7 +30,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 " Tools
 Plug 'gabrielpoca/replacer.nvim' " <Leader>h in quickfix to modify files
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug '/opt/homebrew/opt/fzf' " use local fzf
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify' " <F1>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
