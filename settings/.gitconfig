@@ -39,6 +39,7 @@
   getlastcommit = "!f() { git log -1 --pretty=%B | pbcopy; }; f"
   wip = "!f() { git add -A && git commit -m 'WIP' --no-verify; }; f"
   message = show -s --format=%s%n%n%b
+  pr = "!gh pr create --fill --label auto-assign-reviewers"
 [user]
   name = timhwang21
   email = timhwang21@gmail.com
