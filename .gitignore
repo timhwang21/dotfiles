@@ -4,5 +4,8 @@ settings/.vim/.netrwhist
 settings/.vim/sessions/default.vim
 settings/.npmrc
 settings/.secrets
+settings/.claude/projects/
+settings/.claude/statsig/
+settings/.claude/todos/
 __pycache__/
 *.pyc

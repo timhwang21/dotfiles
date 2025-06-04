@@ -2,17 +2,19 @@
 
 DIR="$( cd "$( dirname "${(%):-%x}" )" && pwd )"
 
-# symlink dotfiles, skipping directories
+# symlink dotfiles
 for filename in settings/*(D); do
-  if [ ! -a "$filename" ]; then
-    ln -fs "$DIR/../$filename" "$HOME/$(basename "$filename")"
+  target="$HOME/$(basename "$filename")"
+  if [ ! -e "$target" ]; then
+    ln -fs "$DIR/../$filename" "$target"
   fi
 done
 
 # symlink app specific config
 for filename in .config/*(D); do
-  if [ ! -a "$filename" ]; then
-    ln -fs "$DIR/../$filename" "$HOME/.config/$(basename "$filename")"
+  target="$HOME/.config/$(basename "$filename")"
+  if [ ! -e "$target" ]; then
+    ln -fs "$DIR/../$filename" "$target"
   fi
 done
 

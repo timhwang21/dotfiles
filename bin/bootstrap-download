@@ -63,6 +63,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 gem install neovim
 npm install -g neovim
+npm install -g @anthropic-ai/claude-code
 pip3 install --user --upgrade pynvim
 
 # kitty

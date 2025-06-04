@@ -40,6 +40,7 @@
   wip = "!f() { git add -A && git commit -m 'WIP' --no-verify; }; f"
   message = show -s --format=%s%n%n%b
   pr = "!gh pr create --fill --label auto-assign-reviewers"
+  me = "!f() { tig --no-merges --author=\"$(git config user.email)\"; }; f"
 [user]
   name = timhwang21
   email = timhwang21@gmail.com
@@ -51,3 +52,8 @@
   follow = true ; default to log --follow
 [url "git@github.com:"]
   insteadOf = https://github.com/ ; default to SSH
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

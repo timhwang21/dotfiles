@@ -138,6 +138,7 @@ alias r="reload"
 # -------------------------
 alias ga="git add -A"
 alias gc="git commit"
+alias gam="git amend"
 function gacm() { ga && gcm "$@"; }
 function gcm() { git commit -m "$@"; }
 function greb() { git rebase -i HEAD~"$@"; }

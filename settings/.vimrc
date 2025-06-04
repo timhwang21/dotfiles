@@ -33,7 +33,7 @@ Plug 'gabrielpoca/replacer.nvim' " <Leader>h in quickfix to modify files
 Plug '/opt/homebrew/opt/fzf' " use local fzf
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify' " <F1>
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocUpdate'}
 Plug 'ruifm/gitlinker.nvim' " Generate permalinks to source with <leader>gY
 Plug 'sindrets/diffview.nvim' " :Diff, :DiffMaster
 Plug 'tpope/vim-fugitive' " Vim git integration
