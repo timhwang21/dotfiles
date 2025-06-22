@@ -289,17 +289,18 @@ function dc-logs() {
 }
 
 # Select a docker container to start and attach to
+# Use Ctrl-P Ctrl-Q to gracefully disconnect
 function da() {
   local cid
-  cid=$(docker ps -a | sed 1d | fzf --exit-0 --select-1 --query="$1" --no-multi --height 40% --no-preview --ansi | awk '{print $1}')
+  cid=$(docker ps -a --format "table {{.ID}}\t{{.Names}}" | sed 1d | fzf --exit-0 --select-1 --query="$1" --no-multi --height 40% --no-preview --ansi | awk '{print $1}')
 
-  [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
+  [ -n "$cid" ] && docker attach "$cid"
 }
 
 # Select a running docker container to stop
 function ds() {
   local cid
-  cid=$(docker ps | sed 1d | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi | awk '{print $1}')
+  cid=$(docker ps --format "table {{.ID}}\t{{.Names}}" | sed 1d | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi | awk '{print $1}')
 
   [ -n "$cid" ] && docker stop "$cid"
 }
@@ -307,7 +308,7 @@ function ds() {
 # Select a docker container to remove
 function drm() {
   local cid
-  cid=$(docker ps -a | sed 1d | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi | awk '{print $1}')
+  cid=$(docker ps -a --format "table {{.ID}}\t{{.Names}}" | sed 1d | fzf --exit-0 --select-1 --query="$1" --multi --height 40% --no-preview --ansi | awk '{print $1}')
 
   [ -n "$cid" ] && docker rm "$cid"
 }
