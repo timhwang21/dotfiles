@@ -562,7 +562,7 @@ let g:coc_global_extensions = [
     \ "coc-git",
     \ "coc-highlight",
     \ "coc-html",
-    \ "coc-jest",
+    \ "@yaegassy/coc-vitest",
     \ "coc-json",
     \ "coc-lists",
     \ "coc-pairs",
@@ -692,11 +692,18 @@ xmap ic <Plug>(coc-git-chunk-inner)
 omap ac <Plug>(coc-git-chunk-outer)
 xmap ac <Plug>(coc-git-chunk-outer)
 
-" coc-jest
+" coc-vitest
 " Run jest for current file
-command! -nargs=0 JestFile :call  CocAction('runCommand', 'jest.fileTest', ['%'])
-nnoremap <leader>jf :call CocAction('runCommand', 'jest.fileTest', ['%'])<CR>
+command! -nargs=0 VitestFile :call  CocAction('runCommand', 'vitest.fileTest', ['%'])
+nnoremap <leader>vf :call CocAction('runCommand', 'vitest.fileTest', ['%'])<CR>
 
-" Run jest for current test
-command! -nargs=0 JestCurr :call  CocAction('runCommand', 'jest.singleTest')
-nnoremap <leader>jc :call CocAction('runCommand', 'jest.singleTest')<CR>
+" Run vitest for current test
+command! -nargs=0 VitestCurr :call  CocAction('runCommand', 'vitest.singleTest')
+nnoremap <leader>vc :call CocAction('runCommand', 'vitest.singleTest')<CR>
+" Legacy for muscle memory
+command! -nargs=0 JestFile :call  CocAction('runCommand', 'vitest.fileTest', ['%'])
+nnoremap <leader>jf :call CocAction('runCommand', 'vitest.fileTest', ['%'])<CR>
+
+" Run vitest for current test
+command! -nargs=0 JestCurr :call  CocAction('runCommand', 'vitest.singleTest')
+nnoremap <leader>jc :call CocAction('runCommand', 'vitest.singleTest')<CR>
