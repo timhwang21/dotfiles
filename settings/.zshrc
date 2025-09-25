@@ -70,6 +70,15 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # -------------------------
 export BAT_THEME="Monokai Extended Origin"
 
+#  vi mode in shell
+# -------------------------
+# enable vi keybindings -- enter by hitting ESC
+bindkey -v
+# load zsh edit-command-line tool and bind to `v` while in vi mode
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 ###########################
 ##                       ##
 ##    D O T F I L E S    ##

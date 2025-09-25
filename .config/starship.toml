@@ -78,3 +78,6 @@ disabled = false
 format = "[$symbol]($style) "
 symbol = "\uf09c"
 style = "#f92672"
+
+[character]
+vimcmd_symbol = "[\ue62b](fg:#46830c bg:#272822)"
