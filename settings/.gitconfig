@@ -1,6 +1,6 @@
 [core]
   excludesfile = ~/.gitignore_global
-  fsmonitor = true
+  ; fsmonitor = true ; these seem to cause memory leaks
   untrackedcache = true
 [github]
   user = timhwang21
