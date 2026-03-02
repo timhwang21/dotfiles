@@ -203,6 +203,28 @@ function changed() {
   [[ ! -z "$branch" ]] && git --no-pager diff --name-only "$branch"...
 }
 
+#  worktree mgmt
+# -------------------------
+alias gw="git --no-pager worktree list"
+# FZF git worktree
+function _gwo() {
+  local worktree
+  worktree=$(git worktree list | fzf --exit-0 --select-1 --query="$1" --no-multi --height 35% --no-hscroll --ansi --preview="git --no-pager log -150 --compact-summary --pretty=format:%s {3}") &&
+  echo "$worktree" | awk '{print $1}'
+}
+# Switch to the selected worktree
+function gwch() {
+  local worktree
+  worktree=$(_gwo "$1")
+  [[ ! -z "$worktree" ]] && cd "$worktree"
+}
+# Delete the selected worktree
+function gwd() {
+  local worktree
+  worktree=$(_gwo "$1")
+  [[ ! -z "$worktree" ]] && git worktree remove "$worktree"
+}
+
 #  pulling
 # -------------------------
 alias gr="git rebase"
