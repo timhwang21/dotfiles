@@ -311,7 +311,13 @@ set inccommand=nosplit
 " Copy current file path to system clipboard
 nnoremap <leader>p :let @+ = expand("%")<CR>
 " 
-" fzf 
+" fzf
+let g:fzf_blocklist = ['sorbet/rbi/']
+
+function! s:RgBlocklistArgs() abort
+  return join(map(copy(g:fzf_blocklist), '"--glob \"!" . v:val . "\""'), ' ')
+endfunction
+
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>co :Commits<CR>
 nnoremap <leader>b :Buffers<CR>
@@ -333,14 +339,14 @@ nnoremap <leader>gl :BCommits<CR>
 cabbrev Ag Rg
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git/*" '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git/*" ' . <SID>RgBlocklistArgs() . ' ' . shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'rg --files --hidden --glob "!.git/*" ' . <SID>RgBlocklistArgs()}), <bang>0)
 " 
 " wildmenu 
 set wildmenu
