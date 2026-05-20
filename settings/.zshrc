@@ -79,6 +79,22 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+function zle-keymap-select {
+  if [[ $KEYMAP == vicmd ]] || [[ $KEYMAP == main ]]; then
+    # Normal mode (block cursor)
+    echo -ne '\e[2 q'
+  else
+    # Insert mode (thin cursor)
+    echo -ne '\e[6 q'
+  fi
+}
+zle -N zle-keymap-select
+
+function zle-line-init {
+  zle-keymap-select
+}
+zle -N zle-line-init
+
 ###########################
 ##                       ##
 ##    D O T F I L E S    ##
