@@ -172,6 +172,9 @@
     "typescript.tsx",
     "typescriptreact"
   ],
+  //tsserver -- persona-web's front-end is ~14k files; default 3072MB causes tsserver to OOM/crash-loop mid-load
+  "tsserver.maxTsServerMemory": 8192,
+  "tsserver.disableAutomaticTypeAcquisition": true,
   //prettier
   "prettier.statusItemText": "ⓟ ",
   "prettier.stylelintIntegration": true,
@@ -180,6 +183,13 @@
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
   "languageserver": {
+    "sorbet": {
+      "command": "bundle",
+      "args": ["exec", "srb", "tc", "--lsp", "--disable-watchman"],
+      "filetypes": ["ruby"],
+      "rootPatterns": [".git", "Gemfile"],
+      "requireRootPattern": true
+    },
     "ruby-lsp": {
       "command": "ruby-lsp",
       "initializationOptions": {
